@@ -1,0 +1,33 @@
+{
+  "name": "React Form Builder",
+  "version": "0.0.1",
+  "description": "A Form Building library for React.js",
+  "homepage": "https://github.com/quri/react-form-builder",
+  "keywords": [
+    "react",
+    "react-component",
+    "form",
+    "forms"
+  ],
+  "main": "dist/react-form-builder.js",
+  "homepage": "https://github.com/quri/react-form-builder",
+  "authors": [
+    "Brian Dittmer",
+    "Pol Miro",
+    "Loïc Chollier"
+  ],
+  "license": "MIT",
+  "ignore": [
+  "**/.*",
+  "node_modules",
+  "bower_components",
+  "specs",
+  "modules",
+  "examples",
+  "script",
+  "CONTRIBUTING.md",
+  "karma.conf.js",
+  "package.json",
+  "webpack.config.js"
+  ]
+}
