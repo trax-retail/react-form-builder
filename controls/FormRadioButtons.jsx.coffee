@@ -18,7 +18,6 @@ RadioButtons = React.createClass(
       React.PropTypes.bool    # false to disable
     ])
     dataKey: React.PropTypes.string.isRequired
-    dataType: React.PropTypes.bool.isRequired
 
   onChange: (event) ->
     @props.onDataChanged(@props.dataKey, @convertDataType(event.target.value))
@@ -31,7 +30,7 @@ RadioButtons = React.createClass(
           checked = option.value == (String) @props.data
 
         `(
-          <label className="radio-inline">
+          <label className="radio-inline" key={"radio-"+option.value+'-key'}>
             <input
               type="radio"
               name={_this.props.dataKey}
@@ -41,6 +40,7 @@ RadioButtons = React.createClass(
               placeholder={_this.props.placeholder}
               title={_this.props.title}
               checked={checked}
+              key={"radio-"+option.value}
             />
             {option.displayName}
           </label>

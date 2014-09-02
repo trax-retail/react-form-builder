@@ -64,8 +64,8 @@ ParserMixin =
         submitting    : @props.submitting
         onDataChanged : @props.onDataChanged
         onEnter       : @props.onEnter
+        key           : "#{def.type}-#{@generateDataKey(@props.dataKey, base)}"
       , @constructFormFromDef(def, base)
-      # key           : "#{def.type}-#{def.dataKey}"
 
 
   inputGroup: (def, base) ->

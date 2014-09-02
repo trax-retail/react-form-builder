@@ -73,6 +73,7 @@ BasicFormDef =
           type: 'radio-buttons'
           dataKey: 'radiobuttons'
           displayName: 'Radio Buttons'
+          dataType: 'string'
           dataSources: {
             options:
               type: 'inline'
