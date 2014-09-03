@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 Mixins = require('../mixins/Mixins')
-ConfirmationMixin = require('../../mixins/ConfirmationMixin')
+ConfirmationMixin = require '../mixins/ConfirmationMixin'
 OverlayMixin = require('react-bootstrap/OverlayMixin')
 
 Checkbox = React.createClass(
@@ -11,7 +11,7 @@ Checkbox = React.createClass(
     Mixins.StandardErrorDisplayMixin,
     Mixins.DisableOnSubmitMixin,
     Mixins.HelpMixin,
-    ConfirmationMixin,
+    Mixins.ConfirmationMixin,
     OverlayMixin
   ]
 
@@ -33,29 +33,28 @@ Checkbox = React.createClass(
       setCheckValue()
 
   render: ->
-    label = `(
-      <label className="col-sm-2 control-label" htmlFor={this.props.dataKey}>{this.props.displayName}</label>
-    )` unless @props.displayName == false
 
-    size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
+    size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10 col-sm-offset-2'
 
     `(
       <div className={this.errorClasses('form-group')}>
-        {label}
         <div className={size}>
-          <label className="checkbox-inline checkbox-alone">
-            <input
-              type="checkbox"
-              name={this.props.dataKey}
-              checked={this.props.data}
-              onChange={this.onChange}
-              disabled={this.disabled()}
-              placeholder={this.props.placeholder}
-              title={this.props.title}
-            />
-            {this.errorSpan()}
-            {this.helpSpan()}
-          </label>
+          <div className="checkbox">
+            <label className="checkbox-inline checkbox-alone">
+              <input
+                type="checkbox"
+                name={this.props.dataKey}
+                checked={this.props.data}
+                onChange={this.onChange}
+                disabled={this.disabled()}
+                placeholder={this.props.placeholder}
+                title={this.props.title}
+              />
+              {this.props.displayName}
+              {this.errorSpan()}
+              {this.helpSpan()}
+            </label>
+          </div>
         </div>
       </div>
     )

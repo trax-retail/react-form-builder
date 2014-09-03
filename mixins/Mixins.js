@@ -8,7 +8,8 @@ Mixins = {
   SingleInputMixin: require('./FormSingleInputMixin'),
   StandardErrorDisplayMixin: require('./FormStandardErrorDisplayMixin'),
   TypeAheadMixin: require('./FormTypeAheadMixin'),
-  ValidationMixin: require('./FormValidationMixin')
+  ValidationMixin: require('./FormValidationMixin'),
+  ConfirmationMixin: require('./ConfirmationMixin')
 
 }
 

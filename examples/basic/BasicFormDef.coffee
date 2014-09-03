@@ -17,6 +17,11 @@ BasicFormDef =
           displayName: 'Date Field'
         }
         {
+          type: 'checkbox'
+          dataKey: 'checkbox'
+          displayName: 'Checkbox'
+        }
+        {
           type: 'drop-down'
           displayName: 'Drop Down'
           dataKey: 'dropdown'
