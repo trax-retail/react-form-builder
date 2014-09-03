@@ -2,7 +2,7 @@ Controls = {
 
   Checkbox: require('./FormCheckbox'),
   DateField: require('./FormDateField'),
-  // DateTimeField: require('./FormDateTimeField'),
+  DateTimeField: require('./FormDateTimeField'),
   DropdownField: require('./FormDropdownField'),
   FileSelect: require('./FormFileSelect'),
   HiddenField: require('./FormHiddenField'),

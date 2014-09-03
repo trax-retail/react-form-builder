@@ -1,5 +1,6 @@
 ###* @jsx React.DOM ###
 
+React = require 'react'
 Mixins = require('../mixins/Mixins')
 DateTimeField = require('react-bootstrap-datetimepicker').DateTimeField
 

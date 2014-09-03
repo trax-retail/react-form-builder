@@ -5,7 +5,8 @@ module.exports = {
           'dynamic-simple': './examples/dynamic-simple/dynamic-simple.coffee',
           'form-groups': './examples/form-groups/form-groups.coffee',
           'droppable-file-select': './examples/droppable-file-select/droppable-file-select.coffee',
-          'typeaheads': './examples/typeaheads/typeaheads.coffee'
+          'typeaheads': './examples/typeaheads/typeaheads.coffee',
+          'datetimepicker': './examples/datetimepicker/datetimepicker.coffee'
           },
 
   output: {
