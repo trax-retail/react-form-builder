@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 
-TypeAheadMatch = require('./form_type_ahead_match')
+TypeAheadMatch = require('./FormTypeAheadMatch')
 
 TypeAheadMatchesList = React.createClass(
   propTypes:

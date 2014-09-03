@@ -1,8 +1,8 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../../mixins/mixins')
-Icon = require('../../../components/icon')
+Mixins = require('../../mixins/Mixins')
+ReactBootstrap = require 'react-bootstrap'
 
 TypeAheadInput = React.createClass(
   mixins: [Mixins.SingleInputMixin]
@@ -32,16 +32,27 @@ TypeAheadInput = React.createClass(
       @setState displayText: nextProps.item.displayName
 
   renderInputIcon: ->
-    classes = "form-control-feedback": true, "autocomplete-feedback": true
+    classes = React.addons.classSet
+      "form-control-feedback": true
+      "autocomplete-feedback": true
     if @props.loading
-      classes["fa-spin"] = true
-      `<Icon type="fa" name="spinner" classes={classes} />`
+      # classes["fa-spin"] = true
+      # it might be cool to bring back font awesome spinner
+      `<span className={classes}>
+          <ReactBootstrap.Glyphicon glyph="refresh" />
+        </span>`
     else if @state.displayText == "" || !@props.emptyList
-      `<Icon type="glyphicon" name="search" classes={classes} />`
+      `<span className={classes}>
+          <ReactBootstrap.Glyphicon glyph="search" />
+        </span>`
     else if @itemValue() && @state.displayText != ""
-      `<Icon type="glyphicon" name="ok" classes={classes} />`
+      `<span className={classes}>
+        <ReactBootstrap.Glyphicon glyph="ok" />
+      </span>`
     else
-      `<Icon type="glyphicon" name="warning-sign" classes={classes} />`
+      `<span className={classes}>
+        <ReactBootstrap.Glyphicon glyph="warning-sign" />
+      </span>`
 
   itemValue: ->
     if @props.free || @props.item.displayName == @state.displayText

@@ -6,7 +6,6 @@ Controls = {
   DropdownField: require('./FormDropdownField'),
   FileSelect: require('./FormFileSelect'),
   HiddenField: require('./FormHiddenField'),
-  // MultiTypeAheadField: require('./FormMultiTypeAheadField'),
   MultipleSelect: require('./FormMultipleSelect'),
   NestedField: require('./FormNestedField'),
   NestedFieldGroup: require('./FormNestedFieldGroup.jsx'),
@@ -16,11 +15,8 @@ Controls = {
   RadioButtons: require('./FormRadioButtons'),
   TextArea: require('./FormTextArea'),
   TextField: require('./FormTextField'),
-  // TypeAheadField: require('./FormTypeAheadField'),
-  // MultiTypeAheadLabel: require('./TypeAhead/FormMultiTypeAheadLabel'),
-  // TypeAheadInput: require('./TypeAhead/FormTypeAheadInput'),
-  // TypeAheadMatch: require('./TypeAhead/FormTypeAheadMatch'),
-  // TypeAheadMatchesList: require('./TypeAhead/FormTypeAheadMatchesList')
+  MultiTypeAheadField: require('./FormMultiTypeAheadField'),
+  TypeAheadField: require('./FormTypeAheadField'),
 
 }
 

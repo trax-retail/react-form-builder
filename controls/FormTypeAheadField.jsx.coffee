@@ -2,8 +2,8 @@
 
 React = require('react/addons')
 Mixins = require('../mixins/Mixins')
-TypeAheadMatchesList = require('./type_ahead/form_type_ahead_matches_list')
-TypeAheadInput = require('./type_ahead/form_type_ahead_input')
+TypeAheadMatchesList = require('./TypeAhead/FormTypeAheadMatchesList')
+TypeAheadInput = require('./TypeAhead/FormTypeAheadInput')
 
 TypeAheadField = React.createClass(
   mixins: [

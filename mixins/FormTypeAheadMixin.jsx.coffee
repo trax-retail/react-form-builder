@@ -1,7 +1,5 @@
 ###* @jsx React.DOM ###
 
-KeyEvent = require '../../key_event'
-
 TypeAheadMixin =
   getInitalState: ->
     lastOptions: []
@@ -25,16 +23,14 @@ TypeAheadMixin =
 
 
   onKeyDown: (event) ->
-    code = event.keyCode
-    if _.contains [KeyEvent.RETURN, KeyEvent.DOWN, KeyEvent.UP], code
+    key = event.key
+    if _.contains ['Return', 'Enter', 'ArrowDown', 'ArrowUp'], key
       event.preventDefault()
       event.stopPropagation()
 
   onKeyUp: (event) ->
-    code = event.keyCode
-
-    switch code
-      when KeyEvent.RETURN
+    switch event.key
+      when 'Return' or 'Enter'
         if @state.highlightedIndex >= 0
           # User hits enter on a selection from the dropdown
           @selectItem @state.options[@state.highlightedIndex]
@@ -44,19 +40,20 @@ TypeAheadMixin =
         else if @state.options.length == 0 and @state.lastOptions.length == 1
           # User gets down to 1 match, de-focuses the box, then hits Enter
           @selectItem @state.lastOptions[0]
-      when KeyEvent.DOWN
+      when 'ArrowDown'
         i = @state.highlightedIndex
         i += 1 if i < @state.options.length - 1
         @setState(highlightedIndex: i)
-      when KeyEvent.UP
+      when 'ArrowUp'
         i = @state.highlightedIndex
         i -= 1 if i > - 1
         @setState(highlightedIndex: i)
-      when KeyEvent.ESCAPE
+      when 'Escape'
         @setState hiddenList: true
-      when KeyEvent.PRINTABLE
-        @setState hiddenList: false
+      # when KeyEvent.PRINTABLE
+        # @setState hiddenList: false
       else
+        @setState hiddenList: false
         @pendingStringChange = event.target.value
         @debouncedOnKeyUp()
 

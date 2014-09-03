@@ -4,7 +4,8 @@ module.exports = {
   entry: {'basic': './examples/basic/basic.coffee',
           'dynamic-simple': './examples/dynamic-simple/dynamic-simple.coffee',
           'form-groups': './examples/form-groups/form-groups.coffee',
-          'droppable-file-select': './examples/droppable-file-select/droppable-file-select.coffee'
+          'droppable-file-select': './examples/droppable-file-select/droppable-file-select.coffee',
+          'typeaheads': './examples/typeaheads/typeaheads.coffee'
           },
 
   output: {
