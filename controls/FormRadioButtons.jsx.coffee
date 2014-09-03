@@ -1,15 +1,19 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+DataSourcedMixin = require('../mixins/FormDataSourcedMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
+DataTypeConversionMixin = require('../mixins/FormDataTypeConversionMixin')
 
 RadioButtons = React.createClass(
   mixins: [
-    Mixins.DataSourcedMixin
-    Mixins.StandardErrorDisplayMixin
-    Mixins.DisableOnSubmitMixin
-    Mixins.HelpMixin
-    Mixins.DataTypeConversionMixin
+    DataSourcedMixin
+    StandardErrorDisplayMixin
+    DisableOnSubmitMixin
+    HelpMixin
+    DataTypeConversionMixin
   ]
 
   propTypes:

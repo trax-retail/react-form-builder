@@ -1,15 +1,19 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+SingleInputMixin = require('../mixins/FormSingleInputMixin')
+ValidationMixin = require('../mixins/FormValidationMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
 
 NumberField = React.createClass(
   mixins: [
-    Mixins.SingleInputMixin,
-    Mixins.ValidationMixin,
-    Mixins.StandardErrorDisplayMixin,
-    Mixins.DisableOnSubmitMixin,
-    Mixins.HelpMixin
+    SingleInputMixin,
+    ValidationMixin,
+    StandardErrorDisplayMixin,
+    DisableOnSubmitMixin,
+    HelpMixin
   ]
 
   propTypes:

@@ -1,11 +1,12 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+# Mixins = require('../mixins/Mixins')
 Controls = require('./Controls')
 
 NestedFieldGroup = React.createClass(
-  mixins: [Mixins.ParserMixin]
+  # mixins: [Mixins.ParserMixin]
+  #to update
 
 
   propTypes:

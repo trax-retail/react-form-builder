@@ -1,10 +1,10 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+# to update
 
 NestedField = React.createClass(
-  mixins: [Mixins.ParserMixin]
+  # mixins: [Mixins.ParserMixin]
 
   propTypes:
     dataKey: React.PropTypes.string
@@ -15,14 +15,13 @@ NestedField = React.createClass(
   remove: ->
     @props.onRemove(@props.dataKey)
 
-  renderNestedForms: ->
-    @constructFormFromDef(@props.def)
+  # renderNestedForms: ->
+  #   @constructFormFromDef(@props.def)
 
   render: ->
     `(
       <div className="row">
         <div className="col-md-10">
-          {this.renderNestedForms()}
         </div>
         <div className="col-md-2">
           <Button onClick={this.remove}>

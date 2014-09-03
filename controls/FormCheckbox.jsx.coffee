@@ -1,17 +1,20 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
-ConfirmationMixin = require '../mixins/ConfirmationMixin'
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
+ConfirmationMixin = require('../mixins/ConfirmationMixin')
+SingleInputMixin = require '../mixins/FormSingleInputMixin.jsx'
 OverlayMixin = require('react-bootstrap/OverlayMixin')
 
 Checkbox = React.createClass(
   mixins: [
-    _.omit(Mixins.SingleInputMixin, 'propTypes'),
-    Mixins.StandardErrorDisplayMixin,
-    Mixins.DisableOnSubmitMixin,
-    Mixins.HelpMixin,
-    Mixins.ConfirmationMixin,
+    _.omit(SingleInputMixin, 'propTypes'),
+    StandardErrorDisplayMixin,
+    DisableOnSubmitMixin,
+    HelpMixin,
+    ConfirmationMixin,
     OverlayMixin
   ]
 

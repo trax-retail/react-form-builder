@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 _ = require('lodash')
-Form = require '../containers/Form.jsx'
+Form = require '../containers/Form'
 
 FormHandlerMixin =
   #

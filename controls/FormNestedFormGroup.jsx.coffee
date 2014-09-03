@@ -3,7 +3,6 @@
 # Does not support cross cutting services dependencies thoughout the parent <-> nested form
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
 ReactBootstrap = require('react-bootstrap')
 
 NestedFormGroup = React.createClass(

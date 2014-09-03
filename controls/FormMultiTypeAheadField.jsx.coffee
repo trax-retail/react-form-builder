@@ -1,7 +1,11 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+DataSourcedMixin = require('../mixins/FormDataSourcedMixin')
+ValidationMixin = require('../mixins/FormValidationMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+TypeAheadMixin = require('../mixins/FormTypeAheadMixin')
 TypeAheadMatchesList = require('./TypeAhead/FormTypeAheadMatchesList')
 TypeAheadInput = require('./TypeAhead/FormTypeAheadInput')
 MultiTypeAheadLabel = require './TypeAhead/FormMultiTypeAheadLabel.jsx'
@@ -9,11 +13,11 @@ MultiTypeAheadLabel = require './TypeAhead/FormMultiTypeAheadLabel.jsx'
 
 MultiTypeAheadField = React.createClass(
   mixins: [
-    Mixins.DataSourcedMixin
-    Mixins.ValidationMixin
-    Mixins.StandardErrorDisplayMixin
-    Mixins.DisableOnSubmitMixin
-    Mixins.TypeAheadMixin
+    DataSourcedMixin
+    ValidationMixin
+    StandardErrorDisplayMixin
+    DisableOnSubmitMixin
+    TypeAheadMixin
   ]
 
   propTypes:

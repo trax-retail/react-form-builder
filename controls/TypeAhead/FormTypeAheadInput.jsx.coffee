@@ -1,11 +1,11 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../../mixins/Mixins')
+SingleInputMixin = require('../../mixins/FormSingleInputMixin')
 ReactBootstrap = require 'react-bootstrap'
 
 TypeAheadInput = React.createClass(
-  mixins: [Mixins.SingleInputMixin]
+  mixins: [SingleInputMixin]
 
   propTypes:
     item:        React.PropTypes.object.isRequired

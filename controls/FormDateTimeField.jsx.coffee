@@ -1,11 +1,13 @@
 ###* @jsx React.DOM ###
 
 React = require 'react'
-Mixins = require('../mixins/Mixins')
+SingleInputMixin = require('../mixins/FormSingleInputMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
 DateTimeField = require('react-bootstrap-datetimepicker').DateTimeField
 
 FormDateTimeField = React.createClass(
-  mixins: [Mixins.SingleInputMixin, Mixins.StandardErrorDisplayMixin, Mixins.HelpMixin]
+  mixins: [SingleInputMixin, StandardErrorDisplayMixin, HelpMixin]
 
   propTypes:
     dataKey: React.PropTypes.string

@@ -1,16 +1,21 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+SingleInputMixin = require('../mixins/FormSingleInputMixin')
+ValidationMixin = require('../mixins/FormValidationMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
+DataTypeConversionMixin = require('../mixins/FormDataTypeConversionMixin')
 
 TextField = React.createClass(
   mixins: [
-    Mixins.SingleInputMixin
-    Mixins.ValidationMixin
-    Mixins.StandardErrorDisplayMixin
-    Mixins.DisableOnSubmitMixin
-    Mixins.HelpMixin
-    Mixins.DataTypeConversionMixin
+    SingleInputMixin
+    ValidationMixin
+    StandardErrorDisplayMixin
+    DisableOnSubmitMixin
+    HelpMixin
+    DataTypeConversionMixin
   ]
 
   propTypes:

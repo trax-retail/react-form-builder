@@ -1,9 +1,9 @@
 FormBuilder = {
 
-  Containers: require('./containers/containers'),
-  Controls: require('./controls'),
-  Mixins: require('./mixins'),
-  Validators: require('./validators')
+  Mixins: require('./mixins/Mixins'),
+  Containers: require('./containers/Containers'),
+  Controls: require('./controls/Controls'),
+  Validators: require('./validators/Validators')
 
 }
 

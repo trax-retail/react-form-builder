@@ -1,7 +1,8 @@
 Mixins = {
+  FormHandlerMixin: require('./FormHandlerMixin.jsx'),
 
   DataSourcedMixin: require('./FormDataSourcedMixin'),
-  DataTypeConversionMixin: require('./FormDataTypeConversion'),
+  DataTypeConversionMixin: require('./FormDataTypeConversionMixin'),
   DisableOnSubmitMixin: require('./FormDisableOnSubmitMixin'),
   HelpMixin: require('./FormHelpMixin'),
   ParserMixin: require('./FormParserMixin'),

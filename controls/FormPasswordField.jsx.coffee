@@ -1,13 +1,16 @@
 ###* @jsx React.DOM ###
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+SingleInputMixin = require('../mixins/FormSingleInputMixin')
+StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+HelpMixin = require('../mixins/FormHelpMixin')
 
 PasswordField = React.createClass(
   mixins: [
-    Mixins.SingleInputMixin,
-    Mixins.StandardErrorDisplayMixin,
-    Mixins.DisableOnSubmitMixin,
-    Mixins.HelpMixin
+    SingleInputMixin,
+    StandardErrorDisplayMixin,
+    DisableOnSubmitMixin,
+    HelpMixin
   ]
 
   onChange: (event) ->
