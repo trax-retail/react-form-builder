@@ -2,7 +2,8 @@
 module.exports = {
 
   entry: {'basic': './examples/basic/basic.coffee',
-          'dynamic-simple': './examples/dynamic-simple/dynamic-simple.coffee'
+          'dynamic-simple': './examples/dynamic-simple/dynamic-simple.coffee',
+          'form-groups': './examples/form-groups/form-groups.coffee'
           },
 
   output: {

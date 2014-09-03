@@ -1,6 +1,5 @@
 DynamicSimpleFormDef =
   type: 'form'
-  title: 'Dynamic Simple'
   components: [
     {
       type: 'drop-down'
