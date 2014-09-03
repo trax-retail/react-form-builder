@@ -1,13 +1,16 @@
 
 module.exports = {
 
-  entry: ['./examples/basic/basic.coffee'],
+  entry: {'basic': './examples/basic/basic.coffee',
+          'dynamic-simple': './examples/dynamic-simple/dynamic-simple.coffee'
+          },
 
   output: {
     path: __dirname,
     filename: '[name].js',
+    chunkFilename: '[id].chunk.js',
     sourceMapFilename: '[name].map',
-    assetPath: '/'
+    assetPath: '/',
   },
 
   resolve: {
