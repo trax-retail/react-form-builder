@@ -4,7 +4,7 @@ Controls = {
   DateField: require('./FormDateField'),
   // DateTimeField: require('./FormDateTimeField'),
   DropdownField: require('./FormDropdownField'),
-  // FileSelect: require('./FormFileSelect'),
+  FileSelect: require('./FormFileSelect'),
   HiddenField: require('./FormHiddenField'),
   // MultiTypeAheadField: require('./FormMultiTypeAheadField'),
   MultipleSelect: require('./FormMultipleSelect'),

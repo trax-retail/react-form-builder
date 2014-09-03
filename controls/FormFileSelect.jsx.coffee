@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 Mixins = require('../mixins/Mixins')
-CommonComponents = require('../../components')
+ReactBootstrap = require 'react-bootstrap'
 
 FileSelect = React.createClass(
   mixins: [
@@ -66,10 +66,12 @@ FileSelect = React.createClass(
       'col-sm-10' : true
       'fileDrop'  : @props.dragAndDrop
 
-    dragIcon = CommonComponents.Icon name: 'cloud-upload', classes:
-      'drag-target' : true
-      dragging      : @state.dragging
-
+    dragIcon = React.DOM.span
+        className: React.addons.classSet
+          'drag-target' : true
+          dragging      : @state.dragging
+      ,
+        ReactBootstrap.Glyphicon glyph: 'cloud-upload'
     label = `(
       <label className="col-sm-2 control-label" htmlFor={this.props.dataKey}>{this.props.displayName}</label>
     )` unless @props.displayName == false
