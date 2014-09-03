@@ -3,6 +3,7 @@
 React = require 'react'
 _ = require('lodash')
 _s = require('underscore.string')
+utils = require '../utils/utils'
 
 #
 # For each data source:
@@ -68,9 +69,9 @@ DataSourcedMixin =
         success: (resp) => @updateDataSource(dataSourceName, resp) if @isMounted()
 
       if args.length > 0
-        Quri.NerveCenter.resolveService dataSource.service, args, options
+        utils.resolveService dataSource.service, args, options
       else
-        Quri.NerveCenter.resolveService dataSource.service, options
+        utils.resolveService dataSource.service, options
 
   #
   # Each data source maps to a key and a loading key in the state
@@ -102,7 +103,7 @@ DataSourcedMixin =
   #
   applyAdapter: (dataSource, data) ->
     if dataSource.adapter
-      Quri.NerveCenter.resolveAdapter(dataSource.adapter, data)
+      utils.resolveAdapter(dataSource.adapter, data)
     else
       data
 
