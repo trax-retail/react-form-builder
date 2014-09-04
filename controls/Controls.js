@@ -17,6 +17,7 @@ Controls = {
   TextField: require('./FormTextField'),
   MultiTypeAheadField: require('./FormMultiTypeAheadField'),
   TypeAheadField: require('./FormTypeAheadField'),
+  MarkdownField: require('./FormMarkdownField.jsx')
 
 }
 

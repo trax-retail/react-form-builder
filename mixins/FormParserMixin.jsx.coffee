@@ -37,6 +37,7 @@ ParserMixin =
         when 'dynamic-def'            then return @dynamicDefinition   def, base
         when 'nested-form-group'      then return @nestedFormGroup     def, base
         when 'nested-field-group'     then return @nestedFieldGroup    def, base
+        when 'markdown-field'         then return @markdownField       def, data, base
         when 'hidden-field'           then return @hiddenField         def, data, base
         when 'text-field'             then return @textField           def, data, base
         when 'number-field'           then return @numberField         def, data, base
@@ -125,6 +126,9 @@ ParserMixin =
 
   checkBox: (def, data, base) ->
     Controls.Checkbox @standardProps(def, data, base)
+
+  markdownField: (def, data, base) ->
+    Controls.MarkdownField @standardProps(def, data, base)
 
   fileSelect: (def, data, base) ->
     Controls.FileSelect _.extend @standardProps(def, data, base),

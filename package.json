@@ -39,6 +39,7 @@
     "webpack-dev-server": "^1.4.9"
   },
   "dependencies": {
+    "marked": "^0.3.2",
     "react-bootstrap": "^0.11.1",
     "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm",
     "underscore.string": "^2.3.3"
