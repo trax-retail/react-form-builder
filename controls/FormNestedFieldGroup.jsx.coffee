@@ -79,7 +79,6 @@ NestedFieldGroup = React.createClass(
     #
     newData = _.clone @props.data
     newData.splice(dataKey, 1)
-    console.log(newData)
     @props.onDataChanged(@props.dataKey, newData)
 
   renderToggleButton: ->
