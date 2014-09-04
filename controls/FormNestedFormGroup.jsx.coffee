@@ -19,9 +19,9 @@ NestedFormGroup = React.createClass(
       `(
         <div className="panel-heading" onClick={this.state.collapsable ? this.toggleCollapse : ''}>
           <h3 className="panel-title">
-            {this.props.title}
-            &nbsp;
             {this.renderCollapsedIndicador()}
+            &nbsp;
+            {this.props.title}
           </h3>
           {this.renderDeleteButton()}
         </div>
