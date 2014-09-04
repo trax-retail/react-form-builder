@@ -116,7 +116,7 @@ MarkdownHelpButton = React.createClass(
   render: ->
     `(
       <ReactBootstrap.Button className="btn-xs btn-gradient" onClick={this.openModal}>
-        <ReactBootstrap.Glyphicon glyph="question" />
+        <ReactBootstrap.Glyphicon glyph="question-sign" />
       </ReactBootstrap.Button>
     )`
 )

@@ -1,6 +1,7 @@
 ###* @jsx React.DOM ###
 
 marked = require("marked")
+React = require('react')
 
 Markdown = React.createClass(
   propTypes:
