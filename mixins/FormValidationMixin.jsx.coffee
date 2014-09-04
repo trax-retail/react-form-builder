@@ -1,8 +1,5 @@
 ###* @jsx React.DOM ###
 
-#hack until I find the best way to replace these register functions
-Validators = require('../validators/Validators')
-
 ValidationMixin =
   getInitialState: ->
     validationErrors: []
@@ -14,8 +11,7 @@ ValidationMixin =
 
   loadValidators: ->
     @validators = _.map @props.validators, (options, name) =>
-      # new window.validators[name](options)
-      new Validators[name](options)
+      new window.validators[name].constructor(options)
 
   validate: (value, callback) ->
     if @props.validators

@@ -1,6 +1,6 @@
 Validators = {
 
-  // FilenameValidator: require('./FilenameValidator'),
+  FilenameValidator: require('./FilenameValidator'),
   LengthValidator: require('./LengthValidator'),
   NotNullValidator: require('./NotNullValidator'),
   NumericValidator: require('./NumericValidator')
