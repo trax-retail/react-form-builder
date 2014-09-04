@@ -1,32 +1,59 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-# to update
+DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+ValidationMixin = require('../mixins/FormValidationMixin')
+DataTypeConversionMixin = require('../mixins/FormDataTypeConversionMixin')
+ReactBootstrap = require('react-bootstrap')
 
 NestedField = React.createClass(
-  # mixins: [Mixins.ParserMixin]
+  mixins: [
+    DisableOnSubmitMixin
+    ValidationMixin
+    DataTypeConversionMixin
+  ]
 
   propTypes:
-    dataKey: React.PropTypes.string
-    def: React.PropTypes.object.isRequired
+    type: React.PropTypes.string.isRequired
+    onEnter: React.PropTypes.func
     onDataChanged: React.PropTypes.func.isRequired
     onRemove: React.PropTypes.func.isRequired
+
+  onChange: (event) ->
+    value = event.target.value
+    @validate value, =>
+      @props.onDataChanged(@props.dataKey, @convertDataType(value))
 
   remove: ->
     @props.onRemove(@props.dataKey)
 
-  # renderNestedForms: ->
-  #   @constructFormFromDef(@props.def)
+  renderField: ->
+    `(
+      <input
+        type="text"
+        className="form-control"
+        name={this.props.dataKey}
+        defaultValue={this.props.data}
+        onChange={this.onChange}
+        disabled={this.props.disabled}
+        placeholder={this.props.placeholder}
+        title={this.props.title}
+        onKeyPress={this.submitOnEnter}
+      />
+    )`
 
   render: ->
     `(
       <div className="row">
-        <div className="col-md-10">
-        </div>
-        <div className="col-md-2">
-          <Button onClick={this.remove}>
-            <Icon name="remove_2" />
-          </Button>
+        <div className="col-md-12">
+          <div className="input-group">
+            {this.renderField()}
+            <span className="input-group-btn">
+              <ReactBootstrap.Button onClick={this.remove}>
+                <ReactBootstrap.Glyphicon glyph="remove_2" />
+              </ReactBootstrap.Button>
+            </span>
+          </div>
         </div>
       </div>
     )`

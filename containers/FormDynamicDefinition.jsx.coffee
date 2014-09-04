@@ -9,9 +9,9 @@ DynamicDefinition = React.createClass(
   propTypes:
     dataKey: React.PropTypes.string
 
-  componentWillUpdate: (prevState, nextState) ->
-    if prevState.formDef != nextState.formDef
-      @props.onDataChanged(@props.dataKey, nextState.formDef)
+  componentWillUpdate: (nextProps, nextState) ->
+    if @state.formDef != nextState.formDef
+      @props.onDataChanged(nextProps.dataKey, nextState.formDef)
 
   render: ->
     `<div>{this.props.children}</div>`

@@ -36,7 +36,7 @@ ParserMixin =
         when 'input-group'            then return @inputGroup          def, base
         when 'dynamic-def'            then return @dynamicDefinition   def, base
         when 'nested-form-group'      then return @nestedFormGroup     def, base
-        when 'nested-field-group'     then return @nestedFieldGroup    def, base
+        when 'nested-field-group'     then return @nestedFieldGroup    def, data, base
         when 'markdown-field'         then return @markdownField       def, data, base
         when 'hidden-field'           then return @hiddenField         def, data, base
         when 'text-field'             then return @textField           def, data, base
@@ -84,10 +84,11 @@ ParserMixin =
       mainComponent : if def.mainComponent then @constructFormFromDef(def.mainComponent, base) else null
 
   dynamicDefinition: (def, base) ->
-    dynDef = @resolveData(@generateDataKey(def.dataKey, base))
+    dataKey = @generateDataKey(def.dataKey, base)
+    dynDef = @resolveData(dataKey)
 
-    Containers.DynamicDefinition
-      dataKey       : @generateDataKey(@props.dataKey, base)
+    Controls.DynamicDefinition
+      dataKey       : dataKey
       formDef       : def
       title         : def.title
       formData      : @props.formData
@@ -97,7 +98,7 @@ ParserMixin =
       onEnter       : @props.onEnter
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
-    , @constructFormFromDef(dynDef, base)
+    , if dynDef then @constructFormFromDef(dynDef, base) else null
 
   # components
 
@@ -222,12 +223,13 @@ ParserMixin =
       submitting    : @props.submitting
       onDataChanged : @props.onDataChanged
       onEnter       : @props.onEnter
+      key           : @generateDataKey(def.dataKey, base)
+      data          : data ? []
 
   # helpers
 
-  resolveData: (dataKey) ->
+  resolveData: (dataKey, data = @props.formData) ->
     return null unless dataKey
-    data = @props.formData
     parts = dataKey.split(".")
     for part in parts
       #
@@ -237,9 +239,10 @@ ParserMixin =
       #   [1] = "propertyName"
       #   [2] = "indexName"
       #
-      results = part.match(/^([a-zA-Z_]+)\[(\d)+\]$/)
+      results = part.match(/^([a-zA-Z_]*)\[(\d)+\]$/)
       if results
-        data = data[results[1]][results[2]]
+        data = data[results[1]] if results[1]
+        data = data[results[2]] if results[2]
       else
         data = data[part]
     data
@@ -251,7 +254,7 @@ ParserMixin =
     _.tap {}, (dependencies) =>
       for name, dataSource of def.dataSources ? []
         _.each dataSource.dependentKeys ? [], (dataKey, i) =>
-          if @props.formData[dataKey]
+          if @props.formData[dataKey] isnt undefined
             dependencies[dataKey] = @props.formData[dataKey]
 
   standardProps: (def, data, base) ->
