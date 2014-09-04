@@ -6,7 +6,8 @@ module.exports = {
           'form-groups': './examples/form-groups/form-groups.coffee',
           'droppable-file-select': './examples/droppable-file-select/droppable-file-select.coffee',
           'typeaheads': './examples/typeaheads/typeaheads.coffee',
-          'datetimepicker': './examples/datetimepicker/datetimepicker.coffee'
+          'datetimepicker': './examples/datetimepicker/datetimepicker.coffee',
+          'markdown': './examples/markdown/markdown.coffee',
           },
 
   output: {
