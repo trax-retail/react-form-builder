@@ -11,7 +11,7 @@ NestedFormGroup = React.createClass(
     collapsed: @props.formDef.collapsed ? false
     collapsable: @props.formDef.collapsable ? true
 
-  toggleHidden: (event) ->
+  toggleCollapse: (event) ->
     @setState collapsed: !@state.collapsed
 
   renderHeader: ->
@@ -48,7 +48,7 @@ NestedFormGroup = React.createClass(
       'hidden': @state.collapsed
 
     `(
-      <div className="panel panel-default">
+      <div className="panel panel-visible">
         {this.renderHeader()}
         <div className={classes}>
           {this.props.children}
