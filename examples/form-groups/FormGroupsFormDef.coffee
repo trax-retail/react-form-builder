@@ -3,6 +3,7 @@ FormGroupsFormDef =
   components: [
       type: 'form-group'
       title: 'ID'
+      dataKey: 'id-group'
       collapsable: true
       components: [
         {
@@ -24,10 +25,12 @@ FormGroupsFormDef =
     ,
       type: 'form-group'
       title: 'Contact Information'
+      dataKey: 'contact-group'
       collapsable: true
       components: [
           type: 'form-group'
           title: 'Old School'
+          dataKey: 'oldschool'
           collapsable: true
           components: [
             {
@@ -49,6 +52,7 @@ FormGroupsFormDef =
         ,
           type: 'form-group'
           title: 'Cool kid'
+          dataKey: 'coolkid'
           collapsable: true
           components: [
             {

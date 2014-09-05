@@ -56,8 +56,10 @@ ParserMixin =
 
   # containers
   formGroup: (def, base) ->
+    dataKey = @generateDataKey(def.dataKey, base)
+
     Containers.Group
-        dataKey       : @generateDataKey(@props.dataKey, base)
+        dataKey       : dataKey
         formDef       : def
         title         : def.title
         formData      : @props.formData
@@ -65,20 +67,22 @@ ParserMixin =
         submitting    : @props.submitting
         onDataChanged : @props.onDataChanged
         onEnter       : @props.onEnter
-        # key           : "#{def.type}-#{@generateDataKey(@props.dataKey, base)}"
+        key           : "#{def.type}-#{dataKey}"
       , @constructFormFromDef(def, base)
 
 
   inputGroup: (def, base) ->
+    dataKey = @generateDataKey(def.dataKey, base)
+
     Containers.InputGroup
-      dataKey       : @generateDataKey(@props.dataKey, base)
+      dataKey       : @generateDataKey(dataKey, base)
       formDef       : def
       formData      : @props.formData
       serverErrors  : @props.serverErrors
       submitting    : @props.submitting
       onDataChanged : @props.onDataChanged
       onEnter       : @props.onEnter
-      key           : "#{def.type}-#{def.dataKey}"
+      key           : "#{def.type}-#{dataKey}"
       leftComponent : if def.leftComponent then @constructFormFromDef(def.leftComponent, base) else null
       rightComponent : if def.rightComponent then @constructFormFromDef(def.rightComponent, base) else null
       mainComponent : if def.mainComponent then @constructFormFromDef(def.mainComponent, base) else null
