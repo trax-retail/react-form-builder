@@ -9,6 +9,9 @@ DynamicDefinition = React.createClass(
   propTypes:
     dataKey: React.PropTypes.string
 
+  componentDidMount: ->
+    @props.onDataChanged(@props.dataKey, @state.formDef)
+
   componentWillUpdate: (nextProps, nextState) ->
     if @state.formDef != nextState.formDef
       @props.onDataChanged(nextProps.dataKey, nextState.formDef)

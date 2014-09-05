@@ -31,7 +31,7 @@ RadioButtons = React.createClass(
       @state.options.map (option) =>
         checked = false
         if @props.data?
-          checked = option.value == (String) @props.data
+          checked = @props.data isnt undefined && (option.value == @props.data)
 
         `(
           <label className="radio-inline" key={"radio-"+option.value+'-key'}>

@@ -68,7 +68,7 @@ FormMarkdownField = React.createClass(
                 </div>
               </div>
               <div className="col-sm-6">
-                <Markdown value={this.props.data} className="markdown-preview" />
+                <Markdown value={this.props.data || "*Preview...*"} className="markdown-preview" />
               </div>
             </div>
           </div>
