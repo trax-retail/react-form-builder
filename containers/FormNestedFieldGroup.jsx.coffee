@@ -3,7 +3,7 @@
 React = require('react/addons')
 
 ReactBootstrap = require('react-bootstrap')
-NestedField = require('./FormNestedField')
+NestedField = require '../controls/FormNestedField.jsx'
 DisableOnSubmitMixin = require '../mixins/FormDisableOnSubmitMixin'
 StandardErrorDisplayMixin = require '../mixins/FormStandardErrorDisplayMixin.jsx'
 

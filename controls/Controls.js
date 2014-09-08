@@ -8,8 +8,6 @@ Controls = {
   HiddenField: require('./FormHiddenField'),
   MultipleSelect: require('./FormMultipleSelect'),
   NestedField: require('./FormNestedField'),
-  NestedFieldGroup: require('./FormNestedFieldGroup.jsx'),
-  NestedFormGroup: require('./FormNestedFormGroup.jsx'),
   NumberField: require('./FormNumberField'),
   PasswordField: require('./FormPasswordField'),
   RadioButtons: require('./FormRadioButtons'),

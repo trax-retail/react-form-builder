@@ -172,7 +172,7 @@ ParserMixin =
 
     dataKey = @generateDataKey(def.dataKey, base)
 
-    Controls.NestedFormGroup
+    Containers.NestedFormGroup
         dataKey       : dataKey
         formDef       : def
         formData      : @props.formData
@@ -216,7 +216,7 @@ ParserMixin =
       @props.onDataChanged(dataKey, newData)
 
   nestedFieldGroup: (def, data, base) ->
-    Controls.NestedFieldGroup
+    Containers.NestedFieldGroup
       displayName   : def.displayName
       dataKey       : @generateDataKey(def.dataKey, base)
       formDef       : def

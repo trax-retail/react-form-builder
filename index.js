@@ -13,15 +13,17 @@ FormBuilder = {
     TypeAheadMixin: require('./mixins/FormTypeAheadMixin'),
     ValidationMixin: require('./mixins/FormValidationMixin'),
     ConfirmationMixin: require('./mixins/ConfirmationMixin')
-
   },
+
   Containers: {
     Form: require('./containers/Form'),
     DynamicDefinition: require('./containers/FormDynamicDefinition'),
     Group: require('./containers/FormGroup'),
-    InputGroup: require('./containers/FormInputGroup')
-
+    InputGroup: require('./containers/FormInputGroup'),
+    NestedField: require('./containers/FormNestedField'),
+    NestedFieldGroup: require('./containers/FormNestedFieldGroup.jsx')
   },
+
   Controls: {
     Checkbox: require('./controls/FormCheckbox'),
     DateField: require('./controls/FormDateField'),
@@ -30,8 +32,6 @@ FormBuilder = {
     FileSelect: require('./controls/FormFileSelect'),
     HiddenField: require('./controls/FormHiddenField'),
     MultipleSelect: require('./controls/FormMultipleSelect'),
-    NestedField: require('./controls/FormNestedField'),
-    NestedFieldGroup: require('./controls/FormNestedFieldGroup.jsx'),
     NestedFormGroup: require('./controls/FormNestedFormGroup.jsx'),
     NumberField: require('./controls/FormNumberField'),
     PasswordField: require('./controls/FormPasswordField'),
@@ -41,8 +41,8 @@ FormBuilder = {
     MultiTypeAheadField: require('./controls/FormMultiTypeAheadField'),
     TypeAheadField: require('./controls/FormTypeAheadField'),
     MarkdownField: require('./controls/FormMarkdownField.jsx')
-
   },
+
   Validators: {
     FilenameValidator: require('./validators/FilenameValidator'),
     LengthValidator: require('./validators/LengthValidator'),
