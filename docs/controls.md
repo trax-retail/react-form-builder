@@ -227,15 +227,6 @@ Name       | Type      | Description | required
 
 insert documentation
 
-## Nested Field Group
-
-insert documentation
-
-## Nested Form Group
-
-insert documentation
-should be moved to containers imo
-
 ## Number Field
 
 Definitions :
