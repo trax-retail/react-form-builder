@@ -42,6 +42,7 @@
     "marked": "^0.3.2",
     "react-bootstrap": "^0.11.1",
     "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm",
+    "react-zeroclipboard": "^0.1.2",
     "underscore.string": "^2.3.3"
   },
   "peerDependencies": {

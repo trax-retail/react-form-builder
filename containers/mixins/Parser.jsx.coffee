@@ -133,7 +133,8 @@ ParserMixin =
     Controls.Checkbox @standardProps(def, data, base)
 
   markdown: (def, data, base) ->
-    Controls.Markdown @standardProps(def, data, base)
+    Controls.Markdown _.extend @standardProps(def, data, base),
+      fileDestinationService: def.fileDestinationService
 
   file: (def, data, base) ->
     Controls.File _.extend @standardProps(def, data, base),
