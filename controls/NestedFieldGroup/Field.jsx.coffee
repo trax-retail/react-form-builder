@@ -1,9 +1,9 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
-ValidationMixin = require('./mixins/Validation')
-DataTypeConversionMixin = require('./mixins/DataTypeConversion')
+DisableOnSubmitMixin = require('../mixins/DisableOnSubmit')
+ValidationMixin = require('../mixins/Validation')
+DataTypeConversionMixin = require('../mixins/DataTypeConversion')
 ReactBootstrap = require('react-bootstrap')
 
 NestedField = React.createClass(

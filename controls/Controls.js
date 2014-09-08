@@ -1,23 +1,33 @@
 Controls = {
 
+  Mixins: {
+    DataSourced: require('./mixins/DataSourced'),
+    DataTypeConversion: require('./mixins/DataTypeConversion'),
+    DisableOnSubmit: require('./mixins/DisableOnSubmit'),
+    Help: require('./mixins/Help'),
+    SingleInput: require('./mixins/SingleInput'),
+    StandardErrorDisplay: require('./mixins/StandardErrorDisplay'),
+    Validation: require('./mixins/Validation'),
+    Confirmation: require('./mixins/Confirmation')
+  },
+
   Checkbox: require('./Checkbox'),
-  DateField: require('./DateField'),
-  DateTimeField: require('./DateTimeField'),
-  DropdownField: require('./DropdownField'),
-  FileSelect: require('./FileSelect'),
-  HiddenField: require('./HiddenField'),
-  MultipleSelect: require('./MultipleSelect'),
-  NestedField: require('./NestedField'),
+  Date: require('./Date'),
+  DateTime: require('./DateTime'),
+  Dropdown: require('./Dropdown'),
+  File: require('./File'),
+  Hidden: require('./Hidden'),
+  MultiSelect: require('./MultiSelect'),
   NestedFieldGroup: require('./NestedFieldGroup'),
   NestedFormGroup: require('./NestedFormGroup'),
-  NumberField: require('./NumberField'),
-  PasswordField: require('./PasswordField'),
+  Number: require('./Number'),
+  Password: require('./Password'),
   RadioButtons: require('./RadioButtons'),
   TextArea: require('./TextArea'),
-  TextField: require('./TextField'),
-  MultiTypeAheadField: require('./MultiTypeAheadField'),
-  TypeAheadField: require('./TypeAheadField'),
-  MarkdownField: require('./MarkdownField')
+  Text: require('./Text'),
+  MultiTypeAhead: require('./MultiTypeAhead'),
+  TypeAhead: require('./TypeAhead'),
+  Markdown: require('./Markdown')
 
 }
 

@@ -3,7 +3,7 @@
 React = require('react/addons')
 
 ReactBootstrap = require('react-bootstrap')
-NestedField = require('./NestedField')
+Field = require('./NestedFieldGroup/Field')
 DisableOnSubmitMixin = require './mixins/DisableOnSubmit'
 StandardErrorDisplayMixin = require './mixins/StandardErrorDisplay'
 
@@ -110,7 +110,7 @@ NestedFieldGroup = React.createClass(
       onEnter = if index == @props.data.length - 1 then @add else undefined
       key = "#{@props.dataKey}[#{@state.baseIndex+index}]"
       `(
-        <NestedField
+        <Field
           key={key}
           displayName={false}
           type={_this.props.type}

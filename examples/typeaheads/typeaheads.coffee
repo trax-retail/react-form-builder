@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../mixins/Handler'
+FormHandler = require '../../containers/mixins/Handler'
 TypeaheadsFormDef = require './TypeaheadsFormDef'
 _ = require('lodash')
 window.React = React

@@ -3,7 +3,7 @@
 React = require 'react'
 _ = require('lodash')
 _s = require('underscore.string')
-utils = require '../utils/utils'
+utils = require '../../utils/utils'
 
 #
 # For each data source:

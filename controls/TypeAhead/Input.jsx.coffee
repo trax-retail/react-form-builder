@@ -1,7 +1,7 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-SingleInputMixin = require('./mixins/SingleInput')
+SingleInputMixin = require('../mixins/SingleInput')
 ReactBootstrap = require 'react-bootstrap'
 
 Input = React.createClass(

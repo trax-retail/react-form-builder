@@ -6,7 +6,7 @@ StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')
 
-MultipleSelectField = React.createClass(
+MultiSelectField = React.createClass(
   mixins: [
     DataSourcedMixin
     StandardErrorDisplayMixin
@@ -68,4 +68,4 @@ MultipleSelectField = React.createClass(
     )`
 )
 
-module.exports = MultipleSelectField
+module.exports = MultiSelectField
