@@ -1,7 +1,7 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-DataSourcedMixin = require '../mixins/FormDataSourcedMixin.jsx'
+DataSourcedMixin = require '../controls/mixins/DataSourced'
 
 DynamicDefinition = React.createClass(
   mixins: [DataSourcedMixin]

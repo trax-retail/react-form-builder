@@ -1,10 +1,10 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-DataSourcedMixin = require('../mixins/FormDataSourcedMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
+DataSourcedMixin = require('./mixins/DataSourced')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+HelpMixin = require('./mixins/Help')
 
 DropDownField = React.createClass(
   mixins: [

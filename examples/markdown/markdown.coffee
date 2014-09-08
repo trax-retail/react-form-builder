@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../mixins/FormHandlerMixin'
+FormHandler = require '../../mixins/Handler'
 MarkdownFormDef = require './MarkdownFormDef'
 
 window.React = React

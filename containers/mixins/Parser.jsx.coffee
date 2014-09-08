@@ -1,8 +1,8 @@
 ###* @jsx React.DOM ###
 
 React = require 'react'
-Controls = require('../controls/Controls')
-Containers = require('../containers/Containers')
+Controls = require('../../controls/Controls')
+Containers = require('../Containers')
 
 ParserMixin =
   propTypes:

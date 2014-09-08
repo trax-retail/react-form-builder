@@ -1,13 +1,13 @@
 ###* @jsx React.DOM ###
 
 React = require 'react/addons'
-SingleInputMixin = require('../mixins/FormSingleInputMixin')
-ValidationMixin = require('../mixins/FormValidationMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
-DataTypeConversionMixin = require('../mixins/FormDataTypeConversionMixin')
-Markdown = require '../utils/markdown.jsx'
+SingleInputMixin = require('./mixins/SingleInput')
+ValidationMixin = require('./mixins/Validation')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+HelpMixin = require('./mixins/Help')
+DataTypeConversionMixin = require('./mixins/DataTypeConversion')
+Markdown = require '../utils/markdown'
 HelpButton = require("./Markdown/HelpButton")
 
 FormMarkdownField = React.createClass(

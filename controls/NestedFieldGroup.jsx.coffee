@@ -4,8 +4,8 @@ React = require('react/addons')
 
 ReactBootstrap = require('react-bootstrap')
 NestedField = require('./NestedField')
-DisableOnSubmitMixin = require '../mixins/FormDisableOnSubmitMixin'
-StandardErrorDisplayMixin = require '../mixins/FormStandardErrorDisplayMixin.jsx'
+DisableOnSubmitMixin = require './mixins/DisableOnSubmit'
+StandardErrorDisplayMixin = require './mixins/StandardErrorDisplay'
 
 NestedFieldGroup = React.createClass(
   mixins: [

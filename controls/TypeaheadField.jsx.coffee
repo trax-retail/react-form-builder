@@ -1,11 +1,11 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-DataSourcedMixin = require('../mixins/FormDataSourcedMixin')
-ValidationMixin = require('../mixins/FormValidationMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-TypeAheadMixin = require('../TypeAhead/Mixin')
+DataSourcedMixin = require('./mixins/DataSourced')
+ValidationMixin = require('./mixins/Validation')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+TypeAheadMixin = require('./TypeAhead/Mixin')
 Matches = require('./TypeAhead/Matches')
 Input = require('./TypeAhead/Input')
 

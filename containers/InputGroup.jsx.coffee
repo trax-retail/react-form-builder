@@ -1,6 +1,6 @@
 ###* @jsx React.DOM ###
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
+Mixins = require('../controls/mixins/Mixins')
 
 InputGroup = React.createClass(
 

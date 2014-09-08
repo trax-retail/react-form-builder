@@ -1,8 +1,8 @@
 ###* @jsx React.DOM ###
 React = require('react/addons')
-Mixins = require('../mixins/Mixins')
-SingleInputMixin = require('../mixins/FormSingleInputMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
+Mixins = require('./mixins/Mixins')
+SingleInputMixin = require('./mixins/SingleInput')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 
 DateField = React.createClass(
   mixins: [SingleInputMixin, StandardErrorDisplayMixin]

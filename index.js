@@ -1,45 +1,49 @@
 FormBuilder = {
 
-  Mixins: {
-    FormHandlerMixin: require('./mixins/FormHandlerMixin'),
-
-    DataSourcedMixin: require('./mixins/FormDataSourcedMixin'),
-    DataTypeConversionMixin: require('./mixins/FormDataTypeConversionMixin'),
-    DisableOnSubmitMixin: require('./mixins/FormDisableOnSubmitMixin'),
-    HelpMixin: require('./mixins/FormHelpMixin'),
-    ParserMixin: require('./mixins/FormParserMixin'),
-    SingleInputMixin: require('./mixins/FormSingleInputMixin'),
-    StandardErrorDisplayMixin: require('./mixins/FormStandardErrorDisplayMixin'),
-    ValidationMixin: require('./mixins/FormValidationMixin'),
-    ConfirmationMixin: require('./mixins/ConfirmationMixin')
-
-  },
   Containers: {
     Form: require('./containers/Form'),
-    DynamicDefinition: require('./DynamicDefinition'),
-    Group: require('./Group'),
-    InputGroup: require('./InputGroup')
+    DynamicDefinition: require('./containers/DynamicDefinition'),
+    Group: require('./containers/Group'),
+    InputGroup: require('./containers/InputGroup')
 
+    Mixins: {
+      Parser: require("./containers/mixins/Parser"),
+      Handler: require("./containers/mixins/Handler")
+    }
   },
+
   Controls: {
-    Checkbox: require('./Checkbox'),
-    DateField: require('./DateField'),
-    DateTimeField: require('./DateTimeField'),
-    DropdownField: require('./DropdownField'),
-    FileSelect: require('./FileSelect'),
-    HiddenField: require('./HiddenField'),
-    MultipleSelect: require('./MultipleSelect'),
-    NestedField: require('./NestedField'),
-    NestedFieldGroup: require('./NestedFieldGroup.jsx'),
-    NestedFormGroup: require('./NestedFormGroup.jsx'),
-    NumberField: require('./NumberField'),
-    PasswordField: require('./PasswordField'),
-    RadioButtons: require('./RadioButtons'),
-    TextArea: require('./TextArea'),
-    TextField: require('./TextField'),
-    MultiTypeAheadField: require('./MultiTypeAheadField'),
-    TypeAheadField: require('./TypeAheadField'),
-    MarkdownField: require('./MarkdownField.jsx')
+
+    Mixins: {
+      DataSourced: require('./controls/mixins/DataSourced'),
+      DataTypeConversion: require('./controls/mixins/DataTypeConversion'),
+      DisableOnSubmit: require('./controls/mixins/DisableOnSubmit'),
+      Help: require('./controls/mixins/Help'),
+      SingleInput: require('./controls/mixins/SingleInput'),
+      StandardErrorDisplay: require('./controls/mixins/StandardErrorDisplay'),
+      Validation: require('./controls/mixins/Validation'),
+      Confirmation: require('./controls/mixins/Confirmation')
+
+    },
+
+    Checkbox: require('./controls/Checkbox'),
+    DateField: require('./controls/DateField'),
+    DateTimeField: require('./controls/DateTimeField'),
+    DropdownField: require('./controls/DropdownField'),
+    FileSelect: require('./controls/FileSelect'),
+    HiddenField: require('./controls/HiddenField'),
+    MultipleSelect: require('./controls/MultipleSelect'),
+    NestedField: require('./controls/NestedField'),
+    NestedFieldGroup: require('./controls/NestedFieldGroup'),
+    NestedFormGroup: require('./controls/NestedFormGroup'),
+    NumberField: require('./controls/NumberField'),
+    PasswordField: require('./controls/PasswordField'),
+    RadioButtons: require('./controls/RadioButtons'),
+    TextArea: require('./controls/TextArea'),
+    TextField: require('./controls/TextField'),
+    MultiTypeAheadField: require('./controls/MultiTypeAheadField'),
+    TypeAheadField: require('./controls/TypeAheadField'),
+    MarkdownField: require('./controls/MarkdownField')
 
   },
   Validators: {
