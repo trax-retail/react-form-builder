@@ -23,6 +23,7 @@ FormHandlerMixin =
     submitting:   React.PropTypes.bool
     serverErrors: React.PropTypes.object
     formData:     React.PropTypes.object
+    formDef:      React.PropTypes.object
     buttons:      React.PropTypes.object
 
   getInitialState: ->
