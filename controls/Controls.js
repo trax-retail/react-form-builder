@@ -1,23 +1,23 @@
 Controls = {
 
-  Checkbox: require('./FormCheckbox'),
-  DateField: require('./FormDateField'),
-  DateTimeField: require('./FormDateTimeField'),
-  DropdownField: require('./FormDropdownField'),
-  FileSelect: require('./FormFileSelect'),
-  HiddenField: require('./FormHiddenField'),
-  MultipleSelect: require('./FormMultipleSelect'),
-  NestedField: require('./FormNestedField'),
-  NestedFieldGroup: require('./FormNestedFieldGroup.jsx'),
-  NestedFormGroup: require('./FormNestedFormGroup.jsx'),
-  NumberField: require('./FormNumberField'),
-  PasswordField: require('./FormPasswordField'),
-  RadioButtons: require('./FormRadioButtons'),
-  TextArea: require('./FormTextArea'),
-  TextField: require('./FormTextField'),
+  Checkbox: require('./Checkbox'),
+  DateField: require('./DateField'),
+  DateTimeField: require('./DateTimeField'),
+  DropdownField: require('./DropdownField'),
+  FileSelect: require('./FileSelect'),
+  HiddenField: require('./HiddenField'),
+  MultipleSelect: require('./MultipleSelect'),
+  NestedField: require('./NestedField'),
+  NestedFieldGroup: require('./NestedFieldGroup.jsx'),
+  NestedFormGroup: require('./NestedFormGroup.jsx'),
+  NumberField: require('./NumberField'),
+  PasswordField: require('./PasswordField'),
+  RadioButtons: require('./RadioButtons'),
+  TextArea: require('./TextArea'),
+  TextField: require('./TextField'),
   MultiTypeAheadField: require('./MultiTypeAheadField'),
   TypeAheadField: require('./TypeAheadField'),
-  MarkdownField: require('./FormMarkdownField.jsx')
+  MarkdownField: require('./MarkdownField.jsx')
 
 }
 

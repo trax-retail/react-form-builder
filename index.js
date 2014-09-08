@@ -17,30 +17,30 @@ FormBuilder = {
   },
   Containers: {
     Form: require('./containers/Form'),
-    DynamicDefinition: require('./containers/FormDynamicDefinition'),
-    Group: require('./containers/FormGroup'),
-    InputGroup: require('./containers/FormInputGroup')
+    DynamicDefinition: require('./DynamicDefinition'),
+    Group: require('./Group'),
+    InputGroup: require('./InputGroup')
 
   },
   Controls: {
-    Checkbox: require('./controls/FormCheckbox'),
-    DateField: require('./controls/FormDateField'),
-    DateTimeField: require('./controls/FormDateTimeField'),
-    DropdownField: require('./controls/FormDropdownField'),
-    FileSelect: require('./controls/FormFileSelect'),
-    HiddenField: require('./controls/FormHiddenField'),
-    MultipleSelect: require('./controls/FormMultipleSelect'),
-    NestedField: require('./controls/FormNestedField'),
-    NestedFieldGroup: require('./controls/FormNestedFieldGroup.jsx'),
-    NestedFormGroup: require('./controls/FormNestedFormGroup.jsx'),
-    NumberField: require('./controls/FormNumberField'),
-    PasswordField: require('./controls/FormPasswordField'),
-    RadioButtons: require('./controls/FormRadioButtons'),
-    TextArea: require('./controls/FormTextArea'),
-    TextField: require('./controls/FormTextField'),
-    MultiTypeAheadField: require('./controls/MultiTypeAheadField'),
-    TypeAheadField: require('./controls/TypeAheadField'),
-    MarkdownField: require('./controls/FormMarkdownField.jsx')
+    Checkbox: require('./Checkbox'),
+    DateField: require('./DateField'),
+    DateTimeField: require('./DateTimeField'),
+    DropdownField: require('./DropdownField'),
+    FileSelect: require('./FileSelect'),
+    HiddenField: require('./HiddenField'),
+    MultipleSelect: require('./MultipleSelect'),
+    NestedField: require('./NestedField'),
+    NestedFieldGroup: require('./NestedFieldGroup.jsx'),
+    NestedFormGroup: require('./NestedFormGroup.jsx'),
+    NumberField: require('./NumberField'),
+    PasswordField: require('./PasswordField'),
+    RadioButtons: require('./RadioButtons'),
+    TextArea: require('./TextArea'),
+    TextField: require('./TextField'),
+    MultiTypeAheadField: require('./MultiTypeAheadField'),
+    TypeAheadField: require('./TypeAheadField'),
+    MarkdownField: require('./MarkdownField.jsx')
 
   },
   Validators: {
