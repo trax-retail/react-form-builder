@@ -15,8 +15,8 @@ Controls = {
   RadioButtons: require('./FormRadioButtons'),
   TextArea: require('./FormTextArea'),
   TextField: require('./FormTextField'),
-  MultiTypeAheadField: require('./FormMultiTypeAheadField'),
-  TypeAheadField: require('./FormTypeAheadField'),
+  MultiTypeAheadField: require('./MultiTypeAheadField'),
+  TypeAheadField: require('./TypeAheadField'),
   MarkdownField: require('./FormMarkdownField.jsx')
 
 }

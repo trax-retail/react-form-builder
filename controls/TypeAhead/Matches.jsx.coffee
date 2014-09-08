@@ -2,9 +2,9 @@
 
 React = require('react/addons')
 
-TypeAheadMatch = require('./FormTypeAheadMatch')
+Match = require('./Match')
 
-TypeAheadMatchesList = React.createClass(
+Matches = React.createClass(
   propTypes:
     matches: React.PropTypes.array.isRequired
     highlightedIndex: React.PropTypes.number.isRequired
@@ -28,7 +28,7 @@ TypeAheadMatchesList = React.createClass(
   renderMatchItems: ->
     _.map @props.matches, (item, i) =>
       `(
-        <TypeAheadMatch
+        <Match
           key={i}
           item={item}
           active={_this.props.highlightedIndex === i }
@@ -55,4 +55,4 @@ TypeAheadMatchesList = React.createClass(
       `<div/>`
 )
 
-module.exports = TypeAheadMatchesList
+module.exports = Matches

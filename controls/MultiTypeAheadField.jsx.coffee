@@ -6,10 +6,12 @@ ValidationMixin = require('../mixins/FormValidationMixin')
 StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
 DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
 TypeAheadMixin = require('../mixins/FormTypeAheadMixin')
-TypeAheadMatchesList = require('./TypeAhead/FormTypeAheadMatchesList')
-TypeAheadInput = require('./TypeAhead/FormTypeAheadInput')
+Matches = require('./TypeAhead/Matches')
+Input = require('./TypeAhead/Input')
+MultiTypeAheadLabel = require './TypeAhead/Label.jsx'
 
-TypeAheadField = React.createClass(
+
+MultiTypeAheadField = React.createClass(
   mixins: [
     DataSourcedMixin
     ValidationMixin
@@ -28,30 +30,48 @@ TypeAheadField = React.createClass(
   getInitialState: ->
     hiddenList: true
     highlightedIndex: -1
-    item: @props.data ? {}
+    item: {}
+    items: []
     options: []
+    clearCount: 0
 
   selectItem: (item) ->
-    update =
-      options: []
-      hiddenList: true
-      highlightedIndex: -1
-      item: item
+    itemAlredyInList = _.any @state.items, (i) -> _.isEqual(i, item)
+
+    update = React.addons.update @state,
+      options: {$set: []}
+      hiddenList: {$set: true}
+      highlightedIndex: {$set: -1}
+      item: {$set: {}}
+      items: {$push: if itemAlredyInList then [] else [item]}
+      clearCount: {$set: @state.clearCount+1}
 
     @setState update, =>
-      @props.onDataChanged(@props.dataKey, item.value ? item)
+      unless itemAlredyInList
+        @props.onDataChanged(@props.dataKey, _.map(@state.items, (i) -> i.value))
+
+  removeItem: (item) ->
+    update = React.addons.update @state,
+      items: {$set: _.difference(@state.items, [item])}
+
+    @setState update, =>
+      @props.onDataChanged(@props.dataKey, _.map @state.items, (i) -> i.value)
+
+  renderLabels: ->
+    _.map @state.items, (item) =>
+      `<MultiTypeAheadLabel item={item} onClick={_this.removeItem} />`
 
   render: ->
     size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
-
     `(
       <div className={this.errorClasses('form-group', 'has-feedback')}>
         {this.renderLabel()}
         <div className={size}>
-          <TypeAheadInput
+          <Input
             dataKey={this.props.dataKey}
             emptyList={this.state.hiddenList || this.state.options.length == 0}
             item={this.formattedItem()}
+            clearCount={this.state.clearCount}
             free={this.props.free}
             disabled={this.disabled() || this.state.loadingItem}
             placeholder={this.props.placeholder}
@@ -63,7 +83,7 @@ TypeAheadField = React.createClass(
             onKeyDown={this.onKeyDown}
             onKeyUp={this.onKeyUp}
           >
-            <TypeAheadMatchesList
+            <Matches
               ref="list"
               matches={this.state.options}
               highlightedIndex={this.state.highlightedIndex}
@@ -71,11 +91,14 @@ TypeAheadField = React.createClass(
               onSelect={this.selectItem}
             />
             {this.errorSpan()}
-          </TypeAheadInput>
+          </Input>
+          <div className="tag-container">
+            {this.renderLabels()}
+          </div>
         </div>
       </div>
     )`
 
 )
 
-module.exports = TypeAheadField
+module.exports = MultiTypeAheadField

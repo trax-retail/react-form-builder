@@ -4,7 +4,7 @@ React = require('react/addons')
 SingleInputMixin = require('../../mixins/FormSingleInputMixin')
 ReactBootstrap = require 'react-bootstrap'
 
-TypeAheadInput = React.createClass(
+Input = React.createClass(
   mixins: [SingleInputMixin]
 
   propTypes:
@@ -90,4 +90,4 @@ TypeAheadInput = React.createClass(
     )`
 )
 
-module.exports = TypeAheadInput
+module.exports = Input

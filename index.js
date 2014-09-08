@@ -38,8 +38,8 @@ FormBuilder = {
     RadioButtons: require('./controls/FormRadioButtons'),
     TextArea: require('./controls/FormTextArea'),
     TextField: require('./controls/FormTextField'),
-    MultiTypeAheadField: require('./controls/FormMultiTypeAheadField'),
-    TypeAheadField: require('./controls/FormTypeAheadField'),
+    MultiTypeAheadField: require('./controls/MultiTypeAheadField'),
+    TypeAheadField: require('./controls/TypeAheadField'),
     MarkdownField: require('./controls/FormMarkdownField.jsx')
 
   },

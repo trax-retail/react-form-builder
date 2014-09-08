@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 
-TypeAheadMatch = React.createClass(
+Match = React.createClass(
   propTypes:
     item: React.PropTypes.renderable.isRequired
     active: React.PropTypes.bool.isRequired
@@ -26,4 +26,4 @@ TypeAheadMatch = React.createClass(
     )`
 )
 
-module.exports = TypeAheadMatch
+module.exports = Match
