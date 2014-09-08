@@ -43,10 +43,10 @@ FormBuilder = {
 
   },
   Validators: {
-    Filename: require('./validators/FilenameValidator'),
-    Length: require('./validators/LengthValidator'),
-    NotNull: require('./validators/NotNullValidator'),
-    Numeric: require('./validators/NumericValidator')
+    Filename: require('./validators/Filename'),
+    Length: require('./validators/Length'),
+    NotNull: require('./validators/NotNull'),
+    Numeric: require('./validators/Numeric')
   }
 
 }
