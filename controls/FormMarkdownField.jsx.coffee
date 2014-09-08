@@ -8,7 +8,7 @@ DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
 HelpMixin = require('../mixins/FormHelpMixin')
 DataTypeConversionMixin = require('../mixins/FormDataTypeConversionMixin')
 Markdown = require '../utils/markdown.jsx'
-MarkdownHelpButton = require("./MarkdownHelpButton")
+HelpButton = require("./Markdown/HelpButton")
 
 FormMarkdownField = React.createClass(
   mixins: [
@@ -63,7 +63,7 @@ FormMarkdownField = React.createClass(
                     title={this.props.title}
                   />
                   <div className="buttons">
-                    <MarkdownHelpButton />
+                    <HelpButton />
                   </div>
                 </div>
               </div>

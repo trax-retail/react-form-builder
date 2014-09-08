@@ -3,7 +3,7 @@
 React = require('react')
 ReactBootstrap = require('react-bootstrap')
 
-MarkdownHelpButton = React.createClass(
+HelpButton = React.createClass(
   openModal: ->
     page = window.open("", "Markdown help", "_blank")
     page.document.write(
@@ -121,4 +121,4 @@ MarkdownHelpButton = React.createClass(
     )`
 )
 
-module.exports = MarkdownHelpButton
+module.exports = HelpButton
