@@ -50,7 +50,6 @@ Checkbox = React.createClass(
                 checked={this.props.data}
                 onChange={this.onChange}
                 disabled={this.disabled()}
-                placeholder={this.props.placeholder}
                 title={this.props.title}
               />
               {this.props.displayName}

@@ -102,7 +102,6 @@ FileSelect = React.createClass(
               onChange={this.onInputChange}
               data={this.filename()}
               disabled={this.disabled()}
-              placeholder={this.props.placeholder}
               title={this.props.title}
             />
           </div>
