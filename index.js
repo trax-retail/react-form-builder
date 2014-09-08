@@ -10,7 +10,6 @@ FormBuilder = {
     ParserMixin: require('./mixins/FormParserMixin'),
     SingleInputMixin: require('./mixins/FormSingleInputMixin'),
     StandardErrorDisplayMixin: require('./mixins/FormStandardErrorDisplayMixin'),
-    TypeAheadMixin: require('./mixins/FormTypeAheadMixin'),
     ValidationMixin: require('./mixins/FormValidationMixin'),
     ConfirmationMixin: require('./mixins/ConfirmationMixin')
 
