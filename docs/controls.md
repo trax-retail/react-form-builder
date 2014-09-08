@@ -1,3 +1,22 @@
+React Form Builder provides a set of pre-built controls one can use when creating a form :
+ - [Text](#text)
+ - [Text Area](#text-area)
+ - [Hidden](#hidden)
+ - [Checkbox](#checkbox)
+ - [Radio Buttons](#radio-buttons)
+ - [Dropdown](#dropdown)
+ - [Multiple Select](#multiple-select)
+ - [Type Ahead](#typeahead)
+ - [Multi Type Ahead](#multi-typeahead)
+ - [Date](#date)
+ - [Date Time](#date-time)
+ - [Number](#number)
+ - [Password](#password)
+ - [File Select](#file-select)
+ - [Markdown](#markdown)
+ - [Nested Field](#nested-field)
+
+
 ## Checkbox
 
 Definitions:
@@ -21,7 +40,7 @@ Example:
   }
 ```
 
-## Date Field
+## Date
 
 Definitions :
 
@@ -44,7 +63,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Date Time Field
+## Date Time
 
 Definitions :
 
@@ -67,7 +86,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Dropdown Field
+## Dropdown
 
 Definitions :
 
@@ -97,7 +116,7 @@ Name       | Type      | Description | required
     }
 ```
 
-## File Select Field
+## File Select
 
 Definitions :
 
@@ -119,7 +138,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Hidden Field
+## Hidden
 
 Definitions :
 
@@ -137,7 +156,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Markdown Field
+## Markdown
 
 Definitions :
 
@@ -227,7 +246,7 @@ Name       | Type      | Description | required
 
 insert documentation
 
-## Number Field
+## Number
 
 Definitions :
 
@@ -250,7 +269,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Password Field
+## Password
 
 Definitions :
 
@@ -334,7 +353,7 @@ Name       | Type      | Description | required
   }
 ```
 
-## Text Field
+## Text
 
 Definitions :
 
