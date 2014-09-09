@@ -14,9 +14,8 @@ FormHandlerMixin =
   #       callback()
   #
 
-  # to review
-  # contextTypes:
-  #   errorResponseHandler: React.PropTypes.object.isRequired
+  contextTypes:
+    errorResponseHandler: React.PropTypes.object.isRequired
 
   propTypes:
     title:        React.PropTypes.string
@@ -61,14 +60,13 @@ FormHandlerMixin =
         @onSubmit =>
           @setState submitting: false
 
-  # to review
-  # setServerErrors: (response) ->
-  #   if response.status == 422
-  #     if @isMounted()
-  #       @setState serverErrors: response.body, submitting: false
-  #   else
-  #     @setState(submitting: false)
-  #     @context.errorResponseHandler.resolve(response)
+  setServerErrors: (response) ->
+    if response.status == 422
+      if @isMounted()
+        @setState serverErrors: response.body, submitting: false
+    else
+      @setState(submitting: false)
+      @context.errorResponseHandler.resolve(response)
 
   clearForm: ->
     if @isMounted()
