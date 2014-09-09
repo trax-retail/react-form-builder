@@ -83,10 +83,10 @@ NestedFieldGroup = React.createClass(
 
   renderToggleButton: ->
     if @props.type == 'text-field'
-      iconName = if @props.alternativeView then "list" else "justify"
+      iconName = if @props.alternativeView then "th-list" else "align-justify"
       `(
         <ReactBootstrap.Button onClick={this.toggleView} className="pull-left">
-          <ReactBootstrap.Glyphcon glyph={iconName} />
+          <ReactBootstrap.Glyphicon glyph={iconName} />
         </ReactBootstrap.Button>
       )`
 
@@ -98,7 +98,7 @@ NestedFieldGroup = React.createClass(
           <div className="col-md-12">
             {this.renderToggleButton()}
             <ReactBootstrap.Button onClick={this.add} className="pull-right">
-              <ReactBootstrap.Glyphcon glyph="plus" />
+              <ReactBootstrap.Glyphicon glyph="plus" />
             </ReactBootstrap.Button>
           </div>
         </div>
