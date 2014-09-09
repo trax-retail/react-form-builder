@@ -8,6 +8,7 @@ module.exports = {
           'typeaheads': './examples/typeaheads/typeaheads.coffee',
           'datetimepicker': './examples/datetimepicker/datetimepicker.coffee',
           'markdown': './examples/markdown/markdown.coffee',
+          'dynamic-def': './examples/dynamic-def/dynamic-def.coffee',
           },
 
   output: {

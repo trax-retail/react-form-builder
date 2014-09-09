@@ -50,7 +50,7 @@ NestedField = React.createClass(
             {this.renderField()}
             <span className="input-group-btn">
               <ReactBootstrap.Button onClick={this.remove}>
-                <ReactBootstrap.Glyphicon glyph="remove_2" />
+                <ReactBootstrap.Glyphicon glyph="remove" />
               </ReactBootstrap.Button>
             </span>
           </div>

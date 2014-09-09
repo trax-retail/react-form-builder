@@ -91,7 +91,7 @@ ParserMixin =
     dataKey = @generateDataKey(def.dataKey, base)
     dynDef = @resolveData(dataKey)
 
-    Controls.DynamicDefinition
+    Containers.DynamicDefinition
       dataKey       : dataKey
       formDef       : def
       title         : def.title
