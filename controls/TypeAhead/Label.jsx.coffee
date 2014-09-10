@@ -2,7 +2,7 @@
 
 React = require('react/addons')
 
-MultiTypeAheadLabel = React.createClass(
+Label = React.createClass(
 
   propTypes:
     onClick: React.PropTypes.func
@@ -21,4 +21,4 @@ MultiTypeAheadLabel = React.createClass(
 
 )
 
-module.exports = MultiTypeAheadLabel
+module.exports = Label

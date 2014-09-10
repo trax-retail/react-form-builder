@@ -1,20 +1,28 @@
 ###* @jsx React.DOM ###
-React = require('react/addons')
-SingleInputMixin = require('../mixins/FormSingleInputMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
 
-PasswordField = React.createClass(
+React = require('react/addons')
+SingleInputMixin = require('./mixins/SingleInput')
+ValidationMixin = require('./mixins/Validation')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+HelpMixin = require('./mixins/Help')
+
+TextArea = React.createClass(
   mixins: [
     SingleInputMixin,
+    ValidationMixin,
     StandardErrorDisplayMixin,
     DisableOnSubmitMixin,
     HelpMixin
   ]
 
+  propTypes:
+    dataKey: React.PropTypes.string
+
   onChange: (event) ->
-    @props.onDataChanged(@props.dataKey, event.target.value)
+    value = event.target.value
+    @validate value, =>
+      @props.onDataChanged(@props.dataKey, value)
 
   render: ->
     label = `(
@@ -22,21 +30,21 @@ PasswordField = React.createClass(
     )` unless @props.displayName == false
 
     size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
+    rows = @props.rows ? 3
 
     `(
       <div className={this.errorClasses('form-group')}>
         {label}
         <div className={size}>
-          <input
-            type="password"
+          <textarea
+            rows={rows}
             className="form-control"
             name={this.props.dataKey}
             value={this.props.data}
-            disabled={this.disabled()}
             onChange={this.onChange}
+            disabled={this.disabled()}
             placeholder={this.props.placeholder}
             title={this.props.title}
-            onKeyPress={this.submitOnEnter}
           />
           {this.errorSpan()}
           {this.helpSpan()}
@@ -45,4 +53,4 @@ PasswordField = React.createClass(
     )`
 )
 
-module.exports = PasswordField
+module.exports = TextArea

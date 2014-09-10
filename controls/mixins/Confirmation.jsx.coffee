@@ -1,7 +1,7 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-ConfirmationModal = require '../utils/ConfirmationModal'
+ConfirmationModal = require '../../utils/ConfirmationModal'
 
 ConfirmationMixin =
   propTypes:

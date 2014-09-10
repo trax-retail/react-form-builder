@@ -1,8 +1,8 @@
 Containers = {
   Form: require('./Form'),
-  DynamicDefinition: require('./FormDynamicDefinition'),
-  Group: require('./FormGroup'),
-  InputGroup: require('./FormInputGroup')
+  DynamicDefinition: require('./DynamicDefinition'),
+  Group: require('./Group'),
+  InputGroup: require('./InputGroup')
 }
 
 module.exports = Containers;

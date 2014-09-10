@@ -1,8 +1,8 @@
 ###* @jsx React.DOM ###
 
 React = require 'react'
-Controls = require('../controls/Controls')
-Containers = require('../containers/Containers')
+Controls = require('../../controls/Controls')
+Containers = require('../Containers')
 
 ParserMixin =
   propTypes:
@@ -36,22 +36,22 @@ ParserMixin =
         when 'input-group'            then return @inputGroup          def, base
         when 'dynamic-def'            then return @dynamicDefinition   def, base
         when 'nested-form-group'      then return @nestedFormGroup     def, base
-        when 'nested-field-group'     then return @nestedFieldGroup    def, data, base
-        when 'markdown-field'         then return @markdownField       def, data, base
-        when 'hidden-field'           then return @hiddenField         def, data, base
-        when 'text-field'             then return @textField           def, data, base
-        when 'number-field'           then return @numberField         def, data, base
+        when 'nested-field-group'     then return @nestedGroup    def, data, base
+        when 'markdown-field'         then return @markdown       def, data, base
+        when 'hidden-field'           then return @hidden         def, data, base
+        when 'text-field'             then return @text           def, data, base
+        when 'number-field'           then return @number         def, data, base
         when 'drop-down'              then return @dropDown            def, data, base
         when 'multiple-select'        then return @multipleSelect      def, data, base
-        when 'date-field'             then return @dateField           def, data, base
-        when 'date-time-field'        then return @dateTimeField       def, data, base #move to plugin
-        when 'password-field'         then return @passwordField       def, data, base
+        when 'date-field'             then return @date           def, data, base
+        when 'date-time-field'        then return @dateTime       def, data, base #move to plugin
+        when 'password-field'         then return @password       def, data, base
         when 'text-area'              then return @textArea            def, data, base
         when 'radio-buttons'          then return @radioButtons        def, data, base
         when 'checkbox'               then return @checkBox            def, data, base
-        when 'file-select'            then return @fileSelect          def, data, base #move to plugin
-        when 'type-ahead-field'       then return @typeAheadField      def, data, base #move to plugin
-        when 'multi-type-ahead-field' then return @multiTypeAheadField def, data, base #move to plugin
+        when 'file-select'            then return @file          def, data, base #move to plugin
+        when 'type-ahead-field'       then return @typeAhead      def, data, base #move to plugin
+        when 'multi-type-ahead-field' then return @multiTypeAhead def, data, base #move to plugin
         else throw new Error("Unknown form component #{type}")
 
   # containers
@@ -106,24 +106,24 @@ ParserMixin =
 
   # components
 
-  hiddenField: (def, data, base) ->
-    Controls.HiddenField @standardProps(def, data, base)
+  hidden: (def, data, base) ->
+    Controls.Hidden @standardProps(def, data, base)
 
-  textField: (def, data, base) ->
-    Controls.TextField @standardProps(def, data, base)
+  text: (def, data, base) ->
+    Controls.Text @standardProps(def, data, base)
 
-  numberField: (def, data, base) ->
-    Controls.NumberField @standardProps(def, data, base)
+  number: (def, data, base) ->
+    Controls.Number @standardProps(def, data, base)
 
-  dateField: (def, data, base) ->
-    Controls.DateField @standardProps(def, data, base)
+  date: (def, data, base) ->
+    Controls.Date @standardProps(def, data, base)
 
-  dateTimeField: (def, data, base) ->
-    Controls.DateTimeField _.extend @standardProps(def, data, base),
+  dateTime: (def, data, base) ->
+    Controls.DateTime _.extend @standardProps(def, data, base),
       direction: def.direction
 
-  passwordField: (def, data, base) ->
-    Controls.PasswordField @standardProps(def, data, base)
+  password: (def, data, base) ->
+    Controls.Password @standardProps(def, data, base)
 
   textArea: (def, data, base) ->
     Controls.TextArea _.extend @standardProps(def, data, base),
@@ -132,21 +132,21 @@ ParserMixin =
   checkBox: (def, data, base) ->
     Controls.Checkbox @standardProps(def, data, base)
 
-  markdownField: (def, data, base) ->
-    Controls.MarkdownField @standardProps(def, data, base)
+  markdown: (def, data, base) ->
+    Controls.Markdown @standardProps(def, data, base)
 
-  fileSelect: (def, data, base) ->
-    Controls.FileSelect _.extend @standardProps(def, data, base),
+  file: (def, data, base) ->
+    Controls.File _.extend @standardProps(def, data, base),
       dragAndDrop  : def.dragAndDrop
       onFileSelect : def.onFileSelect
 
   dropDown: (def, data, base) ->
-    Controls.DropdownField _.extend @standardProps(def, data, base),
+    Controls.Dropdown _.extend @standardProps(def, data, base),
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
   multipleSelect: (def, data, base) ->
-    Controls.MultipleSelect _.extend @standardProps(def, data, base),
+    Controls.MultiSelect _.extend @standardProps(def, data, base),
       dataSources    : def.dataSources
       dependencies  : @parseDependencies(def)
 
@@ -156,14 +156,14 @@ ParserMixin =
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
-  typeAheadField: (def, data, base) ->
-    Controls.TypeAheadField _.extend @standardProps(def, data, base),
+  typeAhead: (def, data, base) ->
+    Controls.TypeAhead _.extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
 
-  multiTypeAheadField: (def, data, base) ->
-    Controls.MultiTypeAheadField _.extend @standardProps(def, data, base),
+  multiTypeAhead: (def, data, base) ->
+    Controls.MultiTypeAhead _.extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
@@ -215,8 +215,8 @@ ParserMixin =
       newData.push({})
       @props.onDataChanged(dataKey, newData)
 
-  nestedFieldGroup: (def, data, base) ->
-    Controls.NestedFieldGroup
+  nestedGroup: (def, data, base) ->
+    Controls.NestedGroup
       displayName   : def.displayName
       dataKey       : @generateDataKey(def.dataKey, base)
       formDef       : def

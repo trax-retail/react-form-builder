@@ -1,28 +1,34 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-SingleInputMixin = require('../mixins/FormSingleInputMixin')
-ValidationMixin = require('../mixins/FormValidationMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
+SingleInputMixin = require('./mixins/SingleInput')
+ValidationMixin = require('./mixins/Validation')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+HelpMixin = require('./mixins/Help')
+DataTypeConversionMixin = require('./mixins/DataTypeConversion')
 
-TextArea = React.createClass(
+TextField = React.createClass(
   mixins: [
-    SingleInputMixin,
-    ValidationMixin,
-    StandardErrorDisplayMixin,
-    DisableOnSubmitMixin,
+    SingleInputMixin
+    ValidationMixin
+    StandardErrorDisplayMixin
+    DisableOnSubmitMixin
     HelpMixin
+    DataTypeConversionMixin
   ]
 
   propTypes:
     dataKey: React.PropTypes.string
+    title: React.PropTypes.string
+    placeholder: React.PropTypes.string
+    disabled: React.PropTypes.bool
+    data: React.PropTypes.any
 
   onChange: (event) ->
     value = event.target.value
     @validate value, =>
-      @props.onDataChanged(@props.dataKey, value)
+      @props.onDataChanged(@props.dataKey, @convertDataType(value))
 
   render: ->
     label = `(
@@ -30,27 +36,27 @@ TextArea = React.createClass(
     )` unless @props.displayName == false
 
     size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
-    rows = @props.rows ? 3
 
     `(
       <div className={this.errorClasses('form-group')}>
         {label}
         <div className={size}>
-          <textarea
-            rows={rows}
+          <input
+            type="text"
             className="form-control"
             name={this.props.dataKey}
             value={this.props.data}
             onChange={this.onChange}
-            disabled={this.disabled()}
+            disabled={this.disabled() && this.props.disabled}
             placeholder={this.props.placeholder}
             title={this.props.title}
+            onKeyPress={this.submitOnEnter}
           />
           {this.errorSpan()}
           {this.helpSpan()}
         </div>
-      </div>
+       </div>
     )`
 )
 
-module.exports = TextArea
+module.exports = TextField

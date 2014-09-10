@@ -1,53 +1,55 @@
 FormBuilder = {
 
-  Mixins: {
-    FormHandlerMixin: require('./mixins/FormHandlerMixin'),
-
-    DataSourcedMixin: require('./mixins/FormDataSourcedMixin'),
-    DataTypeConversionMixin: require('./mixins/FormDataTypeConversionMixin'),
-    DisableOnSubmitMixin: require('./mixins/FormDisableOnSubmitMixin'),
-    HelpMixin: require('./mixins/FormHelpMixin'),
-    ParserMixin: require('./mixins/FormParserMixin'),
-    SingleInputMixin: require('./mixins/FormSingleInputMixin'),
-    StandardErrorDisplayMixin: require('./mixins/FormStandardErrorDisplayMixin'),
-    TypeAheadMixin: require('./mixins/FormTypeAheadMixin'),
-    ValidationMixin: require('./mixins/FormValidationMixin'),
-    ConfirmationMixin: require('./mixins/ConfirmationMixin')
-
-  },
   Containers: {
     Form: require('./containers/Form'),
-    DynamicDefinition: require('./containers/FormDynamicDefinition'),
-    Group: require('./containers/FormGroup'),
-    InputGroup: require('./containers/FormInputGroup')
+    DynamicDefinition: require('./containers/DynamicDefinition'),
+    Group: require('./containers/Group'),
+    InputGroup: require('./containers/InputGroup')
 
+    Mixins: {
+      Parser: require("./containers/mixins/Parser"),
+      Handler: require("./containers/mixins/Handler")
+    }
   },
+
   Controls: {
-    Checkbox: require('./controls/FormCheckbox'),
-    DateField: require('./controls/FormDateField'),
-    DateTimeField: require('./controls/FormDateTimeField'),
-    DropdownField: require('./controls/FormDropdownField'),
-    FileSelect: require('./controls/FormFileSelect'),
-    HiddenField: require('./controls/FormHiddenField'),
-    MultipleSelect: require('./controls/FormMultipleSelect'),
-    NestedField: require('./controls/FormNestedField'),
-    NestedFieldGroup: require('./controls/FormNestedFieldGroup.jsx'),
-    NestedFormGroup: require('./controls/FormNestedFormGroup.jsx'),
-    NumberField: require('./controls/FormNumberField'),
-    PasswordField: require('./controls/FormPasswordField'),
-    RadioButtons: require('./controls/FormRadioButtons'),
-    TextArea: require('./controls/FormTextArea'),
-    TextField: require('./controls/FormTextField'),
-    MultiTypeAheadField: require('./controls/FormMultiTypeAheadField'),
-    TypeAheadField: require('./controls/FormTypeAheadField'),
-    MarkdownField: require('./controls/FormMarkdownField.jsx')
+
+    Mixins: {
+      DataSourced: require('./controls/mixins/DataSourced'),
+      DataTypeConversion: require('./controls/mixins/DataTypeConversion'),
+      DisableOnSubmit: require('./controls/mixins/DisableOnSubmit'),
+      Help: require('./controls/mixins/Help'),
+      SingleInput: require('./controls/mixins/SingleInput'),
+      StandardErrorDisplay: require('./controls/mixins/StandardErrorDisplay'),
+      Validation: require('./controls/mixins/Validation'),
+      Confirmation: require('./controls/mixins/Confirmation')
+
+    },
+
+    Checkbox: require('./controls/Checkbox'),
+    Date: require('./controls/Date'),
+    DateTime: require('./controls/DateTime'),
+    Dropdown: require('./controls/Dropdown'),
+    File: require('./controls/File'),
+    Hidden: require('./controls/Hidden'),
+    MultiSelect: require('./controls/MultiSelect'),
+    NestedGroup: require('./controls/NestedGroup'),
+    NestedFormGroup: require('./controls/NestedFormGroup'),
+    Number: require('./controls/Number'),
+    Password: require('./controls/Password'),
+    RadioButtons: require('./controls/RadioButtons'),
+    TextArea: require('./controls/TextArea'),
+    Text: require('./controls/Text'),
+    MultiTypeAhead: require('./controls/MultiTypeAhead'),
+    TypeAhead: require('./controls/TypeAhead'),
+    Markdown: require('./controls/Markdown')
 
   },
   Validators: {
-    FilenameValidator: require('./validators/FilenameValidator'),
-    LengthValidator: require('./validators/LengthValidator'),
-    NotNullValidator: require('./validators/NotNullValidator'),
-    NumericValidator: require('./validators/NumericValidator')
+    Filename: require('./validators/Filename'),
+    Length: require('./validators/Length'),
+    NotNull: require('./validators/NotNull'),
+    Numeric: require('./validators/Numeric')
   }
 
 }

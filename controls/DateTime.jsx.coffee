@@ -1,9 +1,9 @@
 ###* @jsx React.DOM ###
 
 React = require 'react'
-SingleInputMixin = require('../mixins/FormSingleInputMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
+SingleInputMixin = require('./mixins/SingleInput')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+HelpMixin = require('./mixins/Help')
 DateTimeField = require('react-bootstrap-datetimepicker').DateTimeField
 
 FormDateTimeField = React.createClass(

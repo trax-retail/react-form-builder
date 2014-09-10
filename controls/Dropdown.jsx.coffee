@@ -1,12 +1,12 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-DataSourcedMixin = require('../mixins/FormDataSourcedMixin')
-StandardErrorDisplayMixin = require('../mixins/FormStandardErrorDisplayMixin')
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
-HelpMixin = require('../mixins/FormHelpMixin')
+DataSourcedMixin = require('./mixins/DataSourced')
+StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
+DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+HelpMixin = require('./mixins/Help')
 
-MultipleSelectField = React.createClass(
+DropDownField = React.createClass(
   mixins: [
     DataSourcedMixin
     StandardErrorDisplayMixin
@@ -15,19 +15,17 @@ MultipleSelectField = React.createClass(
   ]
 
   propTypes:
-    displayName: React.PropTypes.oneOfType([
-      React.PropTypes.string, # Actual name
-      React.PropTypes.bool    # false to disable
-    ])
-    dataKey: React.PropTypes.string.isRequired
+    dataKey: React.PropTypes.string
 
   onChange: (event) ->
-    value = _.map event.target.selectedOptions, (option) ->
-      option.value
-
-    @props.onDataChanged(@props.dataKey, value)
+    @props.onDataChanged(@props.dataKey, event.target.value)
 
   render: ->
+    # if @props.value comes undefined, we try then to set it to the
+    # value of the first option, otherwise, undefined
+    # that way we are able to clear forms
+    value = this.props.data ? this.state.options?[0].value
+
     classes = {'form-control': true}
     _.each @props.classes, (name) =>
       classes[name] = true
@@ -52,11 +50,10 @@ MultipleSelectField = React.createClass(
         {label}
         <div className={size}>
           <select
-            multiple={true}
             onChange={this.onChange}
             className={React.addons.classSet(classes)}
             name={this.props.dataKey}
-            value={this.props.data}
+            value={value}
             disabled={this.disabled()}
           >
             {options}
@@ -68,4 +65,4 @@ MultipleSelectField = React.createClass(
     )`
 )
 
-module.exports = MultipleSelectField
+module.exports = DropDownField

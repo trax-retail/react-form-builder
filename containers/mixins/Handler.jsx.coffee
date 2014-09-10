@@ -2,9 +2,9 @@
 
 React = require('react/addons')
 _ = require('lodash')
-Form = require '../containers/Form'
+Form = require '../Form'
 
-FormHandlerMixin =
+HandlerMixin =
   #
   # Contract:
   #
@@ -127,4 +127,4 @@ FormHandlerMixin =
     @setState formData: newData
 
 
-module.exports = FormHandlerMixin
+module.exports = HandlerMixin
