@@ -29,6 +29,7 @@ HandlerMixin =
     submitting       : @props.submitting   ? false
     serverErrors     : @props.serverErrors ? null
     formData         : @props.formData     ? {}
+    formDef          : @props.formDef      ? {}
     originalFormData : @props.formData     ? {}
     buttons          : @bindButtons(@props.buttons ? @defaultButtons())
 
@@ -84,7 +85,7 @@ HandlerMixin =
     form = `(
       <Form
         title={this.state.title}
-        formDef={this.props.formDef}
+        formDef={this.state.formDef}
         formData={this.state.formData}
         serverErrors={this.state.serverErrors}
         buttons={this.state.buttons}
