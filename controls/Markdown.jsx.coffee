@@ -9,6 +9,7 @@ HelpMixin = require('./mixins/Help')
 DataTypeConversionMixin = require('./mixins/DataTypeConversion')
 Markdown = require '../utils/markdown'
 HelpButton = require("./Markdown/HelpButton")
+UploadImageButton = require("./Markdown/UploadImageButton")
 
 FormMarkdownField = React.createClass(
   mixins: [
@@ -19,6 +20,9 @@ FormMarkdownField = React.createClass(
     HelpMixin
     DataTypeConversionMixin
   ]
+
+  propTypes:
+    fileDestinationService: React.PropTypes.string.isRequired
 
   onChange: (event) ->
     value = event.target.value
@@ -36,6 +40,10 @@ FormMarkdownField = React.createClass(
     if textarea
       node = textarea.getDOMNode()
       node.style.height = "#{node.scrollHeight}px"
+
+  renderUploadImageButton: ->
+    if @props.fileDestinationService?
+      `<UploadImageButton fileDestinationService={this.props.fileDestinationService} />`
 
   render: ->
     label = `(
@@ -63,6 +71,7 @@ FormMarkdownField = React.createClass(
                     title={this.props.title}
                   />
                   <div className="buttons">
+                    {this.renderUploadImageButton()}
                     <HelpButton />
                   </div>
                 </div>
