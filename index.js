@@ -1,27 +1,24 @@
 FormBuilder = {
 
   Containers: {
-    Form: require('./containers/Form'),
+    Form: require('./containers/Form')
+  },
 
-    Mixins: {
-      Parser: require("./containers/mixins/Parser"),
-      Handler: require("./containers/mixins/Handler")
-    }
+  Mixins: {
+    Parser: require("./containers/mixins/Parser"),
+    Handler: require("./containers/mixins/Handler")
   },
 
   Controls: {
-
     Checkbox: require('./controls/Checkbox'),
-    Dropdown: require('./controls/Dropdown'),
-    File: require('./controls/File'),
-    Number: require('./controls/Number'),
-
+    Dropdown: require('./controls/Dropdown')
   },
+
   Validators: {
-    Filename: require('./validators/Filename'),
-    Length: require('./validators/Length'),
-    NotNull: require('./validators/NotNull'),
-    Numeric: require('./validators/Numeric')
+    FilenameValidator: require('./validators/Filename'),
+    LengthValidator: require('./validators/Length'),
+    NotNullValidator: require('./validators/NotNull'),
+    NumericValidator: require('./validators/Numeric')
   }
 
 }
