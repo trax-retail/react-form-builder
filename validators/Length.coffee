@@ -1,4 +1,4 @@
-AbstractValidator = require('./AbstractValidator')
+AbstractValidator = require('./Abstract')
 
 module.exports = class LengthValidator extends AbstractValidator
   validate: (value, name) ->

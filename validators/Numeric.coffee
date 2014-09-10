@@ -1,4 +1,4 @@
-AbstractValidator = require('./AbstractValidator')
+AbstractValidator = require('./Abstract')
 
 module.exports = class NumericValidator extends AbstractValidator
   validate: (value, name) ->

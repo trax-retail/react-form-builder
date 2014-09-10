@@ -1,4 +1,4 @@
-AbstractValidator = require('./AbstractValidator')
+AbstractValidator = require('./Abstract')
 _ = require('lodash')
 
 module.exports = class FilenameValidator extends AbstractValidator
