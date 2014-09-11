@@ -1,18 +1,6 @@
 FormBuilder = {
 
-  Containers: {
-    Form: require('./containers/Form')
-  },
-
-  Mixins: {
-    Parser: require("./containers/mixins/Parser"),
-    Handler: require("./containers/mixins/Handler")
-  },
-
-  Controls: {
-    Checkbox: require('./controls/Checkbox'),
-    Dropdown: require('./controls/Dropdown')
-  },
+  Handler: require("./containers/mixins/Handler"),
 
   Validators: {
     FilenameValidator: require('./validators/Filename'),
