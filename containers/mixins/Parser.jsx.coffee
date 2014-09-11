@@ -36,7 +36,7 @@ ParserMixin =
         when 'input-group'            then return @inputGroup          def, base
         when 'dynamic-def'            then return @dynamicDefinition   def, base
         when 'nested-form-group'      then return @nestedFormGroup     def, base
-        when 'nested-field-group'     then return @nestedGroup    def, data, base
+        when 'nested-field-group'     then return @nestedFieldGroup    def, data, base
         when 'markdown-field'         then return @markdown       def, data, base
         when 'hidden-field'           then return @hidden         def, data, base
         when 'text-field'             then return @text           def, data, base
@@ -216,8 +216,8 @@ ParserMixin =
       newData.push({})
       @props.onDataChanged(dataKey, newData)
 
-  nestedGroup: (def, data, base) ->
-    Controls.NestedGroup
+  nestedFieldGroup: (def, data, base) ->
+    Controls.NestedFieldGroup
       displayName   : def.displayName
       dataKey       : @generateDataKey(def.dataKey, base)
       formDef       : def
