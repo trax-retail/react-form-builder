@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../mixins/FormHandlerMixin'
+FormHandler = require '../../containers/mixins/Handler'
 TypeaheadsFormDef = require './TypeaheadsFormDef'
 _ = require('lodash')
 window.React = React
@@ -20,7 +20,6 @@ window.services = {
       regexp = new RegExp(search[0]+'+', 'i') if search[0] != ''
       callback.success _.filter collection, (item) ->
         search[0] != '' && regexp.test(item.name)
-
 }
 
 window.adapters = {

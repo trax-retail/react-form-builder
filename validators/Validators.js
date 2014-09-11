@@ -1,9 +1,9 @@
 Validators = {
 
-  FilenameValidator: require('./FilenameValidator'),
-  LengthValidator: require('./LengthValidator'),
-  NotNullValidator: require('./NotNullValidator'),
-  NumericValidator: require('./NumericValidator')
+  Filename: require('./FilenameValidator'),
+  Length: require('./LengthValidator'),
+  NotNull: require('./NotNullValidator'),
+  Numeric: require('./NumericValidator')
 
 }
 module.exports = Validators;

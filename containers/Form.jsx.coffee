@@ -1,8 +1,8 @@
 ###* @jsx React.DOM ###
 
 React = require('react/addons')
-ParserMixin = require '../mixins/FormParserMixin.jsx'
-DisableOnSubmitMixin = require('../mixins/FormDisableOnSubmitMixin')
+ParserMixin = require './mixins/Parser'
+DisableOnSubmitMixin = require('../controls/mixins/DisableOnSubmit')
 
 ButtonToolbar = require('react-bootstrap/ButtonToolbar')
 Button = require('react-bootstrap/Button')
