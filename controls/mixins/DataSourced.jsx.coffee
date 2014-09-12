@@ -26,13 +26,7 @@ DataSourcedMixin =
       @loadDataSource(name, @props.dependencies)
 
   componentWillReceiveProps: (nextProps) ->
-    # if parent dependencies change we reset the data value
-    if @props.data && !_.isEqual(_.values(nextProps.dependencies), _.values(@props.dependencies))
-      setTimeout =>
-        @props.onDataChanged(@props.dataKey, undefined)
-      , 1
-
-    else for name, dataSource of @props.dataSources
+    for name, dataSource of @props.dataSources
       if dataSource.dependentKeys? && dataSource.type is 'service'
         @loadDataSource(name, nextProps.dependencies)
 
