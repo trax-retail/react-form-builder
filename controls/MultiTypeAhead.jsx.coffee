@@ -48,14 +48,16 @@ MultiTypeAheadField = React.createClass(
 
     @setState update, =>
       unless itemAlredyInList
-        @props.onDataChanged(@props.dataKey, _.map(@state.items, (i) -> i.value))
+        newItems = _.map(@state.items, (i) -> i.value)
+        @props.onDataChanged(@props.dataKey, newItems)
 
   removeItem: (item) ->
     update = React.addons.update @state,
       items: {$set: _.difference(@state.items, [item])}
 
     @setState update, =>
-      @props.onDataChanged(@props.dataKey, _.map @state.items, (i) -> i.value)
+      newItems = _.map @state.items, (i) -> i.value
+      @props.onDataChanged(@props.dataKey, newItems)
 
   renderLabels: ->
     _.map @state.items, (item) =>

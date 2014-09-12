@@ -4,11 +4,13 @@ React = require('react/addons')
 DataSourcedMixin = require('./mixins/DataSourced')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
+DataTypeConversionMixin = require('./mixins/DataTypeConversion')
 HelpMixin = require('./mixins/Help')
 
 DropDownField = React.createClass(
   mixins: [
     DataSourcedMixin
+    DataTypeConversionMixin
     StandardErrorDisplayMixin
     DisableOnSubmitMixin
     HelpMixin
@@ -18,7 +20,7 @@ DropDownField = React.createClass(
     dataKey: React.PropTypes.string
 
   onChange: (event) ->
-    @props.onDataChanged(@props.dataKey, event.target.value)
+    @props.onDataChanged(@props.dataKey, @convertDataType(event.target.value))
 
   render: ->
     # if @props.value comes undefined, we try then to set it to the
