@@ -15,7 +15,14 @@ DataTypeConversionMixin =
           else
             null
       when "number"
-        parseInt(value, 10)
+        if value == ""
+          null
+        else
+          integer = parseInt(value, 10)
+          if integer.toString() == value
+            integer
+          else
+            value
       else
         value
 module.exports = DataTypeConversionMixin
