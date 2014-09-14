@@ -6,6 +6,7 @@ ValidationMixin = require('./mixins/Validation')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')
+DataTypeConversionMixin = require('./mixins/DataTypeConversion')
 
 TextArea = React.createClass(
   mixins: [
@@ -14,6 +15,7 @@ TextArea = React.createClass(
     StandardErrorDisplayMixin,
     DisableOnSubmitMixin,
     HelpMixin
+    DataTypeConversionMixin
   ]
 
   propTypes:
@@ -22,7 +24,7 @@ TextArea = React.createClass(
   onChange: (event) ->
     value = event.target.value
     @validate value, =>
-      @props.onDataChanged(@props.dataKey, value)
+      @props.onDataChanged(@props.dataKey, @convertDataType(value))
 
   render: ->
     label = `(
