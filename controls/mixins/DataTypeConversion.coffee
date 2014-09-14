@@ -24,5 +24,5 @@ DataTypeConversionMixin =
           else
             value
       else
-        value
+        if value == "" then null else value
 module.exports = DataTypeConversionMixin
