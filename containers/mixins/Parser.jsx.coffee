@@ -173,7 +173,7 @@ ParserMixin =
 
     dataKey = @generateDataKey(def.dataKey, base)
 
-    Controls.NestedFormGroup
+    Containers.NestedFormGroup
         dataKey       : dataKey
         formDef       : def
         formData      : @props.formData

@@ -18,8 +18,6 @@ Controls = {
   File: require('./File'),
   Hidden: require('./Hidden'),
   MultiSelect: require('./MultiSelect'),
-  NestedFieldGroup: require('./NestedFieldGroup'),
-  NestedFormGroup: require('./NestedFormGroup'),
   Number: require('./Number'),
   Password: require('./Password'),
   RadioButtons: require('./RadioButtons'),
