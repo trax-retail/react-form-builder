@@ -4,7 +4,6 @@ React = require "react"
 ReactBootstrap = require "react-bootstrap"
 FileSelect = require '../File'
 utils = require '../../utils/utils'
-ZeroClipboard = require 'react-zeroclipboard'
 
 UploadImageButton = React.createClass(
   propTypes:
@@ -23,40 +22,35 @@ UploadImageButton = React.createClass(
           success: (resp) => @props.addImageMarkdown(@markdownImage(resp))
         )
 
-  renderOverlayContent: ->
-    if @state.uploading
-      `<div>Uploading ...</div>`
-    else
-      `(
-        <input
-          type="file"
-          className="upload form-control"
-          onChange={this.uploadFile}
-        />
-      )`
-
-  renderOverlay: ->
-    `(
-      <ReactBootstrap.Popover
-        title="Select file">
-        {this.renderOverlayContent()}
-      </ReactBootstrap.Popover>
-    )`
-
   markdownImage: (resp) ->
     "![#{resp.url}](#{resp.url})"
 
+  openFilePrompt: ->
+    @refs.input.getDOMNode().click()
+
   render: ->
-    `(
-      <ReactBootstrap.OverlayTrigger
-        trigger="click"
-        placement="left"
-        overlay={this.renderOverlay()}
-      >
-        <ReactBootstrap.Button className="btn-xs btn-gradient">
-          <ReactBootstrap.Glyphicon glyph="upload" />
+    if @state.uploading
+      `(
+        <ReactBootstrap.Button disabled={true} className="btn-xs btn-gradient">
+          <ReactBootstrap.Glyphicon glyph="refresh" />
         </ReactBootstrap.Button>
-      </ReactBootstrap.OverlayTrigger>
+      )`
+
+    else
+      `(
+        <div>
+          <ReactBootstrap.Button onClick={this.openFilePrompt} className="btn-xs btn-gradient">
+            <ReactBootstrap.Glyphicon glyph="upload" />
+          </ReactBootstrap.Button>
+          <div style={{display: "none"}}>
+            <input
+              ref="input"
+              type="file"
+              className="upload form-control"
+              onChange={this.uploadFile}
+            />
+          </div>
+        </div>
     )`
 )
 
