@@ -36,14 +36,23 @@ FormMarkdownField = React.createClass(
     @setTextAreaHeight()
 
   setTextAreaHeight: ->
-    textarea = @refs.textarea
-    if textarea
-      node = textarea.getDOMNode()
+    if @refs.textarea
+      node = @refs.textarea.getDOMNode()
       node.style.height = "#{node.scrollHeight}px"
+
+  appendMarkdown: (markdown) ->
+    @props.onDataChanged(@props.dataKey, @props.data + "\n" + markdown + "\n")
+    if @refs.textarea
+      @refs.textarea.getDOMNode().focus()
 
   renderUploadImageButton: ->
     if @props.fileDestinationService?
-      `<UploadImageButton fileDestinationService={this.props.fileDestinationService} />`
+      `(
+        <UploadImageButton
+          fileDestinationService={this.props.fileDestinationService}
+          addImageMarkdown={this.appendMarkdown}
+        />
+      )`
 
   render: ->
     label = `(
@@ -64,7 +73,7 @@ FormMarkdownField = React.createClass(
                     ref="textarea"
                     className="form-control markdown-field"
                     name={this.props.dataKey}
-                    defaultValue={this.props.data}
+                    value={this.props.data}
                     onChange={this.onChange}
                     disabled={this.disabled()}
                     placeholder={this.props.placeholder}

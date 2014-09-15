@@ -9,31 +9,23 @@ ZeroClipboard = require 'react-zeroclipboard'
 UploadImageButton = React.createClass(
   propTypes:
     fileDestinationService: React.PropTypes.string.isRequired
+    addImageMarkdown: React.PropTypes.func.isRequired
 
   getInitialState: ->
-    currentUrl: null
-
-  reset: (e) ->
-    e.preventDefault()
-    @setState(currentUrl: null)
+    uploading: false
 
   uploadFile: (event) ->
     if file = event.target.files[0]
-      utils.resolveService(@props.fileDestinationService, file,
-        success: (resp) => @setState(currentUrl: resp.url)
-        error: -> alert("error uploading")
-      )
+      @setState uploading: true, =>
+        utils.resolveService(@props.fileDestinationService, file,
+          complete: => @setState(uploading: false)
+          error: => alert("error uploading")
+          success: (resp) => @props.addImageMarkdown(@markdownImage(resp))
+        )
 
   renderOverlayContent: ->
-    if @state.currentUrl
-      `(
-        <div>
-          <ZeroClipboard getText={this.markdownImage()} getHtml={this.markdownImage()}>
-            Click <a>here</a> to copy image markdown
-          </ZeroClipboard>
-          <small><a href='#' onClick={this.reset}>here</a> to upload new image</small>
-        </div>
-      )`
+    if @state.uploading
+      `<div>Uploading ...</div>`
     else
       `(
         <input
@@ -51,8 +43,8 @@ UploadImageButton = React.createClass(
       </ReactBootstrap.Popover>
     )`
 
-  markdownImage: ->
-    "![#{@state.currentUrl}](#{@state.currentUrl})"
+  markdownImage: (resp) ->
+    "![#{resp.url}](#{resp.url})"
 
   render: ->
     `(
