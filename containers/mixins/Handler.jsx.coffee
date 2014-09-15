@@ -30,12 +30,11 @@ HandlerMixin =
     serverErrors     : @props.serverErrors ? null
     formData         : @props.formData     ? {}
     formDef          : @props.formDef      ? {}
-    originalFormData : @props.formData     ? {}
     buttons          : @bindButtons(@props.buttons ? @defaultButtons())
 
   componentWillReceiveProps: (nextProps) ->
-    if nextProps.formData != @state.formData
-      @setState(formData: _.extend(_.clone(@state.formData), nextProps.formData))
+    unless _.isEqual nextProps.formData, @props.formData
+      @setState(formData: nextProps.formData)
 
   defaultButtons: ->
     Save:   onClick: 'submitForm',  bsStyle: 'primary'
@@ -52,7 +51,6 @@ HandlerMixin =
     if @isMounted()
       @setState
         formData         : formData
-        originalFormData : _.clone formData
         submitting       : false
 
   submitForm: ->
@@ -75,7 +73,7 @@ HandlerMixin =
 
   resetForm: ->
     if @isMounted()
-      @setState formData: _.clone(@state.originalFormData)
+      @setState formData: @props.formData
 
   # meh
   goBack: ->
