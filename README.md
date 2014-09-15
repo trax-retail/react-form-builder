@@ -1,7 +1,12 @@
-react-form-builder
-==================
+# React Form Builder
 
-Running Examples :
+A comprehensive Form Builder for React that handles persistence and rendering.
+
+## Docs
+
+ - [Using the Form Handler](/docs/FormHandler.md)
+
+## Running Examples
 
 ```shell
 git clone git@github.com:quri/react-form-builder.git
