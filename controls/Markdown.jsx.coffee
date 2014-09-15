@@ -41,7 +41,8 @@ FormMarkdownField = React.createClass(
       node.style.height = "#{node.scrollHeight}px"
 
   appendMarkdown: (markdown) ->
-    @props.onDataChanged(@props.dataKey, @props.data + "\n\n" + markdown + "\n\n")
+    value = (@props.data ? "") + "\n\n" + markdown + "\n\n"
+    @props.onDataChanged(@props.dataKey, value)
     if @refs.textarea
       @refs.textarea.getDOMNode().focus()
 
