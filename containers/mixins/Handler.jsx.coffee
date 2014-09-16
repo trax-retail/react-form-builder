@@ -69,7 +69,7 @@ HandlerMixin =
 
   clearForm: ->
     if @isMounted()
-      @setState formData: {}, submitting: false
+      @setState formData: @props.formData, submitting: false
 
   resetForm: ->
     if @isMounted()
