@@ -4,18 +4,14 @@ React = require('react/addons')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')
-ConfirmationMixin = require('./mixins/Confirmation')
 SingleInputMixin = require './mixins/SingleInput'
-OverlayMixin = require('react-bootstrap/OverlayMixin')
 
 Checkbox = React.createClass(
   mixins: [
     _.omit(SingleInputMixin, 'propTypes'),
     StandardErrorDisplayMixin,
     DisableOnSubmitMixin,
-    HelpMixin,
-    ConfirmationMixin,
-    OverlayMixin
+    HelpMixin
   ]
 
   propTypes:
@@ -23,17 +19,8 @@ Checkbox = React.createClass(
     dataKey: React.PropTypes.string.isRequired
     displayName: React.PropTypes.string.isRequired
 
-  getDefaultProps: ->
-    requireConfirmation: false
-
   onChange: (event) ->
-    setCheckValue = @props.onDataChanged.bind(null, @props.dataKey, event.target.checked)
-
-    if @props.requireConfirmation and event.target.checked
-      @setState acceptCallback: setCheckValue
-      @showModal()
-    else
-      setCheckValue()
+    @props.onDataChanged(@props.dataKey, event.target.checked)
 
   render: ->
 

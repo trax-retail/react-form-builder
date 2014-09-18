@@ -7,8 +7,7 @@ Controls = {
     Help: require('./mixins/Help'),
     SingleInput: require('./mixins/SingleInput'),
     StandardErrorDisplay: require('./mixins/StandardErrorDisplay'),
-    Validation: require('./mixins/Validation'),
-    Confirmation: require('./mixins/Confirmation')
+    Validation: require('./mixins/Validation')
   },
 
   Checkbox: require('./Checkbox'),

@@ -6,7 +6,6 @@ Mixins = {
   SingleInput: require('./SingleInput'),
   StandardErrorDisplay: require('./StandardErrorDisplay'),
   Validation: require('./Validation'),
-  Confirmation: require('./Confirmation')
 
 }
 
