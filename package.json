@@ -41,7 +41,7 @@
   "dependencies": {
     "marked": "^0.3.2",
     "react-bootstrap": "^0.12.0",
-    "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm",
+    "react-bootstrap-datetimepicker": "^0.0.3",
     "underscore.string": "^2.3.3"
   },
   "peerDependencies": {
