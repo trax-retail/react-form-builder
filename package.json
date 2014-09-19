@@ -1,0 +1,51 @@
+{
+  "name": "react-form-builder",
+  "version": "0.0.4",
+  "description": "A Form Building library for React.js",
+  "homepage": "https://github.com/quri/react-form-builder",
+  "keywords": [
+    "react",
+    "react-component",
+    "form",
+    "forms"
+  ],
+  "main": "./index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/quri/react-form-builder.git"
+  },
+  "bugs": "https://github.com/quri/react-form-builder/issues",
+  "directories": {
+    "example": "examples"
+  },
+  "authors": [
+    "Brian Dittmer",
+    "Pol Miro",
+    "Loïc Chollier"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "examples": "webpack-dev-server --config ./examples/webpack.config.js"
+  },
+  "devDependencies": {
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.7.1",
+    "jsx-loader": "^0.11.0",
+    "lodash": "^2.4.1",
+    "pushstate-server": "^0.2.0",
+    "react": ">=0.11.1",
+    "react-hot-loader": "^0.2.0",
+    "webpack": "^1.4.0-beta3",
+    "webpack-dev-server": "^1.6.3"
+  },
+  "dependencies": {
+    "flux": "^2.0.1",
+    "marked": "^0.3.2",
+    "react-bootstrap": "^0.11.1",
+    "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm",
+    "underscore.string": "^2.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=0.11.1"
+  }
+}
