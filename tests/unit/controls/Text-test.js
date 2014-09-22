@@ -27,13 +27,6 @@ describe('Text', function() {
    expect(component.refs.input.getDOMNode().disabled).toBe(true);
   });
 
-  it("renders input field disabled when property submitting is true", function() {
-   component = TestUtils.renderIntoDocument(
-      <TextControl formId={123} dataKey="name" submitting={true} />
-    );
-   expect(component.refs.input.getDOMNode().disabled).toBe(true);
-  });
-
   it("renders input field with the dataKey as name", function() {
    component = TestUtils.renderIntoDocument(
       <TextControl formId={123} dataKey="name" />

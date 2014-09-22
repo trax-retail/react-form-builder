@@ -2,18 +2,18 @@
 var TypeConverter, Disableable, HelpRenderer, React, ErrorRenderer, TextField;
 
 React = require('react/addons');
-Disableable = require('./mixins/Disableable');
 TypeConverter = require('./mixins/TypeConverter');
 FormActions = require('../actions/FormActions');
 
 TextField = React.createClass({
-  mixins: [Disableable, TypeConverter],
+  mixins: [TypeConverter],
 
   propTypes: {
     dataKey: React.PropTypes.string,
     title: React.PropTypes.string,
     placeholder: React.PropTypes.string,
-    data: React.PropTypes.any
+    data: React.PropTypes.any,
+    disabled: React.PropTypes.bool
   },
 
   onChange: function(event) {
@@ -31,7 +31,7 @@ TextField = React.createClass({
         name={this.props.dataKey}
         value={this.props.data}
         onChange={this.onChange}
-        disabled={this.disabled()}
+        disabled={this.props.disabled}
         placeholder={this.props.placeholder}
         title={this.props.title}
       />
