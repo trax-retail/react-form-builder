@@ -26,7 +26,6 @@ Factory = React.createClass({
       disabled      : this.props.def.disabled,
       errors        : this.props.errors,
       submitting    : this.props.submitting,
-      services      : this.props.services,
       data          : this.props.data,
       dataKey       : this.props.dataKey,
       key           : this.props.dataKey

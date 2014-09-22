@@ -20,13 +20,11 @@ function getStateFromStores(formId) {
 Form = React.createClass({
   propTypes: {
     def: React.PropTypes.object,
-    formData: React.PropTypes.object,
     title: React.PropTypes.string,
+    formData: React.PropTypes.object,
     formErrors: React.PropTypes.object,
-    services: React.PropTypes.object,
     disabled: React.PropTypes.bool,
-    submitting: React.PropTypes.bool,
-    buttons: React.PropTypes.object
+    submitting: React.PropTypes.bool
   },
 
   getInitialState: function() {
@@ -51,8 +49,7 @@ Form = React.createClass({
   classes: function() {
     return React.addons.classSet({
       "form-horizontal": true,
-      "component-submitting": this.props.submitting,
-      "component-not-submitting": !this.props.submitting
+      "form-submitting": this.props.submitting
     });
   },
 
@@ -71,21 +68,10 @@ Form = React.createClass({
     }.bind(this));
   },
 
-  buttons: function() {
-    return _.map(this.props.buttons, (function(_this) {
-      return function(props, title) {
-        props.key = title;
-        props.disabled = _this.disabled();
-        return ReactBootstrap.Button(props, title);
-      };
-    })(this));
-  },
-
   render: function() {
     return (
       <form role="form" className={this.classes()} onChange={this.onChange}>
         {this.constructFormFromDef(this.props.def)}
-        <ReactBootstrap.ButtonToolbar>{this.buttons()}</ReactBootstrap.ButtonToolbar>
       </form>
     );
   },
