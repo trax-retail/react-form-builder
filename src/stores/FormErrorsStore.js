@@ -2,6 +2,7 @@ var FormDispatcher = require('../dispatchers/FormDispatcher');
 var EventEmitter = require('events').EventEmitter;
 var FormConstants = require('../constants/FormConstants');
 var merge = require('react/lib/merge');
+var _ = require('lodash');
 
 var CHANGE_EVENT = 'change';
 

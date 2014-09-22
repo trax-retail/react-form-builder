@@ -1,6 +1,6 @@
 
 /** @jsx React.DOM */
-var ReactBootstrap, Disableable, Form, React;
+var ReactBootstrap, Disableable, Form, React, underscore;
 
 React = require('react/addons');
 ReactBootstrap = require('react-bootstrap');
@@ -8,6 +8,7 @@ Disableable = require('../controls/mixins/Disableable');
 FormDataStore = require('../stores/FormDataStore');
 FormErrorsStore = require('../stores/FormErrorsStore')
 Field = require('../fields/Field');
+_ = require('lodash');
 
 function getStateFromStores(formId) {
   return {
