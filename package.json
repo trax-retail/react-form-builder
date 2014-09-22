@@ -25,13 +25,17 @@
   ],
   "license": "MIT",
   "scripts": {
-    "examples": "webpack-dev-server --config ./examples/webpack.config.js"
+    "examples": "webpack-dev-server --config ./examples/webpack.config.js",
+    "test": "jest"
   },
   "devDependencies": {
+    "jest": "^0.1.37",
+    "jest-cli": "^0.1.18",
     "jsx-loader": "^0.11.0",
     "pushstate-server": "^0.2.0",
     "react": ">=0.11.1",
     "react-hot-loader": "^0.2.0",
+    "react-tools": "^0.11.2",
     "webpack": "^1.4.0-beta3",
     "webpack-dev-server": "^1.6.3"
   },
@@ -44,5 +48,23 @@
   },
   "peerDependencies": {
     "react": ">=0.11.1"
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/preprocessor.js",
+    "unmockedModulePathPatterns": [
+      "<rootDir>/node_modules/react"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx"
+    ],
+    "testFileExtensions": [
+      "js"
+    ],
+    "testDirectoryName": "unit",
+    "testPathDirs": [
+      "<rootDir>/tests/"
+    ]
   }
 }

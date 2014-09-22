@@ -25,12 +25,13 @@ TextField = React.createClass({
   render: function() {
     return (
       <input
+        ref="input"
         type="text"
         className="form-control"
         name={this.props.dataKey}
         value={this.props.data}
         onChange={this.onChange}
-        disabled={this.disabled() && this.props.disabled}
+        disabled={this.disabled()}
         placeholder={this.props.placeholder}
         title={this.props.title}
       />
