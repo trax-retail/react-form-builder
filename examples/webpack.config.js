@@ -14,13 +14,6 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
 
-  module: {
-    loaders: [
-      { test: /\.jsx$/, loader: 'jsx' },
-    ]
-  },
-
-
   devServer: {
     contentBase: 'examples/',
     stats: {colors: true},
