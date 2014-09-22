@@ -11,7 +11,6 @@ module.exports = {
           {
             validate: function(value) {
               if(value != "Pol") { return "This is not Pol"; }
-              return false;
             }
           }
         ]

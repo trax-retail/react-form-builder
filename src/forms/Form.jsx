@@ -1,10 +1,9 @@
 
 /** @jsx React.DOM */
-var ReactBootstrap, Disableable, Form, React, underscore;
+var ReactBootstrap, Form, React, underscore;
 
 React = require('react/addons');
 ReactBootstrap = require('react-bootstrap');
-Disableable = require('../controls/mixins/Disableable');
 FormDataStore = require('../stores/FormDataStore');
 FormErrorsStore = require('../stores/FormErrorsStore')
 Field = require('../fields/Field');
@@ -19,14 +18,13 @@ function getStateFromStores(formId) {
 }
 
 Form = React.createClass({
-  mixins: [Disableable],
-
   propTypes: {
     def: React.PropTypes.object,
     formData: React.PropTypes.object,
     title: React.PropTypes.string,
     formErrors: React.PropTypes.object,
     services: React.PropTypes.object,
+    disabled: React.PropTypes.bool,
     submitting: React.PropTypes.bool,
     buttons: React.PropTypes.object
   },

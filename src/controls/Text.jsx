@@ -1,25 +1,30 @@
 /** @jsx React.DOM */
-var TypeConverter, Disableable, HelpRenderer, React, ErrorRenderer, TextField;
+var TypeConverter, HelpRenderer, React, ErrorRenderer, TextField;
 
 React = require('react/addons');
-TypeConverter = require('./mixins/TypeConverter');
 FormActions = require('../actions/FormActions');
+TypeConverter = require('./mixins/TypeConverter')
 
 TextField = React.createClass({
   mixins: [TypeConverter],
 
   propTypes: {
     dataKey: React.PropTypes.string,
+    data: React.PropTypes.any,
+    dataType: React.PropTypes.string,
     title: React.PropTypes.string,
     placeholder: React.PropTypes.string,
-    data: React.PropTypes.any,
     disabled: React.PropTypes.bool
   },
 
   onChange: function(event) {
-    var value;
-    value = this.convertType(event.target.value);
-    FormActions.updateFormData(this.props.formId, this.props.dataKey, value, this.props.validators);
+    FormActions.updateFormData({
+      formId: this.props.formId,
+      dataKey: this.props.dataKey,
+      dataType: this.props.dataType,
+      value: this.convertType(event.target.value),
+      validators: this.props.validators
+    });
   },
 
   render: function() {

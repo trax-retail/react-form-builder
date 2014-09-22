@@ -8,19 +8,16 @@ var CHANGE_EVENT = 'change';
 
 _errorsData = {};
 
-function validateFormData(formId, dataKey, value, validators) {
-  if(dataKey) {
-    var errors = _.reduce(validators, function(errors, validator) {
-      if(result = validator.validate(value)) {
-        errors.push(result);
-      }
-      return errors;
-    }, []);
-    return _errorsData[formId][dataKey] = errors.length > 0 ? errors : null;
-  }
-  else {
-    throw "Unexpected dataKey";
-  }
+function validateFormData(options) {
+  var errors = _.reduce(options.validators, function(errors, validator) {
+    var result = validator.validate(options.value);
+    if(result) {
+      errors.push(result);
+    }
+    return errors;
+  }, []);
+
+  return _errorsData[options.formId][options.dataKey] = errors.length > 0 ? errors : null;
 };
 
 var FormDataStore = merge(EventEmitter.prototype, {
@@ -53,7 +50,13 @@ FormDispatcher.register(function(payload) {
 
   switch(action.type) {
     case FormConstants.UPDATE_FORM_DATA:
-      validateFormData(action.formId, action.dataKey, action.value, action.validators);
+      validateFormData({
+        formId: payload.action.formId,
+        dataKey: payload.action.dataKey,
+        dataType: payload.action.dataType,
+        value: payload.action.value,
+        validators: payload.action.validators
+      });
       break;
 
     default:
