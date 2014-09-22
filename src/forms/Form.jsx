@@ -8,7 +8,7 @@ Disableable = require('../controls/mixins/Disableable');
 FormDataStore = require('../stores/FormDataStore');
 FormErrorsStore = require('../stores/FormErrorsStore')
 Field = require('../fields/Field');
-_ = require('lodash');
+_ = require('underscore');
 
 function getStateFromStores(formId) {
   return {

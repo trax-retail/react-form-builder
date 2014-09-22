@@ -21,7 +21,7 @@ module.exports = function(config) {
       },
       plugins: [
         new webpack.ProvidePlugin({
-            _: "lodash",
+            _: "underscore",
             moment: "moment",
             accounting: "accounting",
             React: "react/addons"

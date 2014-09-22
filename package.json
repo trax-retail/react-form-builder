@@ -29,7 +29,6 @@
   },
   "devDependencies": {
     "jsx-loader": "^0.11.0",
-    "lodash": "^2.4.1",
     "pushstate-server": "^0.2.0",
     "react": ">=0.11.1",
     "react-hot-loader": "^0.2.0",
@@ -40,7 +39,8 @@
     "flux": "^2.0.1",
     "marked": "^0.3.2",
     "react-bootstrap": "^0.11.1",
-    "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm"
+    "react-bootstrap-datetimepicker": "quri/react-bootstrap-datetimepicker-npm",
+    "underscore": "^1.7.0"
   },
   "peerDependencies": {
     "react": ">=0.11.1"
