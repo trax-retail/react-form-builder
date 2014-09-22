@@ -24,8 +24,7 @@ module.exports = function(config) {
             _: "lodash",
             moment: "moment",
             accounting: "accounting",
-            React: "react/addons",
-            _s: 'underscore.string'
+            React: "react/addons"
         })
       ],
 
