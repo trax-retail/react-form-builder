@@ -14,6 +14,13 @@ module.exports = {
     extensions: ['', '.js', '.jsx']
   },
 
+  module: {
+    loaders: [
+      { test: /\.jsx$/, loader: 'jsx' },
+    ]
+  },
+
+
   // plugins: [
   //   new webpack.ProvidePlugin({
   //       _: "underscore",

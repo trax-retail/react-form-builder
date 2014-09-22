@@ -28,6 +28,12 @@ module.exports = {
         dataKey: 'age',
         dataType: 'integer',
         helpText: 'Enter your age here'
+      },
+      {
+        name: 'Gender',
+        type: TextControl,
+        dataKey: 'gender',
+        disabled: true
       }
     ]
   }
