@@ -11,7 +11,7 @@ Help = React.createClass({
   render: function() {
     if (this.props.text) {
       return (
-          <span className="help-block margin-top-sm">
+          <span className="help-block">
             {this.props.text}
           </span>
       );

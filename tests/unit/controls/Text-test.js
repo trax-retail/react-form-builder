@@ -49,13 +49,21 @@ describe('Text', function() {
   });
 
   it('triggers an updateFormData action with the correct arguments', function() {
+    var options;
     component = TestUtils.renderIntoDocument(
       <TextControl formId={123} dataKey="name" validators={[]} />
     );
     spyOn(FormActions, "updateFormData");
     spyOn(TypeConverter, "convertType").andReturn("Converted value");
     TestUtils.Simulate.change(component.refs.input.getDOMNode(), { target: { value: "Pol"}});
-    expect(FormActions.updateFormData).toHaveBeenCalledWith(123, "name", "Pol", []);
+    options = {
+      formId: 123,
+      dataKey: "name",
+      dataType: undefined,
+      value: "Pol",
+      validators: []
+    };
+    expect(FormActions.updateFormData).toHaveBeenCalledWith(options);
   });
 
 });

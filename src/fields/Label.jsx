@@ -5,6 +5,7 @@ React = require('react');
 
 Label = React.createClass({
   propTypes: {
+    dataKey: React.PropTypes.string,
     name: React.PropTypes.string
   },
 
@@ -18,6 +19,8 @@ Label = React.createClass({
           {this.props.name}
         </label>
       );
+    } else {
+      return <span />;
     }
   }
 });
