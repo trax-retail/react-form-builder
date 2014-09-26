@@ -31,6 +31,10 @@ TypeAheadField = React.createClass(
     item: @props.data ? {}
     options: []
 
+  onChange: (value) ->
+    if value == null
+      @props.onDataChanged(@props.dataKey, null)
+
   selectItem: (item) ->
     update =
       options: []

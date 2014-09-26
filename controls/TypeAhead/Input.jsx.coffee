@@ -3,9 +3,10 @@
 React = require('react/addons')
 SingleInputMixin = require('../mixins/SingleInput')
 ReactBootstrap = require 'react-bootstrap'
+DataTypeConversionMixin = require("../mixins/DataTypeConversion")
 
 Input = React.createClass(
-  mixins: [SingleInputMixin]
+  mixins: [SingleInputMixin, DataTypeConversionMixin]
 
   propTypes:
     item:        React.PropTypes.object.isRequired
@@ -23,11 +24,11 @@ Input = React.createClass(
     onKeyUp:     React.PropTypes.func
 
   getInitialState: ->
-    displayText: @props.item.displayName ? ""
+    displayText: @props.item.displayName ? null
 
   componentWillReceiveProps: (nextProps) ->
     if nextProps.clearCount != @props.clearCount
-      @setState displayText: ""
+      @setState displayText: null
     else if nextProps.item && !_.isEqual(nextProps.item, @props.item)
       @setState displayText: nextProps.item.displayName
 
@@ -41,7 +42,7 @@ Input = React.createClass(
       `<span className={classes}>
           <ReactBootstrap.Glyphicon glyph="refresh" />
         </span>`
-    else if @state.displayText == "" || !@props.emptyList
+    else if @state.displayText is undefined || @state.displayText is null || !@props.emptyList
       `<span className={classes}>
           <ReactBootstrap.Glyphicon glyph="search" />
         </span>`
@@ -50,6 +51,7 @@ Input = React.createClass(
         <ReactBootstrap.Glyphicon glyph="ok" />
       </span>`
     else
+      console.log(@state.displayText)
       `<span className={classes}>
         <ReactBootstrap.Glyphicon glyph="warning-sign" />
       </span>`
@@ -59,8 +61,8 @@ Input = React.createClass(
       @state.displayText
 
   onChange: (event) ->
-    @setState(displayText: event.target.value)
-    @props.onChange(event.target.value)
+    @setState(displayText: @convertDataType(event.target.value))
+    @props.onChange(@convertDataType(event.target.value))
 
   render: ->
     `(

@@ -4,10 +4,6 @@ TypeAheadMixin =
   getInitalState: ->
     lastOptions: []
 
-  onChange: (value) ->
-    # @validate value
-    null
-
   onBlur: (event) ->
     if @props.free
       @props.onDataChanged(@props.dataKey, event.target.value)
