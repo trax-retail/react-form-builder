@@ -5,6 +5,7 @@ DataSourcedMixin = require('./mixins/DataSourced')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')
+DataTypeConversionMixin = require("./mixins/DataTypeConversion")
 
 MultiSelectField = React.createClass(
   mixins: [
@@ -12,6 +13,7 @@ MultiSelectField = React.createClass(
     StandardErrorDisplayMixin
     DisableOnSubmitMixin
     HelpMixin
+    DataTypeConversionMixin
   ]
 
   propTypes:
@@ -22,8 +24,8 @@ MultiSelectField = React.createClass(
     dataKey: React.PropTypes.string.isRequired
 
   onChange: (event) ->
-    value = _.map event.target.selectedOptions, (option) ->
-      option.value
+    value = _.map event.target.selectedOptions, (option) =>
+      @convertDataType(option.value)
 
     @props.onDataChanged(@props.dataKey, value)
 
