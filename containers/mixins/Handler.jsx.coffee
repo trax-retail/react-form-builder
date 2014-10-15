@@ -39,7 +39,7 @@ HandlerMixin =
   defaultButtons: ->
     Save:   onClick: 'submitForm',  bsStyle: 'primary'
     Reset:  onClick: 'resetForm',   bsStyle: 'warning'
-    Cancel: onClick: 'goBack'
+    Cancel: onClick: 'goBackHistory'
 
   bindButtons: (buttons) ->
     boundButtons = {}
@@ -76,7 +76,7 @@ HandlerMixin =
       @setState formData: @props.formData
 
   # meh
-  goBack: ->
+  goBackHistory: ->
     window.history.back()
 
   renderForm: (options = {}) ->
