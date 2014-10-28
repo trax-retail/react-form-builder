@@ -13,6 +13,7 @@ React Form Builder provides a set of pre-built controls one can use when creatin
  - [Number](#number)
  - [Password](#password)
  - [File Select](#file-select)
+ - [File Text](#file-text)
  - [Markdown](#markdown)
  - [Nested Field](#nested-field)
 
@@ -135,6 +136,29 @@ Name       | Type      | Description | required
     type: 'file-select',
     dataKey: 'file',
     displayName: 'Attachment'
+  }
+```
+
+## File Text
+
+Definitions :
+
+Name       | Type      | Description | required
+---------- | ----------|---------- | ----------
+**type** | string | type definition | yes
+**dataKey** | string | unique identifier | yes
+**displayName** | string / boolean | label | no
+**helpText** | string | block level help | no
+**disabled** | boolean | defines whether the field is editable | no
+**fileDestinationService** | string | the service to handle file uploading | yes
+
+ Example:
+
+```javascript
+  {
+    type: 'file-text-field',
+    dataKey: 'file_md',
+    displayName: 'Image'
   }
 ```
 

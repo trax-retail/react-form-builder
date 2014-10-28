@@ -40,6 +40,7 @@ ParserMixin =
         when 'markdown-field'         then return @markdown       def, data, base
         when 'hidden-field'           then return @hidden         def, data, base
         when 'text-field'             then return @text           def, data, base
+        when 'file-text-field'        then return @fileText           def, data, base
         when 'number-field'           then return @number         def, data, base
         when 'drop-down'              then return @dropDown            def, data, base
         when 'multiple-select'        then return @multipleSelect      def, data, base
@@ -111,6 +112,10 @@ ParserMixin =
 
   text: (def, data, base) ->
     Controls.Text @standardProps(def, data, base)
+
+  fileText: (def, data, base) ->
+    Controls.FileText _.extend @standardProps(def, data, base),
+      fileDestinationService: def.fileDestinationService
 
   number: (def, data, base) ->
     Controls.Number @standardProps(def, data, base)

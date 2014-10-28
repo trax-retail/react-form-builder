@@ -26,7 +26,8 @@ Controls = {
   Text: require('./Text'),
   MultiTypeAhead: require('./MultiTypeAhead'),
   TypeAhead: require('./TypeAhead'),
-  Markdown: require('./Markdown')
+  Markdown: require('./Markdown'),
+  FileText: require('./FileText')
 
 }
 
