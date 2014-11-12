@@ -75,7 +75,7 @@ FileSelect = React.createClass(
           'drag-target' : true
           dragging      : @state.dragging
       ,
-        ReactBootstrap.Glyphicon glyph: 'cloud-upload'
+        React.createFactory(ReactBootstrap.Glyphicon) glyph: 'cloud-upload'
     label = `(
       <label className="col-sm-2 control-label" htmlFor={this.props.dataKey}>{this.props.displayName}</label>
     )` unless @props.displayName == false

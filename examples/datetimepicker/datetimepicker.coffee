@@ -18,4 +18,4 @@ DateTimePicker = React.createClass(
     @renderForm()
 )
 
-React.render(DateTimePicker(), document.getElementById('example'))
+React.render(React.createFactory(DateTimePicker)(), document.getElementById('example'))

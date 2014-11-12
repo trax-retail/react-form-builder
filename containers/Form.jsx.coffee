@@ -30,7 +30,7 @@ Form = React.createClass(
     _.map @props.buttons, (props, title) =>
       props.key = title
       props.disabled = @disabled()
-      Button props, title
+      React.createFactory(Button) props, title
 
   render: ->
     `(

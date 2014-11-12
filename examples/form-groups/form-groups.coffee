@@ -18,4 +18,4 @@ FormGroups = React.createClass(
     @renderForm()
 )
 
-React.render(FormGroups(), document.getElementById('example'))
+React.render(React.createFactory(FormGroups)(), document.getElementById('example'))
