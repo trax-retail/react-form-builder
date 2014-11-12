@@ -18,4 +18,4 @@ DroppableFileSelect = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(DroppableFileSelect(), document.getElementById('example'))
+React.render(DroppableFileSelect(), document.getElementById('example'))

@@ -57,5 +57,5 @@ var Example = React.createClass({
   render: this.renderForm();
 });
 
-React.renderComponent(Example(), document.body);
+React.render(Example(), document.body);
 ```

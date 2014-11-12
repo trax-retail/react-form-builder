@@ -51,4 +51,4 @@ Typeaheads = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(Typeaheads(), document.getElementById('example'))
+React.render(Typeaheads(), document.getElementById('example'))
