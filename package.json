@@ -1,6 +1,6 @@
 {
   "name": "react-form-builder",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "A Form Building library for React.js",
   "homepage": "https://github.com/quri/react-form-builder",
   "keywords": [
@@ -33,18 +33,18 @@
     "jsx-loader": "^0.12.1",
     "lodash": "^2.4.1",
     "pushstate-server": "^0.2.0",
-    "react": ">=0.12.0",
+    "react": "^0.12.1",
     "react-hot-loader": "^0.5.0",
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.5"
   },
   "dependencies": {
     "marked": "^0.3.2",
-    "react-bootstrap": "^0.12.0",
-    "react-bootstrap-datetimepicker": "^0.0.3",
+    "react-bootstrap": "^0.13.0",
+    "react-bootstrap-datetimepicker": "^0.0.4",
     "underscore.string": "^2.3.3"
   },
   "peerDependencies": {
-    "react": ">=0.12.0"
+    "react": ">=0.12"
   }
 }
