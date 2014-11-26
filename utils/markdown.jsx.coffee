@@ -15,7 +15,7 @@ Markdown = React.createClass(
     if @props.value then marked(@props.value) else @props.alt
 
   render: ->
-    @transferPropsTo `<div dangerouslySetInnerHTML={{__html: this.html()}} />`
+    `<div {...this.props} dangerouslySetInnerHTML={{__html: this.html()}} />`
 )
 
 module.exports = Markdown

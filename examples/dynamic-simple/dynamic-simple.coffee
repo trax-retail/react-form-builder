@@ -52,4 +52,4 @@ DynamicSimple = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(DynamicSimple(), document.getElementById('example'))
+React.render(React.createFactory(DynamicSimple)(), document.getElementById('example'))

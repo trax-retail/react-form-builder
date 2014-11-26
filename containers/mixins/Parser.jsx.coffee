@@ -59,7 +59,7 @@ ParserMixin =
   formGroup: (def, base) ->
     dataKey = @generateDataKey(def.dataKey, base)
 
-    Containers.Group
+    React.createFactory(Containers.Group)
         dataKey       : dataKey
         formDef       : def
         title         : def.title
@@ -75,7 +75,7 @@ ParserMixin =
   inputGroup: (def, base) ->
     dataKey = @generateDataKey(def.dataKey, base)
 
-    Containers.InputGroup
+    React.createFactory(Containers.InputGroup)
       dataKey       : @generateDataKey(dataKey, base)
       formDef       : def
       formData      : @props.formData
@@ -92,7 +92,7 @@ ParserMixin =
     dataKey = @generateDataKey(def.dataKey, base)
     dynDef = @resolveData(dataKey)
 
-    Containers.DynamicDefinition
+    React.createFactory(Containers.DynamicDefinition)
       dataKey       : dataKey
       formDef       : def
       title         : def.title
@@ -108,68 +108,68 @@ ParserMixin =
   # components
 
   hidden: (def, data, base) ->
-    Controls.Hidden @standardProps(def, data, base)
+    React.createFactory(Controls.Hidden) @standardProps(def, data, base)
 
   text: (def, data, base) ->
-    Controls.Text @standardProps(def, data, base)
+    React.createFactory(Controls.Text) @standardProps(def, data, base)
 
   fileText: (def, data, base) ->
-    Controls.FileText _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.FileText) _.extend @standardProps(def, data, base),
       fileDestinationService: def.fileDestinationService
 
   number: (def, data, base) ->
-    Controls.Number @standardProps(def, data, base)
+    React.createFactory(Controls.Number) @standardProps(def, data, base)
 
   date: (def, data, base) ->
-    Controls.Date @standardProps(def, data, base)
+    React.createFactory(Controls.Date) @standardProps(def, data, base)
 
   dateTime: (def, data, base) ->
-    Controls.DateTime _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.DateTime) _.extend @standardProps(def, data, base),
       direction: def.direction
 
   password: (def, data, base) ->
-    Controls.Password @standardProps(def, data, base)
+    React.createFactory(Controls.Password) @standardProps(def, data, base)
 
   textArea: (def, data, base) ->
-    Controls.TextArea _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.TextArea) _.extend @standardProps(def, data, base),
       rows: def.rows
 
   checkBox: (def, data, base) ->
-    Controls.Checkbox @standardProps(def, data, base)
+    React.createFactory(Controls.Checkbox) @standardProps(def, data, base)
 
   markdown: (def, data, base) ->
-    Controls.Markdown _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.Markdown) _.extend @standardProps(def, data, base),
       fileDestinationService: def.fileDestinationService
 
   file: (def, data, base) ->
-    Controls.File _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.File) _.extend @standardProps(def, data, base),
       dragAndDrop  : def.dragAndDrop
       onFileSelect : def.onFileSelect
 
   dropDown: (def, data, base) ->
-    Controls.Dropdown _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.Dropdown) _.extend @standardProps(def, data, base),
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
   multipleSelect: (def, data, base) ->
-    Controls.MultiSelect _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.MultiSelect) _.extend @standardProps(def, data, base),
       dataSources    : def.dataSources
       dependencies  : @parseDependencies(def)
 
   radioButtons: (def, data, base) ->
-    Controls.RadioButtons _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.RadioButtons) _.extend @standardProps(def, data, base),
       boolean       : def.boolean
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
   typeAhead: (def, data, base) ->
-    Controls.TypeAhead _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.TypeAhead) _.extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
 
   multiTypeAhead: (def, data, base) ->
-    Controls.MultiTypeAhead _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.MultiTypeAhead) _.extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
@@ -178,7 +178,7 @@ ParserMixin =
 
     dataKey = @generateDataKey(def.dataKey, base)
 
-    Controls.NestedFormGroup
+    React.createFactory(Controls.NestedFormGroup)
         dataKey       : dataKey
         formDef       : def
         formData      : @props.formData
@@ -189,7 +189,7 @@ ParserMixin =
         onDataChanged : @props.onDataChanged
         onEnter       : @props.onEnter
       , _.map @resolveData(dataKey), (data, nestedIndex) =>
-          Containers.Group
+          React.createFactory(Containers.Group)
               title            : def.nestedTitle
               dataKey          : "#{dataKey}[#{nestedIndex}]"
               formDef          : def.nestedFormDef ? def
@@ -222,7 +222,7 @@ ParserMixin =
       @props.onDataChanged(dataKey, newData)
 
   nestedFieldGroup: (def, data, base) ->
-    Controls.NestedFieldGroup
+    React.createFactory(Controls.NestedFieldGroup)
       displayName   : def.displayName
       dataKey       : @generateDataKey(def.dataKey, base)
       formDef       : def

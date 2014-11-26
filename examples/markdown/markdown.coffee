@@ -28,4 +28,4 @@ Markdown = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(Markdown(), document.getElementById('example'))
+React.render(React.createFactory(Markdown)(), document.getElementById('example'))

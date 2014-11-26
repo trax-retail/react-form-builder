@@ -18,4 +18,4 @@ Basic = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(Basic(), document.getElementById('example'))
+React.render(React.createFactory(Basic)(), document.getElementById('example'))

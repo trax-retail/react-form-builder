@@ -51,7 +51,6 @@ Input = React.createClass(
         <ReactBootstrap.Glyphicon glyph="ok" />
       </span>`
     else
-      console.log(@state.displayText)
       `<span className={classes}>
         <ReactBootstrap.Glyphicon glyph="warning-sign" />
       </span>`
@@ -62,7 +61,7 @@ Input = React.createClass(
 
   onChange: (event) ->
     @setState(displayText: @convertDataType(event.target.value))
-    @props.onChange(@convertDataType(event.target.value))
+    @props.onChange?(@convertDataType(event.target.value))
 
   render: ->
     `(

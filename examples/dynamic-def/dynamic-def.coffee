@@ -80,4 +80,4 @@ DynamicDef = React.createClass(
     @renderForm()
 )
 
-React.renderComponent(DynamicDef(), document.getElementById('example'))
+React.render(React.createFactory(DynamicDef)(), document.getElementById('example'))
