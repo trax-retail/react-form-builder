@@ -14,15 +14,13 @@ HandlerMixin =
   #       callback()
   #
 
-  contextTypes:
-    errorResponseHandler: React.PropTypes.object.isRequired
-
   propTypes:
-    title:        React.PropTypes.string
-    submitting:   React.PropTypes.bool
-    serverErrors: React.PropTypes.object
-    formData:     React.PropTypes.object
-    buttons:      React.PropTypes.object
+    title:                React.PropTypes.string
+    submitting:           React.PropTypes.bool
+    serverErrors:         React.PropTypes.object
+    formData:             React.PropTypes.object
+    buttons:              React.PropTypes.object
+    errorResponseHandler: React.PropTypes.object
 
   getInitialState: ->
     title            : @props.title        ? ""
@@ -65,7 +63,7 @@ HandlerMixin =
         @setState serverErrors: response.body, submitting: false
     else
       @setState(submitting: false)
-      @context.errorResponseHandler.resolve(response)
+      @props.errorResponseHandler.resolve(response)
 
   clearForm: ->
     if @isMounted()
