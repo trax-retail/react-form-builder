@@ -23,8 +23,14 @@ UploadImageButton = React.createClass(
         )
 
   markdownImage: (resp) ->
-    # "![#{resp.url}](#{resp.url})"
-    "<img src=\"#{resp.url}\" alt=\"#{resp.alt || ""}\" width=\"#{resp.width}\" height=\"#{resp.height}\" />"
+    img = new Image
+    img.src = resp.url if resp.url?
+    img.alt=  resp.alt if resp.alt?
+    img.width = resp.width if resp.width?
+    img.height = resp.height if resp.height?
+    wrap = document.createElement('div')
+    wrap.appendChild(img)
+    wrap.innerHTML
 
   openFilePrompt: ->
     @refs.input.getDOMNode().click()
