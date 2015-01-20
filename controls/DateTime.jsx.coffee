@@ -4,7 +4,7 @@ React = require 'react'
 SingleInputMixin = require('./mixins/SingleInput')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 HelpMixin = require('./mixins/Help')
-DateTimeField = require('react-bootstrap-datetimepicker').DateTimeField
+DateTimeField = require('react-bootstrap-datetimepicker')
 
 FormDateTimeField = React.createClass(
   mixins: [SingleInputMixin, StandardErrorDisplayMixin, HelpMixin]

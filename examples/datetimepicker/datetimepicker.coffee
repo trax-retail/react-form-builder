@@ -9,6 +9,8 @@ DateTimePicker = React.createClass(
 
   getDefaultProps: ->
     formDef: DateTimePickerFormDef
+    formData:
+      datetime: "06/05/90 7:00 AM"
 
   onSubmit: (callback) ->
     console.log "FormData: ", @state.formData
