@@ -4,7 +4,7 @@ React = require('react/addons')
 
 Match = React.createClass(
   propTypes:
-    item: React.PropTypes.renderable.isRequired
+    item: React.PropTypes.node.isRequired
     active: React.PropTypes.bool.isRequired
     onSelect: React.PropTypes.func
 
