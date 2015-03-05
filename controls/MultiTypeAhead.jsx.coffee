@@ -61,7 +61,7 @@ MultiTypeAheadField = React.createClass(
 
   renderLabels: ->
     _.map @state.items, (item) =>
-      `<MultiTypeAheadLabel item={item} onClick={_this.removeItem} />`
+      `<MultiTypeAheadLabel item={item} onClick={_this.removeItem} key={'label' + item.displayName} />`
 
   render: ->
     size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
