@@ -4,8 +4,7 @@ React = require('react/addons')
 ParserMixin = require './mixins/Parser'
 DisableOnSubmitMixin = require('../controls/mixins/DisableOnSubmit')
 
-ButtonToolbar = require('react-bootstrap/ButtonToolbar')
-Button = require('react-bootstrap/Button')
+{ButtonToolbar, Button} = require('react-bootstrap')
 
 Form = React.createClass(
   mixins: [
