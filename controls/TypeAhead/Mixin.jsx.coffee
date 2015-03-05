@@ -26,7 +26,7 @@ TypeAheadMixin =
 
   onKeyUp: (event) ->
     switch event.key
-      when 'Return' or 'Enter'
+      when 'Return', 'Enter'
         if @state.highlightedIndex >= 0
           # User hits enter on a selection from the dropdown
           @selectItem @state.options[@state.highlightedIndex]
