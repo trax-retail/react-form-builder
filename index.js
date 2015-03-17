@@ -1,12 +1,12 @@
 FormBuilder = {
 
-  Handler: require("./containers/mixins/Handler"),
+  Handler: require("./lib/containers/mixins/Handler"),
 
   Validators: {
-    FilenameValidator: require('./validators/Filename'),
-    LengthValidator: require('./validators/Length'),
-    NotNullValidator: require('./validators/NotNull'),
-    NumericValidator: require('./validators/Numeric')
+    FilenameValidator: require('./lib/validators/Filename'),
+    LengthValidator: require('./lib/validators/Length'),
+    NotNullValidator: require('./lib/validators/NotNull'),
+    NumericValidator: require('./lib/validators/Numeric')
   }
 
 }

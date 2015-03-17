@@ -16,3 +16,10 @@ npm run examples
 ```
 
 Then open http://localhost:8080/webpack-dev-server/
+
+# Build and Release
+
+```shell
+npm run build-npm
+npm publish
+```
