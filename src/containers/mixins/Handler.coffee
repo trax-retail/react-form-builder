@@ -29,8 +29,11 @@ HandlerMixin =
     buttons          : @bindButtons(@props.buttons ? @defaultButtons())
 
   componentWillReceiveProps: (nextProps) ->
+    console.log "form builder receive props"
     unless _.isEqual nextProps.formData, @props.formData
-      @setState(formData: nextProps.formData)
+      console.log "form builder receive props inside"
+      if @isMounted()
+        @setState(formData: nextProps.formData)
 
   defaultButtons: ->
     Save:   onClick: 'submitForm',  bsStyle: 'primary'
@@ -45,6 +48,7 @@ HandlerMixin =
 
   setForm: (formData) ->
     if @isMounted()
+      console.log "form builder set form"
       @setState
         formData         : formData
         submitting       : false
@@ -60,8 +64,9 @@ HandlerMixin =
       if @isMounted()
         @setState serverErrors: response.body, submitting: false
     else
-      @setState(submitting: false)
-      @props.errorResponseHandler.resolve(response)
+      if @isMounted()
+        @setState(submitting: false)
+        @props.errorResponseHandler.resolve(response)
 
   clearForm: ->
     if @isMounted()
@@ -95,31 +100,33 @@ HandlerMixin =
       React.addons.cloneWithProps form, options
 
   onDataChanged: (dataKey, value) ->
-    newData = _.clone @state.formData || {}
+    if @isMounted()
+      newData = _.clone @state.formData || {}
 
-    datum = newData
-    parts = dataKey.split(".")
-    for part in parts
-      #
-      # Matches array properties:
-      #   -> propertyName[indexName]
-      #   [0] = "propertyName[indexName]"
-      #   [1] = "propertyName"
-      #   [2] = "indexName"
-      #
-      results = part.match(/^([a-zA-Z_]+)\[(\d)+\]$/)
-      if part != parts[parts.length - 1]
-        if results
-          datum = datum[results[1]][results[2]]
+      datum = newData
+      parts = dataKey.split(".")
+      for part in parts
+        #
+        # Matches array properties:
+        #   -> propertyName[indexName]
+        #   [0] = "propertyName[indexName]"
+        #   [1] = "propertyName"
+        #   [2] = "indexName"
+        #
+        results = part.match(/^([a-zA-Z_]+)\[(\d)+\]$/)
+        if part != parts[parts.length - 1]
+          if results
+            datum = datum[results[1]][results[2]]
+          else
+            datum = datum[part]
         else
-          datum = datum[part]
-      else
-        if results
-          datum[results[1]][results[2]] =value
-        else
-          datum[part] = value
+          if results
+            datum[results[1]][results[2]] =value
+          else
+            datum[part] = value
 
-    @setState formData: newData
+      console.log "on data changed"
+      @setState formData: newData
 
 
 module.exports = HandlerMixin
