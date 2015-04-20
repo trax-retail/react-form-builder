@@ -44,9 +44,11 @@ TypeAheadField = React.createClass(
       value = item.value ? (if typeof item == "string" then item else undefined)
       @props.onDataChanged(@props.dataKey, value)
 
-  componentWillReceiveProps: (nextProps) ->
-    unless (nextProps.data == @state.item.value) || (nextProps.data == @state.item)
-      @selectItem({})
+  # componentWillReceiveProps: (nextProps) ->
+  #   console.log "nextProps.data", nextProps.data, " @state.item.value ", @state.item.value
+  #   console.log "@state.item ", @state.item
+  #   unless (nextProps.data == @state.item.value) || (nextProps.data == @state.item)
+      # @selectItem({})
 
   render: ->
     size = if @props.displayName == false then 'col-sm-12' else 'col-sm-10'
