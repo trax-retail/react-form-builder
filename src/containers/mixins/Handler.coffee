@@ -29,9 +29,7 @@ HandlerMixin =
     buttons          : @bindButtons(@props.buttons ? @defaultButtons())
 
   componentWillReceiveProps: (nextProps) ->
-    console.log "form builder receive props"
     unless _.isEqual nextProps.formData, @props.formData
-      console.log "form builder receive props inside"
       if @isMounted()
         @setState(formData: nextProps.formData)
 
@@ -48,7 +46,6 @@ HandlerMixin =
 
   setForm: (formData) ->
     if @isMounted()
-      console.log "form builder set form"
       @setState
         formData         : formData
         submitting       : false
@@ -125,7 +122,6 @@ HandlerMixin =
           else
             datum[part] = value
 
-      console.log "on data changed"
       @setState formData: newData
 
 
