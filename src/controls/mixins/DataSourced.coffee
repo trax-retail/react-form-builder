@@ -2,6 +2,7 @@ React = require 'react'
 _ = require('lodash')
 _s = require('underscore.string')
 utils = require '../../utils/utils'
+shallowEqual = require('react/lib/shallowEqual')
 
 #
 # For each data source:
@@ -25,7 +26,7 @@ DataSourcedMixin =
 
   componentWillReceiveProps: (nextProps) ->
     for name, dataSource of @props.dataSources
-      if dataSource.dependentKeys? && dataSource.type is 'service'
+      if dataSource.dependentKeys? && dataSource.type is 'service' && !shallowEqual(nextProps.dependencies, @props.dependencies)
         @loadDataSource(name, nextProps.dependencies)
 
   #
