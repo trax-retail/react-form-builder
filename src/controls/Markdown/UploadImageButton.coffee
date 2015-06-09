@@ -23,7 +23,6 @@ UploadImageButton = React.createClass(
   markdownImage: (resp) ->
     img = new Image
     img.src = resp.url if resp.url?
-    img.onError = "this.onerror=null;this.src='http://placehold.it/300x100?text=Image%20is%20processing';"
     img.alt=  resp.alt if resp.alt?
     img.width = resp.width if resp.width?
     img.height = resp.height if resp.height?
