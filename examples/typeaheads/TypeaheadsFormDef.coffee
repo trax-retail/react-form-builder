@@ -1,3 +1,6 @@
+abstractAdapter = require('./abstractAdapter')
+cityService = require('./cityService')
+
 TypeaheadsFormDef =
   type: 'form'
   components: [
@@ -10,8 +13,8 @@ TypeaheadsFormDef =
           type: 'service'
           dependentKeys: ['city_id_typeahead']
           args: ['${city_id_typeahead}']
-          service: 'cityService.loadCitiesByName'
-          adapter: 'abstractAdapter.genericDropDown'
+          service: cityService.loadCitiesByName
+          adapter: abstractAdapter.genericDropDown
     },
     {
       type: 'multi-type-ahead-field'
@@ -22,8 +25,8 @@ TypeaheadsFormDef =
           type: 'service'
           dependentKeys: ['neighborhood_ids_typeahead']
           args: ['${neighborhood_ids_typeahead}']
-          service: 'cityService.loadNeighborhoodsByName'
-          adapter: 'abstractAdapter.genericDropDown'
+          service: cityService.loadNeighborhoodsByName
+          adapter: abstractAdapter.genericDropDown
     }
   ]
 

@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../containers/mixins/Handler'
+FormHandler = require '../../src/containers/mixins/Handler'
 DateTimePickerFormDef = require './DateTimePickerFormDef'
 
 window.React = React

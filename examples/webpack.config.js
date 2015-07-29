@@ -26,7 +26,7 @@ module.exports = {
   module: {
     loaders: [
       { test: /\.jsx.coffee$/, loader: 'jsx!coffee' },
-      { test: /\.coffee$/, exclude: /\.jsx.coffee$/, loader: 'coffee-loader' }
+      { test: /\.coffee$/, loader: 'jsx!coffee-loader' }
     ]
   },
 

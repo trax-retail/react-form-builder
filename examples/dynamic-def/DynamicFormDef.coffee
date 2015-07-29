@@ -1,3 +1,6 @@
+abstractAdapter = require('./abstractAdapter')
+cityService = require('./cityService')
+
 DynamicFormDef =
   type: 'form'
   components: [
@@ -8,8 +11,8 @@ DynamicFormDef =
       dataSources: {
         options:
           type: 'service'
-          service: 'cityService.loadCities'
-          adapter: 'abstractAdapter.genericDropDown'
+          service: cityService.loadCities
+          adapter: abstractAdapter.genericDropDown
       }
     },
     {
@@ -18,7 +21,7 @@ DynamicFormDef =
       dataSources: {
         formDef:
           type: 'service'
-          service: 'cityService.loadCityFormDef'
+          service: cityService.loadCityFormDef
           dependentKeys: ['city_id']
           args: ['${city_id}']
       }

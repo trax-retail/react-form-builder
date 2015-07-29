@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../containers/mixins/Handler'
+FormHandler = require '../../src/containers/mixins/Handler'
 BasicFormDef = require './BasicFormDef'
 
 window.React = React

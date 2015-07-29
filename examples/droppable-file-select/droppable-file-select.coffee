@@ -1,5 +1,5 @@
 React = require('react')
-FormHandler = require '../../containers/mixins/Handler'
+FormHandler = require '../../src/containers/mixins/Handler'
 DroppableFileSelectFormDef = require './DroppableFileSelectFormDef'
 
 window.React = React

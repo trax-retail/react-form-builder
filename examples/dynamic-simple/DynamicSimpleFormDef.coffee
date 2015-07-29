@@ -1,3 +1,6 @@
+abstractAdapter = require('./abstractAdapter')
+cityService = require('./cityService')
+
 DynamicSimpleFormDef =
   type: 'form'
   components: [
@@ -8,8 +11,8 @@ DynamicSimpleFormDef =
       dataSources: {
         options:
           type: 'service'
-          service: 'cityService.loadCities'
-          adapter: 'abstractAdapter.genericDropDown'
+          service: cityService.loadCities
+          adapter: abstractAdapter.genericDropDown
       }
     }
     {
@@ -20,9 +23,9 @@ DynamicSimpleFormDef =
         options:
           type: 'service'
           dependentKeys: ['city_id']
-          service: 'cityService.loadNeighborhoodsWithCityId'
+          service: cityService.loadNeighborhoodsWithCityId
           args: ['${city_id}']
-          adapter: 'abstractAdapter.genericDropDown'
+          adapter: abstractAdapter.genericDropDown
       }
     }
   ]
