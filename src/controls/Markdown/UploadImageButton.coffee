@@ -14,11 +14,11 @@ UploadImageButton = React.createClass(
   uploadFile: (event) ->
     if file = event.target.files[0]
       @setState uploading: true, =>
-        utils.resolveService(@props.fileDestinationService, file,
+        @props.fileDestinationService file,
           complete: => @setState(uploading: false)
           error: => alert("error uploading")
           success: (resp) => @props.addImageMarkdown(@markdownImage(resp))
-        )
+
 
   markdownImage: (resp) ->
     img = new Image

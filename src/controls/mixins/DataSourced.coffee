@@ -1,7 +1,6 @@
 React = require 'react'
 _ = require('lodash')
 _s = require('underscore.string')
-utils = require '../../utils/utils'
 shallowEqual = require('react/lib/shallowEqual')
 
 #
@@ -68,9 +67,9 @@ DataSourcedMixin =
         success: (resp) => @updateDataSource(dataSourceName, resp) if @isMounted()
 
       if args.length > 0
-        utils.resolveService dataSource.service, args, options
+        dataSource.service args, options
       else
-        utils.resolveService dataSource.service, options
+        dataSource.service options
 
   #
   # Each data source maps to a key and a loading key in the state
@@ -102,7 +101,7 @@ DataSourcedMixin =
   #
   applyAdapter: (dataSource, data) ->
     if dataSource.adapter
-      utils.resolveAdapter(dataSource.adapter, data)
+      dataSource.adapter data
     else
       data
 
