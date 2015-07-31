@@ -3,17 +3,9 @@ ValidationMixin =
     validationErrors: []
     hasErrors: false
 
-  componentDidMount: ->
-    if @props.validators
-      @loadValidators()
-
-  loadValidators: ->
-    @validators = _.map @props.validators, (options, name) =>
-      new window.validators[name].constructor(options)
-
   validate: (value, callback) ->
     if @props.validators
-      newErrors = _.map @validators, (validator) =>
+      newErrors = _.map @props.validators, (validator) =>
         validator.validate value, @props.displayName
 
       # There is probably a better way to do this
