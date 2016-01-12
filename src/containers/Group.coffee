@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require "classnames"
 ReactBootstrap = require('react-bootstrap')
 
 Group = React.createClass(
@@ -48,7 +49,7 @@ Group = React.createClass(
       )`
 
   render: ->
-    classes = React.addons.classSet
+    classes = classnames
       'panel-body': true
       'hidden': @state.collapsed
 
