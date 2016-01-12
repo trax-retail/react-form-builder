@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 DisableOnSubmitMixin = require('../mixins/DisableOnSubmit')
 ValidationMixin = require('../mixins/Validation')
 DataTypeConversionMixin = require('../mixins/DataTypeConversion')

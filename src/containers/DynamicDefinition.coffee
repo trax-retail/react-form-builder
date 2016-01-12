@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 DataSourcedMixin = require '../controls/mixins/DataSourced'
 
 DynamicDefinition = React.createClass(

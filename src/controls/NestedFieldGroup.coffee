@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 
 ReactBootstrap = require('react-bootstrap')
 Field = require('./NestedFieldGroup/Field')

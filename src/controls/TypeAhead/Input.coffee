@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 SingleInputMixin = require('../mixins/SingleInput')
 ReactBootstrap = require 'react-bootstrap'
 DataTypeConversionMixin = require("../mixins/DataTypeConversion")
@@ -31,7 +32,7 @@ Input = React.createClass(
       @setState displayText: nextProps.item.displayName
 
   renderInputIcon: ->
-    classes = React.addons.classSet
+    classes = classnames
       "form-control-feedback": true
       "autocomplete-feedback": true
     if @props.loading

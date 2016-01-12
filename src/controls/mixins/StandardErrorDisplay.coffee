@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 _ = require('lodash')
 
 StandardErrorDisplayMixin =
@@ -12,7 +13,7 @@ StandardErrorDisplayMixin =
     class_list = _.object _.map(list_of_classes, (c) -> [c, true])
     class_list['has-error'] = @state.hasErrors
 
-    React.addons.classSet class_list
+    classnames class_list
 
   # we need to be able to include validation errors
   componentWillReceiveProps: (nextProps) ->

@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require "classnames"
 SingleInputMixin = require('./mixins/SingleInput')
 ValidationMixin = require('./mixins/Validation')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
@@ -64,12 +65,12 @@ FileSelect = React.createClass(
         @props.onDataChanged(@props.dataKey, file)
 
   render: ->
-    classes = React.addons.classSet
+    classes = classnames
       'col-sm-10' : true
       'fileDrop'  : @props.dragAndDrop
 
     dragIcon = React.DOM.span
-        className: React.addons.classSet
+        className: classnames
           'drag-target' : true
           dragging      : @state.dragging
       ,

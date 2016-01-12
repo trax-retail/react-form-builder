@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require "classnames"
 DataSourcedMixin = require('./mixins/DataSourced')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
@@ -54,7 +55,7 @@ MultiSelectField = React.createClass(
           <select
             multiple={true}
             onChange={this.onChange}
-            className={React.addons.classSet(classes)}
+            className={classnames(classes)}
             name={this.props.dataKey}
             value={this.props.data}
             disabled={this.disabled()}

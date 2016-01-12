@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')

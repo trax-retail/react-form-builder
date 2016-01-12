@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 Mixins = require('../controls/mixins/Mixins')
 
 InputGroup = React.createClass(

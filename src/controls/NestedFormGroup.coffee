@@ -1,6 +1,7 @@
 # Does not support cross cutting services dependencies thoughout the parent <-> nested form
 
-React = require('react/addons')
+React = require('react')
+classnames = require "classnames"
 ReactBootstrap = require('react-bootstrap')
 
 NestedFormGroup = React.createClass(
@@ -41,7 +42,7 @@ NestedFormGroup = React.createClass(
       )`
 
   render: ->
-    classes = React.addons.classSet
+    classes = classnames
       'panel-body': true
       'hidden': @state.collapsed
 

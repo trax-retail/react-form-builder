@@ -1,4 +1,4 @@
-React = require('react/addons')
+React = require('react')
 
 Label = React.createClass(
 

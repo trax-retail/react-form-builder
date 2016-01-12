@@ -40,12 +40,14 @@
     "webpack-dev-server": "^1.6.5"
   },
   "dependencies": {
+    "classnames": "^2.2.3",
     "marked": "^0.3.2",
+    "react-addons-update": "^0.14.6",
     "react-bootstrap": "^0.16.1",
     "react-bootstrap-datetimepicker": "^0.0.17",
     "underscore.string": "^2.3.3"
   },
   "peerDependencies": {
-    "react": ">=0.12"
+    "react": ">=0.14"
   }
 }

@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 DynamicFormDef = require './DynamicFormDef'
 FormHandler = require '../../src/containers/mixins/Handler.coffee'
 window.React = React
@@ -17,4 +18,4 @@ DynamicDef = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(DynamicDef)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(DynamicDef)(), document.getElementById('example'))

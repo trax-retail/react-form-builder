@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 ParserMixin = require './mixins/Parser'
 DisableOnSubmitMixin = require('../controls/mixins/DisableOnSubmit')
 
@@ -18,7 +19,7 @@ Form = React.createClass(
     buttons        : React.PropTypes.object
 
   classes: ->
-    React.addons.classSet
+    classnames
       "form-horizontal": true
       "component-submitting" : @props.submitting
       "component-not-submitting" : !@props.submitting

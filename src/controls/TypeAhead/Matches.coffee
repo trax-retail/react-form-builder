@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 
 Match = require('./Match')
 
@@ -35,7 +36,7 @@ Matches = React.createClass(
       )`
 
   className: ->
-    React.addons.classSet
+    classnames
       'autocomplete-results': true
       'hide': @props.hidden
       'active': @props.active

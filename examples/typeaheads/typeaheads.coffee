@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 TypeaheadsFormDef = require './TypeaheadsFormDef'
 FormHandler = require '../../src/containers/mixins/Handler'
 _ = require('lodash')
@@ -18,4 +19,4 @@ Typeaheads = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(Typeaheads)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(Typeaheads)(), document.getElementById('example'))

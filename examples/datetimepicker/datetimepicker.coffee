@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 FormHandler = require '../../src/containers/mixins/Handler'
 DateTimePickerFormDef = require './DateTimePickerFormDef'
 
@@ -20,4 +21,4 @@ DateTimePicker = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(DateTimePicker)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(DateTimePicker)(), document.getElementById('example'))

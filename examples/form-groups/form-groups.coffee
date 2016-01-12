@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 FormHandler = require '../../src/containers/mixins/Handler'
 FormGroupsFormDef = require './FormGroupsFormDef'
 
@@ -18,4 +19,4 @@ FormGroups = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(FormGroups)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(FormGroups)(), document.getElementById('example'))

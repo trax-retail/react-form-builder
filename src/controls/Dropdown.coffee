@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 DataSourcedMixin = require('./mixins/DataSourced')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
@@ -51,7 +52,7 @@ DropDownField = React.createClass(
         <div className={size}>
           <select
             onChange={this.onChange}
-            className={React.addons.classSet(classes)}
+            className={classnames(classes)}
             name={this.props.dataKey}
             value={value}
             disabled={this.disabled()}

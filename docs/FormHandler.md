@@ -28,6 +28,7 @@ Full example :
 
 ```javascript
 var React = require('react');
+var ReactDOM = require('react-dom');
 var FormHandler = require('react-form-builder').Mixins.Handler;
 var ExampleFormDef = {
   type: 'form',
@@ -57,5 +58,5 @@ var Example = React.createClass({
   render: this.renderForm();
 });
 
-React.render(Example(), document.body);
+ReactDOM.render(Example(), document.body);
 ```

@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 FormHandler = require '../../src/containers/mixins/Handler'
 BasicFormDef = require './BasicFormDef'
 
@@ -18,4 +19,4 @@ Basic = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(Basic)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(Basic)(), document.getElementById('example'))

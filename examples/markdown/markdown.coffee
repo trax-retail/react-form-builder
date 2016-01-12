@@ -1,4 +1,5 @@
 React = require('react')
+ReactDOM = require('react-dom')
 MarkdownFormDef = require './MarkdownFormDef'
 FormHandler = require '../../src/containers/mixins/Handler'
 
@@ -18,4 +19,4 @@ Markdown = React.createClass(
     @renderForm()
 )
 
-React.render(React.createFactory(Markdown)(), document.getElementById('example'))
+ReactDOM.render(React.createFactory(Markdown)(), document.getElementById('example'))

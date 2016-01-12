@@ -1,4 +1,5 @@
-React = require('react/addons')
+React = require('react')
+classnames = require("classnames")
 
 Match = React.createClass(
   propTypes:
@@ -10,7 +11,7 @@ Match = React.createClass(
     @props.onSelect(@props.item)
 
   className: ->
-    React.addons.classSet
+    classnames
       'active': @props.active
 
   render: ->
