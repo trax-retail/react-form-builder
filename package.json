@@ -1,6 +1,6 @@
 {
   "name": "react-form-builder",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A Form Building library for React.js",
   "homepage": "https://github.com/quri/react-form-builder",
   "keywords": [
@@ -45,7 +45,7 @@
     "react-addons-clone-with-props": "^0.14.6",
     "react-addons-update": "^0.14.6",
     "react-bootstrap": "^0.16.1",
-    "react-bootstrap-datetimepicker": "^0.0.17",
+    "react-bootstrap-datetimepicker": "^0.0.22",
     "underscore.string": "^2.3.3"
   },
   "peerDependencies": {
