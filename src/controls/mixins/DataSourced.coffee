@@ -1,7 +1,7 @@
 React = require 'react'
 _ = require('lodash')
 _s = require('underscore.string')
-shallowEqual = require('react/lib/shallowEqual')
+shallowEqual = require('shallowequal')
 
 #
 # For each data source:
