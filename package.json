@@ -1,6 +1,6 @@
 {
   "name": "react-form-builder",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "A Form Building library for React.js",
   "homepage": "https://github.com/quri/react-form-builder",
   "keywords": [
@@ -36,6 +36,7 @@
     "lodash": "^2.4.1",
     "pushstate-server": "^0.2.0",
     "react-hot-loader": "^1.1.7",
+    "shallowequal": "^0.2.2",
     "webpack": "^1.4.13",
     "webpack-dev-server": "^1.6.5"
   },
