@@ -1,6 +1,6 @@
 React = require('react')
 classnames = require("classnames")
-object = require("lodash/object")
+object = require("lodash/zipObject")
 map = require("lodash/map")
 chain = require("lodash/chain")
 capitalize = require("lodash/capitalize")
