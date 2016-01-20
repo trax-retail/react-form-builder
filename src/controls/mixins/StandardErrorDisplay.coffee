@@ -2,7 +2,8 @@ React = require('react')
 classnames = require("classnames")
 object = require("lodash/zipObject")
 map = require("lodash/map")
-chain = require("lodash/chain")
+uniq = require("lodash/uniq")
+select = require("lodash/filter")
 capitalize = require("lodash/capitalize")
 
 StandardErrorDisplayMixin =
@@ -20,12 +21,7 @@ StandardErrorDisplayMixin =
 
   # we need to be able to include validation errors
   componentWillReceiveProps: (nextProps) ->
-    serverErrors = chain(nextProps.serverErrors?.errors)
-              .select((e) -> e.field == nextProps.dataKey)
-              .map((serverError) -> serverError.message)
-              .uniq()
-              .map((message) -> capitalize(message))
-              .value()
+    serverErrors = map(uniq(map(select(nextProps.serverErrors?.errors, (e) -> e.field == nextProps.dataKey), (serverError) -> serverError.message)), (message) -> capitalize(message))
 
     errors = if @state.validationErrors?.length > 0 then @state.validationErrors else serverErrors
     if errors.length > 0
