@@ -1,9 +1,10 @@
 React = require('react')
-
 ReactBootstrap = require('react-bootstrap')
 Field = require('./NestedFieldGroup/Field')
 DisableOnSubmitMixin = require './mixins/DisableOnSubmit'
 StandardErrorDisplayMixin = require './mixins/StandardErrorDisplay'
+map = require("lodash/map")
+clone = require("lodash/clone")
 
 NestedFieldGroup = React.createClass(
   mixins: [
@@ -54,12 +55,12 @@ NestedFieldGroup = React.createClass(
     @setState(alternativeView: !@state.alternativeView)
 
   add: ->
-    newData = _.clone(@props.data)
+    newData = clone(@props.data)
     newData.push(null)
     @props.onDataChanged(@props.dataKey, newData)
 
   nestedFieldChanged: (dataKey, value) ->
-    newData = _.clone(@props.data)
+    newData = clone(@props.data)
     newData[dataKey] = value
     @props.onDataChanged(@props.dataKey, newData)
 
@@ -75,7 +76,7 @@ NestedFieldGroup = React.createClass(
     #   [1] = "propertyName"
     #   [2] = "indexName"
     #
-    newData = _.clone @props.data
+    newData = clone @props.data
     newData.splice(dataKey, 1)
     @props.onDataChanged(@props.dataKey, newData)
 
@@ -104,7 +105,7 @@ NestedFieldGroup = React.createClass(
     )`
 
   renderNestedFields: ->
-    _.map @props.data, (data, index) =>
+    map @props.data, (data, index) =>
       onEnter = if index == @props.data.length - 1 then @add else undefined
       key = "#{@props.dataKey}[#{@state.baseIndex+index}]"
       `(

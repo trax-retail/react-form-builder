@@ -1,7 +1,11 @@
 React = require('react')
 cloneWithProps = require "react-addons-clone-with-props"
-_ = require('lodash')
 Form = require '../Form'
+isEqual = require("lodash/isEqual")
+each = require("lodash/each")
+extend = require("lodash/assign")
+clone = require("lodash/clone")
+isEmpty = require("lodash/isEmpty")
 
 HandlerMixin =
   #
@@ -30,7 +34,7 @@ HandlerMixin =
     buttons          : @bindButtons(@props.buttons ? @defaultButtons())
 
   componentWillReceiveProps: (nextProps) ->
-    unless _.isEqual nextProps.formData, @props.formData
+    unless isEqual nextProps.formData, @props.formData
       if @isMounted()
         @setState(formData: nextProps.formData)
 
@@ -41,8 +45,8 @@ HandlerMixin =
 
   bindButtons: (buttons) ->
     boundButtons = {}
-    _.each buttons, (value, key) =>
-      boundButtons[key] = _.extend _.clone(value), onClick: @[value.onClick]
+    each buttons, (value, key) =>
+      boundButtons[key] = extend clone(value), onClick: @[value.onClick]
     boundButtons
 
   setForm: (formData) ->
@@ -92,14 +96,14 @@ HandlerMixin =
       />
     )`
 
-    if _.isEmpty(options)
+    if isEmpty(options)
       form
     else
       cloneWithProps form, options
 
   onDataChanged: (dataKey, value) ->
     if @isMounted()
-      newData = _.clone @state.formData || {}
+      newData = clone @state.formData || {}
 
       datum = newData
       parts = dataKey.split(".")

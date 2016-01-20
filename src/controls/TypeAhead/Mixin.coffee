@@ -1,3 +1,9 @@
+isEmpty = require("lodash/isEmpty")
+contains = require("lodash/includes")
+debounce = require("lodash/debounce")
+clone = require("lodash/clone")
+isObject = require("lodash/isObject")
+
 TypeAheadMixin =
   getInitalState: ->
     lastOptions: []
@@ -12,13 +18,13 @@ TypeAheadMixin =
       hiddenList: true
       highlightedIndex: -1
 
-    nextState.lastOptions = @state.options unless _.isEmpty(@state.options)
+    nextState.lastOptions = @state.options unless isEmpty(@state.options)
     @setState nextState
 
 
   onKeyDown: (event) ->
     key = event.key
-    if _.contains ['Return', 'Enter', 'ArrowDown', 'ArrowUp'], key
+    if contains ['Return', 'Enter', 'ArrowDown', 'ArrowUp'], key
       event.preventDefault()
       event.stopPropagation()
 
@@ -54,18 +60,18 @@ TypeAheadMixin =
     event.preventDefault()
     event.stopPropagation()
 
-  debouncedOnKeyUp: _.debounce((->
+  debouncedOnKeyUp: debounce((->
     string = @pendingStringChange
     delete @pendingStringChange
     @setState(highlightedIndex: -1, options: [], hiddenList: false)
-    dependencies = _.clone(@props.dependencies)
+    dependencies = clone(@props.dependencies)
     dependencies["#{@props.dataKey}_typeahead"] = string
     @loadDataSource("options", dependencies)
   ), 100)
 
 
   formattedItem: ->
-    if _.isObject(@state.item)
+    if isObject(@state.item)
       @state.item
     else
       value: @state.item

@@ -1,6 +1,12 @@
 React = require 'react'
 Controls = require('../../controls/Controls')
 Containers = require('../Containers')
+extend = require("lodash/assign")
+map = require("lodash/map")
+clone = require("lodash/clone")
+each = require("lodash/each")
+tap = require("lodash/tap")
+compact = require("lodash/compact")
 
 ParserMixin =
   propTypes:
@@ -112,7 +118,7 @@ ParserMixin =
     React.createFactory(Controls.Text) @standardProps(def, data, base)
 
   fileText: (def, data, base) ->
-    React.createFactory(Controls.FileText) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.FileText) extend @standardProps(def, data, base),
       fileDestinationService: def.fileDestinationService
 
   number: (def, data, base) ->
@@ -122,52 +128,52 @@ ParserMixin =
     React.createFactory(Controls.Date) @standardProps(def, data, base)
 
   dateTime: (def, data, base) ->
-    React.createFactory(Controls.DateTime) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.DateTime) extend @standardProps(def, data, base),
       direction: def.direction
 
   password: (def, data, base) ->
     React.createFactory(Controls.Password) @standardProps(def, data, base)
 
   textArea: (def, data, base) ->
-    React.createFactory(Controls.TextArea) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.TextArea) extend @standardProps(def, data, base),
       rows: def.rows
 
   checkBox: (def, data, base) ->
     React.createFactory(Controls.Checkbox) @standardProps(def, data, base)
 
   markdown: (def, data, base) ->
-    React.createFactory(Controls.Markdown) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.Markdown) extend @standardProps(def, data, base),
       fileDestinationService: def.fileDestinationService
 
   file: (def, data, base) ->
-    React.createFactory(Controls.File) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.File) extend @standardProps(def, data, base),
       dragAndDrop  : def.dragAndDrop
       onFileSelect : def.onFileSelect
 
   dropDown: (def, data, base) ->
-    React.createFactory(Controls.Dropdown) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.Dropdown) extend @standardProps(def, data, base),
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
   multipleSelect: (def, data, base) ->
-    React.createFactory(Controls.MultiSelect) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.MultiSelect) extend @standardProps(def, data, base),
       dataSources    : def.dataSources
       dependencies  : @parseDependencies(def)
 
   radioButtons: (def, data, base) ->
-    React.createFactory(Controls.RadioButtons) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.RadioButtons) extend @standardProps(def, data, base),
       boolean       : def.boolean
       dataSources   : def.dataSources
       dependencies  : @parseDependencies(def)
 
   typeAhead: (def, data, base) ->
-    React.createFactory(Controls.TypeAhead) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.TypeAhead) extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
 
   multiTypeAhead: (def, data, base) ->
-    React.createFactory(Controls.MultiTypeAhead) _.extend @standardProps(def, data, base),
+    React.createFactory(Controls.MultiTypeAhead) extend @standardProps(def, data, base),
       dataSources : def.dataSources
       dependencies: @parseDependencies(def)
       free: def.free
@@ -186,7 +192,7 @@ ParserMixin =
         addNestedForm : @addNestedForm(dataKey)
         onDataChanged : @props.onDataChanged
         onEnter       : @props.onEnter
-      , _.map @resolveData(dataKey), (data, nestedIndex) =>
+      , map @resolveData(dataKey), (data, nestedIndex) =>
           React.createFactory(Containers.Group)
               title            : def.nestedTitle
               dataKey          : "#{dataKey}[#{nestedIndex}]"
@@ -209,13 +215,13 @@ ParserMixin =
     #
     (dataKey) =>
       nestedIndex = dataKey.match(/^([a-zA-Z_]+)\[(\d)+\]$/)[2]
-      newData = _.clone @resolveData(parentDataKey)
+      newData = clone @resolveData(parentDataKey)
       newData.splice(nestedIndex, 1)
       @props.onDataChanged(parentDataKey, newData)
 
   addNestedForm: (dataKey) ->
     =>
-      newData = _.clone @resolveData(dataKey)
+      newData = clone @resolveData(dataKey)
       newData.push({})
       @props.onDataChanged(dataKey, newData)
 
@@ -256,12 +262,12 @@ ParserMixin =
     data
 
   generateDataKey: (dataKey, base = null) ->
-    _.compact([base, dataKey]).join(".")
+    compact([base, dataKey]).join(".")
 
   parseDependencies: (def) ->
-    _.tap {}, (dependencies) =>
+    tap {}, (dependencies) =>
       for name, dataSource of def.dataSources ? []
-        _.each dataSource.dependentKeys ? [], (dataKey, i) =>
+        each dataSource.dependentKeys ? [], (dataKey, i) =>
           if @props.formData[dataKey] isnt undefined
             dependencies[dataKey] = @props.formData[dataKey]
 

@@ -3,10 +3,11 @@ StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 HelpMixin = require('./mixins/Help')
 SingleInputMixin = require './mixins/SingleInput'
+omit = require("lodash/omit")
 
 Checkbox = React.createClass(
   mixins: [
-    _.omit(SingleInputMixin, 'propTypes'),
+    omit(SingleInputMixin, 'propTypes'),
     StandardErrorDisplayMixin,
     DisableOnSubmitMixin,
     HelpMixin

@@ -1,5 +1,7 @@
 React = require('react')
 classnames = require("classnames")
+isEqual = require("lodash/isEqual")
+map = require("lodash/map")
 
 Match = require('./Match')
 
@@ -11,7 +13,7 @@ Matches = React.createClass(
     onSelect: React.PropTypes.func.isRequired
 
   componentWillReceiveProps: (nextProps) ->
-    unless _.isEqual(@props, nextProps)
+    unless isEqual(@props, nextProps)
       @resetListScroll()
       @ensureHighlightedVisible() if @props.highlightedIndex > -1
 
@@ -25,7 +27,7 @@ Matches = React.createClass(
     @refs.list?.getDOMNode().scrollTop = 0
 
   renderMatchItems: ->
-    _.map @props.matches, (item, i) =>
+    map @props.matches, (item, i) =>
       `(
         <Match
           key={i}

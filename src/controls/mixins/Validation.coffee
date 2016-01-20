@@ -1,3 +1,7 @@
+map = require("lodash/map")
+flatten = require("lodash/flatten")
+without = require("lodash/without")
+
 ValidationMixin =
   getInitialState: ->
     validationErrors: []
@@ -5,12 +9,12 @@ ValidationMixin =
 
   validate: (value, callback) ->
     if @props.validators
-      newErrors = _.map @props.validators, (validator) =>
+      newErrors = map @props.validators, (validator) =>
         validator.validate value, @props.displayName
 
       # There is probably a better way to do this
-      newErrors = _.flatten newErrors
-      newErrors = _.without newErrors, null, undefined
+      newErrors = flatten newErrors
+      newErrors = without newErrors, null, undefined
 
       @setState
         validationErrors: newErrors

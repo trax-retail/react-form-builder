@@ -1,5 +1,6 @@
 React = require('react')
 DataSourcedMixin = require '../controls/mixins/DataSourced'
+isEqual = require("lodash/isEqual")
 
 DynamicDefinition = React.createClass(
   mixins: [DataSourcedMixin]
@@ -11,7 +12,7 @@ DynamicDefinition = React.createClass(
     @props.onDataChanged(@props.dataKey, @state.formDef)
 
   componentWillUpdate: (nextProps, nextState) ->
-    unless _.isEqual @state.formDef, nextState.formDef
+    unless isEqual @state.formDef, nextState.formDef
       @props.onDataChanged(nextProps.dataKey, nextState.formDef)
 
   render: ->

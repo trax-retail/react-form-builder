@@ -3,6 +3,7 @@ classnames = require("classnames")
 SingleInputMixin = require('../mixins/SingleInput')
 ReactBootstrap = require 'react-bootstrap'
 DataTypeConversionMixin = require("../mixins/DataTypeConversion")
+isEqual = require("lodash/isEqual")
 
 Input = React.createClass(
   mixins: [SingleInputMixin, DataTypeConversionMixin]
@@ -28,7 +29,7 @@ Input = React.createClass(
   componentWillReceiveProps: (nextProps) ->
     if nextProps.clearCount != @props.clearCount
       @setState displayText: null
-    else if nextProps.item && !_.isEqual(nextProps.item, @props.item)
+    else if nextProps.item && !isEqual(nextProps.item, @props.item)
       @setState displayText: nextProps.item.displayName
 
   renderInputIcon: ->

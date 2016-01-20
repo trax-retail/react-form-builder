@@ -2,6 +2,7 @@ React = require('react')
 classnames = require("classnames")
 ParserMixin = require './mixins/Parser'
 DisableOnSubmitMixin = require('../controls/mixins/DisableOnSubmit')
+map = require("lodash/map")
 
 {ButtonToolbar, Button} = require('react-bootstrap')
 
@@ -25,7 +26,7 @@ Form = React.createClass(
       "component-not-submitting" : !@props.submitting
 
   buttons: ->
-    _.map @props.buttons, (props, title) =>
+    map @props.buttons, (props, title) =>
       props.key = title
       props.disabled = @disabled()
       React.createFactory(Button) props, title

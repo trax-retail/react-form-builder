@@ -21,13 +21,6 @@ module.exports = {
     ]
   },
 
-  // plugins: [
-  //   new webpack.ProvidePlugin({
-  //       _: "lodash",
-  //   })
-  // ],
-
-  // devtool: "eval-source-map"
   devtool: "source-map"
 
 };

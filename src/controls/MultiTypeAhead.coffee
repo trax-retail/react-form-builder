@@ -8,6 +8,10 @@ TypeAheadMixin = require('./TypeAhead/Mixin')
 Matches = require('./TypeAhead/Matches')
 Input = require('./TypeAhead/Input')
 MultiTypeAheadLabel = require './TypeAhead/Label'
+map = require("lodash/map")
+any = require("lodash/some")
+isEqual = require("lodash/isEqual")
+difference = require("lodash/difference")
 
 
 MultiTypeAheadField = React.createClass(
@@ -35,7 +39,7 @@ MultiTypeAheadField = React.createClass(
     clearCount: 0
 
   selectItem: (item) ->
-    itemAlredyInList = _.any @state.items, (i) -> _.isEqual(i, item)
+    itemAlredyInList = any @state.items, (i) -> isEqual(i, item)
 
     update = update @state,
       options: {$set: []}
@@ -47,19 +51,19 @@ MultiTypeAheadField = React.createClass(
 
     @setState update, =>
       unless itemAlredyInList
-        newItems = _.map(@state.items, (i) -> i.value)
+        newItems = map(@state.items, (i) -> i.value)
         @props.onDataChanged(@props.dataKey, newItems)
 
   removeItem: (item) ->
     update = update @state,
-      items: {$set: _.difference(@state.items, [item])}
+      items: {$set: difference(@state.items, [item])}
 
     @setState update, =>
-      newItems = _.map @state.items, (i) -> i.value
+      newItems = map @state.items, (i) -> i.value
       @props.onDataChanged(@props.dataKey, newItems)
 
   renderLabels: ->
-    _.map @state.items, (item) =>
+    map @state.items, (item) =>
       `<MultiTypeAheadLabel item={item} onClick={_this.removeItem} key={'label' + item.displayName} />`
 
   render: ->

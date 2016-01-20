@@ -1,7 +1,11 @@
 React = require 'react'
-_ = require('lodash')
-_s = require('underscore.string')
 shallowEqual = require('shallowequal')
+tap = require("lodash/tap")
+keys = require("lodash/keys")
+difference = require("lodash/difference")
+clone = require("lodash/clone")
+each = require("lodash/each")
+capitalize = require("lodash/capitalize")
 
 #
 # For each data source:
@@ -14,7 +18,7 @@ DataSourcedMixin =
     dataSources: React.PropTypes.object.isRequired
 
   getInitialState: ->
-    _.tap {}, (state) =>
+    tap {}, (state) =>
       for name, dataSource of @props.dataSources
         state[@loadingStateKey(name)] = false
         state[name] = dataSource.initial if 'initial' of dataSource
@@ -36,7 +40,7 @@ DataSourcedMixin =
 
     switch dataSource.type
       when 'service'
-        missingDependencies = _.difference(dataSource.dependentKeys, _.keys(dependencies))
+        missingDependencies = difference(dataSource.dependentKeys, keys(dependencies))
 
         if missingDependencies.length > 0
           return
@@ -78,7 +82,7 @@ DataSourcedMixin =
   #         @state.loadingOptions = false
   #
   loadingStateKey: (dataSourceName) ->
-    "loading" + _s.capitalize(dataSourceName)
+    "loading" + capitalize(dataSourceName)
 
   #
   # Set corresponding loading state for a data source
@@ -133,8 +137,8 @@ DataSourcedMixin =
         [99, 44, 123, 66]
   ###
   tokenizeArgs: (dependencies, args) ->
-    tokenizedArgs = _.clone args
-    _.each args, (argument, index) =>
+    tokenizedArgs = clone args
+    each args, (argument, index) =>
       if typeof argument is 'string' and argument.substr(0, 2) == '${'
         key = argument.substr(2, argument.length - 3)
         tokenizedArgs[index] = dependencies[key]

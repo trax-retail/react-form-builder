@@ -5,6 +5,8 @@ StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
 DisableOnSubmitMixin = require('./mixins/DisableOnSubmit')
 DataTypeConversionMixin = require('./mixins/DataTypeConversion')
 HelpMixin = require('./mixins/Help')
+each = require("lodash/each")
+map = require("lodash/map")
 
 DropDownField = React.createClass(
   mixins: [
@@ -28,12 +30,12 @@ DropDownField = React.createClass(
     value = this.props.data ? this.state.options?[0].value
 
     classes = {'form-control': true}
-    _.each @props.classes, (name) =>
+    each @props.classes, (name) =>
       classes[name] = true
 
     options = null
     if @state.options instanceof Array
-      options = _.map @state.options, (option, i) =>
+      options = map @state.options, (option, i) =>
         disabled = option.disabled
 
         `(

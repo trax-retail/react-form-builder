@@ -1,6 +1,9 @@
 React = require('react')
 classnames = require("classnames")
-_ = require('lodash')
+object = require("lodash/object")
+map = require("lodash/map")
+chain = require("lodash/chain")
+capitalize = require("lodash/capitalize")
 
 StandardErrorDisplayMixin =
   propTypes:
@@ -10,18 +13,18 @@ StandardErrorDisplayMixin =
     errors: []
 
   errorClasses: (list_of_classes...) ->
-    class_list = _.object _.map(list_of_classes, (c) -> [c, true])
+    class_list = object map(list_of_classes, (c) -> [c, true])
     class_list['has-error'] = @state.hasErrors
 
     classnames class_list
 
   # we need to be able to include validation errors
   componentWillReceiveProps: (nextProps) ->
-    serverErrors = _.chain(nextProps.serverErrors?.errors)
+    serverErrors = chain(nextProps.serverErrors?.errors)
               .select((e) -> e.field == nextProps.dataKey)
               .map((serverError) -> serverError.message)
               .uniq()
-              .map((message) -> _.capitalize(message))
+              .map((message) -> capitalize(message))
               .value()
 
     errors = if @state.validationErrors?.length > 0 then @state.validationErrors else serverErrors

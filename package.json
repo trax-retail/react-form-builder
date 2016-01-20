@@ -1,6 +1,6 @@
 {
   "name": "react-form-builder",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "A Form Building library for React.js",
   "homepage": "https://github.com/quri/react-form-builder",
   "keywords": [
@@ -26,14 +26,14 @@
   "license": "MIT",
   "scripts": {
     "examples": "webpack-dev-server --config ./examples/webpack.config.js",
-    "build-npm": "rm -rf ./lib && cp -R ./src ./lib && coffee -b -c --no-header ./lib/**/* && rm ./lib/**/**/*.coffee ./lib/**/*.coffee && babel ./lib --out-dir ./lib"
+    "build-npm": "rm -rf ./lib && cp -R ./src ./lib && coffee -b -c --no-header ./lib/**/* && rm ./lib/**/**/*.coffee ./lib/**/*.coffee && babel ./lib --out-dir ./lib",
+    "build-umd": "webpack"
   },
   "devDependencies": {
     "babel": "^4.7.13",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.9.1",
     "jsx-loader": "^0.12.1",
-    "lodash": "^2.4.1",
     "pushstate-server": "^0.2.0",
     "react-hot-loader": "^1.1.7",
     "webpack": "^1.4.13",
@@ -41,13 +41,14 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "lodash": "^4.0.0",
     "marked": "^0.3.2",
     "react-addons-clone-with-props": "^0.14.6",
-    "shallowequal": "^0.2.2",
     "react-addons-update": "^0.14.6",
     "react-bootstrap": "^0.16.1",
     "react-bootstrap-datetimepicker": "^0.0.22",
-    "underscore.string": "^2.3.3"
+    "shallowequal": "^0.2.2",
+    "underscore.string": "^3.2.3"
   },
   "peerDependencies": {
     "react": ">=0.14"
