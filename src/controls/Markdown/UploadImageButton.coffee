@@ -31,7 +31,7 @@ UploadImageButton = React.createClass(
     wrap.innerHTML
 
   openFilePrompt: ->
-    @refs.input.getDOMNode().click()
+    @refs.input.click()
 
   render: ->
     if @state.uploading

@@ -48,7 +48,7 @@ NestedFieldGroup = React.createClass(
   setTextAreaHeight: ->
     textarea = @refs.textarea
     if textarea
-      node = textarea.getDOMNode()
+      node = textarea
       node.style.height = "#{node.scrollHeight}px"
 
   toggleView: ->
