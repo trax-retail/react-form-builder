@@ -14,13 +14,20 @@ Match = React.createClass(
     classnames
       'active': @props.active
 
+  renderText: ->
+    if this.props.item.displayName?
+      this.props.item.displayName
+    else
+      this.props.item
+
+        # {this.props.item.displayName || this.props.item}
   render: ->
     `(
       <li
         onMouseDown={this.onSelect}
         className={this.className()}
       >
-        {this.props.item.displayName || this.props.item}
+        {this.renderText()}
       </li>
     )`
 )

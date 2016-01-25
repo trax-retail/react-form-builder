@@ -1,7 +1,7 @@
 React = require('react')
 classnames = require("classnames")
 isEqual = require("lodash/isEqual")
-map = require("lodash/map")
+createFragment = require('react-addons-create-fragment')
 
 Match = require('./Match')
 
@@ -27,8 +27,9 @@ Matches = React.createClass(
     @refs.list?.getDOMNode().scrollTop = 0
 
   renderMatchItems: ->
-    map @props.matches, (item, i) =>
-      `(
+    items = []
+    @props.matches.forEach (item, i) =>
+      items.push `(
         <Match
           key={i}
           item={item}
@@ -36,6 +37,7 @@ Matches = React.createClass(
           onSelect={_this.props.onSelect}
         />
       )`
+    items
 
   className: ->
     classnames
