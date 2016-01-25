@@ -1,5 +1,5 @@
 React = require('react')
-update = require "react-addons-update"
+updateState = require "react-addons-update"
 DataSourcedMixin = require('./mixins/DataSourced')
 ValidationMixin = require('./mixins/Validation')
 StandardErrorDisplayMixin = require('./mixins/StandardErrorDisplay')
@@ -41,7 +41,7 @@ MultiTypeAheadField = React.createClass(
   selectItem: (item) ->
     itemAlredyInList = any @state.items, (i) -> isEqual(i, item)
 
-    update = update @state,
+    update = updateState @state,
       options: {$set: []}
       hiddenList: {$set: true}
       highlightedIndex: {$set: -1}
@@ -55,7 +55,7 @@ MultiTypeAheadField = React.createClass(
         @props.onDataChanged(@props.dataKey, newItems)
 
   removeItem: (item) ->
-    update = update @state,
+    update = updateState @state,
       items: {$set: difference(@state.items, [item])}
 
     @setState update, =>

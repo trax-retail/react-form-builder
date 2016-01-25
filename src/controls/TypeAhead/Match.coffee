@@ -3,7 +3,10 @@ classnames = require("classnames")
 
 Match = React.createClass(
   propTypes:
-    item: React.PropTypes.node.isRequired
+    item: React.PropTypes.oneOfType([
+      React.PropTypes.object.isRequired,
+      React.PropTypes.string
+    ]).isRequired
     active: React.PropTypes.bool.isRequired
     onSelect: React.PropTypes.func
 
