@@ -1,6 +1,6 @@
 React = require('react')
 classnames = require("classnames")
-object = require("lodash/zipObject")
+object = require("zip-object")
 map = require("lodash/map")
 uniq = require("lodash/uniq")
 select = require("lodash/filter")
