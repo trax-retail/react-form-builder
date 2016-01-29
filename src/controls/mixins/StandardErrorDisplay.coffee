@@ -1,6 +1,6 @@
 React = require('react')
 classnames = require("classnames")
-object = require("zip-object")
+fromPairs = require("lodash/fromPairs")
 map = require("lodash/map")
 uniq = require("lodash/uniq")
 select = require("lodash/filter")
@@ -14,7 +14,8 @@ StandardErrorDisplayMixin =
     errors: []
 
   errorClasses: (list_of_classes...) ->
-    class_list = object map(list_of_classes, (c) -> [c, true])
+    class_list = fromPairs map(list_of_classes, (c) -> [c, true])
+    debugger
     class_list['has-error'] = @state.hasErrors
 
     classnames class_list
