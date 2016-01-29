@@ -15,7 +15,6 @@ StandardErrorDisplayMixin =
 
   errorClasses: (list_of_classes...) ->
     class_list = fromPairs map(list_of_classes, (c) -> [c, true])
-    debugger
     class_list['has-error'] = @state.hasErrors
 
     classnames class_list
