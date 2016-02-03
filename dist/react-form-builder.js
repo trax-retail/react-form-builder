@@ -50162,7 +50162,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  },
 	  ensureHighlightedVisible: function ensureHighlightedVisible() {
 	    var highlighted, list;
-	    list = this.refs.list != null;
+	    list = this.refs.list;
 	    if (!(list && this.props.highlightedIndex >= 0)) {
 	      return;
 	    }
