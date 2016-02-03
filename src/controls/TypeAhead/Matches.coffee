@@ -18,7 +18,7 @@ Matches = React.createClass(
       @ensureHighlightedVisible() if @props.highlightedIndex > -1
 
   ensureHighlightedVisible: ->
-    list = @refs.list?
+    list = @refs.list
     return unless list and @props.highlightedIndex >= 0
     return unless highlighted = list.childNodes[@props.highlightedIndex]
     list.scrollTop = list.scrollTop + highlighted.offsetTop - list.scrollHeight / 2 + highlighted.offsetHeight / 2
