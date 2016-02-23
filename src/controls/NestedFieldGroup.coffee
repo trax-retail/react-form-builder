@@ -84,7 +84,7 @@ NestedFieldGroup = React.createClass(
     if @props.type == 'text-field'
       iconName = if @props.alternativeView then "th-list" else "align-justify"
       `(
-        <ReactBootstrap.Button onClick={this.toggleView} className="pull-left">
+        <ReactBootstrap.Button onClick={this.toggleView} className="pull-left" disabled={this.disabled()}>
           <ReactBootstrap.Glyphicon glyph={iconName} />
         </ReactBootstrap.Button>
       )`
