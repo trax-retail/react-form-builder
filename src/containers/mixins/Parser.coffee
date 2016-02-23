@@ -232,6 +232,7 @@ ParserMixin =
       formDef       : def
       formData      : @props.formData
       nestedType    : def.nestedType
+      disabled      : def.disabled
       title         : def.title
       serverErrors  : @props.serverErrors
       submitting    : @props.submitting
