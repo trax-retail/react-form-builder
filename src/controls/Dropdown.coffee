@@ -27,7 +27,7 @@ DropDownField = React.createClass(
     # if @props.value comes undefined, we try then to set it to the
     # value of the first option, otherwise, undefined
     # that way we are able to clear forms
-    value = this.props.data ? this.state.options?[0].value
+    value = this.props.data ? this.state.options?[0]?.value
 
     classes = {'form-control': true}
     each @props.classes, (name) =>
