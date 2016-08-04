@@ -1,6 +1,6 @@
 {
   "name": "react-form-builder",
-  "version": "0.1.25",
+  "version": "0.1.26",
   "description": "A Form Building library for React.js",
   "homepage": "https://github.com/quri/react-form-builder",
   "keywords": [
@@ -43,8 +43,8 @@
     "classnames": "^2.2.3",
     "lodash": "^4.0.0",
     "marked": "^0.3.2",
-    "react-addons-create-fragment": "^0.15.3",
-    "react-addons-update": "^0.15.3",
+    "react-addons-create-fragment": "^15.3.0",
+    "react-addons-update": "^15.3.0",
     "react-bootstrap": "^0.16.1",
     "react-bootstrap-datetimepicker": "^0.0.22",
     "shallowequal": "^0.2.2",
