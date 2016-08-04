@@ -1,5 +1,4 @@
 React = require('react')
-cloneWithProps = require "react-addons-clone-with-props"
 Form = require '../Form'
 isEqual = require("lodash/isEqual")
 each = require("lodash/each")
@@ -99,7 +98,7 @@ HandlerMixin =
     if isEmpty(options)
       form
     else
-      cloneWithProps form, options
+      React.cloneElement form, options
 
   onDataChanged: (dataKey, value) ->
     if @isMounted()
