@@ -72,6 +72,7 @@ Input = React.createClass(
           value={this.itemValue()}
         />
         <input
+          autoComplete="off"
           className="form-control"
           type="search"
           name={this.props.dataKey+"_helper"}
