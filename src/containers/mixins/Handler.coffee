@@ -40,7 +40,7 @@ HandlerMixin =
   defaultButtons: ->
     Save:   onClick: 'submitForm',  bsStyle: 'primary'
     Reset:  onClick: 'resetForm',   bsStyle: 'warning'
-    Cancel: onClick: 'goBackHistory'
+    Cancel: onClick: 'cancelForm'
 
   bindButtons: (buttons) ->
     boundButtons = {}
@@ -77,7 +77,12 @@ HandlerMixin =
     if @isMounted()
       @setState formData: @props.formData
 
-  # meh
+  cancelForm: ->
+    if @onCancel
+      @onCancel()
+    else
+      @goBackHistory()
+
   goBackHistory: ->
     window.history.back()
 
