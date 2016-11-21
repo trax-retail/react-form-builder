@@ -24,7 +24,7 @@ Input = React.createClass(
     onKeyUp:     React.PropTypes.func
 
   getInitialState: ->
-    displayText: @props.item.displayName ? null
+    displayText: @props.item.displayName ? undefined
 
   componentWillReceiveProps: (nextProps) ->
     if nextProps.clearCount != @props.clearCount
